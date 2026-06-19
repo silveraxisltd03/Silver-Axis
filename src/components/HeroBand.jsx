@@ -3,7 +3,7 @@ import { css } from '../lib/css.js';
 // Dark hero band used at the top of the sub-pages.
 export default function HeroBand({ title, subtitle }) {
   return (
-    <section style={css('position:relative;background:#070b16;padding:180px 40px 100px;overflow:hidden;')}>
+    <section className="hero-band section-x" style={css('position:relative;background:#070b16;padding:180px 40px 100px;overflow:hidden;')}>
       <div style={css('position:absolute;top:-25%;left:50%;transform:translateX(-50%);width:1100px;height:1100px;max-width:170vw;border-radius:50%;background:radial-gradient(circle,rgba(42,107,255,.34) 0%,rgba(42,107,255,0) 62%);pointer-events:none;')}></div>
       <div style={css('position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,#070b16 99%);pointer-events:none;')}></div>
       <div style={css('position:relative;z-index:2;max-width:1240px;margin:0 auto;')}>

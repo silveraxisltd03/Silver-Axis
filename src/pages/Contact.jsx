@@ -35,8 +35,8 @@ export default function Contact() {
         subtitle="Tell us where things are slow or breaking. We will map what to automate, what to rebuild, and what to leave alone — no obligation."
       />
 
-      <section style={css('max-width:1240px;margin:0 auto;padding:90px 40px 60px;')}>
-        <div style={css('display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start;')}>
+      <section className="section-x" style={css('max-width:1240px;margin:0 auto;padding:90px 40px 60px;')}>
+        <div className="grid-contact" style={css('display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start;')}>
 
           {/* LEFT */}
           <div className="rv">
@@ -73,7 +73,7 @@ export default function Contact() {
           <div className="rv" style={css('border-radius:24px;border:1px solid rgba(20,40,90,.08);background:linear-gradient(165deg,#f4f7ff 0%,#ffffff 60%);box-shadow:0 18px 50px rgba(28,50,110,.1);padding:clamp(28px,3vw,42px);')}>
             {!sent ? (
               <div style={css('display:flex;flex-direction:column;gap:18px;')}>
-                <div style={css('display:grid;grid-template-columns:1fr 1fr;gap:18px;')}>
+                <div className="grid-form-2" style={css('display:grid;grid-template-columns:1fr 1fr;gap:18px;')}>
                   <div>
                     <label style={css('display:block;font-size:13px;font-weight:600;color:#0b1020;margin-bottom:8px;')}>Name</label>
                     <input className="field" type="text" value={form.name} onChange={upd('name')} placeholder="Jane Doe" style={css('width:100%;padding:13px 15px;font-size:15px;color:#0b1020;background:#fff;border:1px solid #dfe4ee;border-radius:11px;')} />

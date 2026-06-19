@@ -36,8 +36,8 @@ export default function Services() {
       />
 
       {/* SERVICE 1: AUTOMATION */}
-      <section style={css('max-width:1240px;margin:0 auto;padding:110px 40px 0;')}>
-        <div className="rv" style={css('display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;')}>
+      <section className="section-x" style={css('max-width:1240px;margin:0 auto;padding:110px 40px 0;')}>
+        <div className="rv grid-2" style={css('display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;')}>
           <div className="tile" style={css('border-radius:24px;overflow:hidden;border:1px solid rgba(20,40,90,.08);background:rgb(212,227,251);box-shadow:0 14px 40px rgba(28,50,110,.08);height:380px;')}>
             <img src="/assets/automation-tools.png" alt="Familiar tools connected through one automation layer" style={css('width:100%;height:100%;object-fit:contain;display:block;')} />
           </div>
@@ -56,8 +56,8 @@ export default function Services() {
       </section>
 
       {/* SERVICE 2: WEB & MOBILE */}
-      <section style={css('max-width:1240px;margin:0 auto;padding:90px 40px 0;')}>
-        <div className="rv" style={css('display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;')}>
+      <section className="section-x" style={css('max-width:1240px;margin:0 auto;padding:90px 40px 0;')}>
+        <div className="rv grid-2 grid-2-alt" style={css('display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;')}>
           <div style={css('order:2;')}>
             <span style={css('font-size:13px;font-weight:600;color:#2a6bff;letter-spacing:.02em;')}>02 — Web &amp; Mobile</span>
             <h2 style={css("font-family:'Clash Display','General Sans',sans-serif;font-size:clamp(28px,3.4vw,44px);line-height:1.08;letter-spacing:-.02em;font-weight:500;margin:14px 0 16px;color:#0b1020;")}>Apps people actually keep using.</h2>
@@ -90,8 +90,8 @@ export default function Services() {
       </section>
 
       {/* SERVICE 3: CUSTOM SYSTEMS */}
-      <section style={css('max-width:1240px;margin:0 auto;padding:90px 40px 0;')}>
-        <div className="rv" style={css('display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;')}>
+      <section className="section-x" style={css('max-width:1240px;margin:0 auto;padding:90px 40px 0;')}>
+        <div className="rv grid-2" style={css('display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;')}>
           <div className="tile" style={css('position:relative;border-radius:24px;overflow:hidden;border:1px solid rgba(20,40,90,.08);background:linear-gradient(165deg,#e9eeff 0%,#f7f9ff 60%);box-shadow:0 14px 40px rgba(28,50,110,.08);height:380px;padding:30px;display:flex;flex-direction:column;gap:16px;')}>
             <div style={css('background:#fff;border-radius:16px;box-shadow:0 10px 30px rgba(28,50,110,.12);padding:22px;')}>
               <div style={css('font-size:13px;color:#8b94a6;margin-bottom:6px;')}>Total revenue</div>
@@ -122,12 +122,12 @@ export default function Services() {
       </section>
 
       {/* HOW WE WORK */}
-      <section style={css('max-width:1240px;margin:0 auto;padding:120px 40px 40px;')}>
+      <section className="section-x" style={css('max-width:1240px;margin:0 auto;padding:120px 40px 40px;')}>
         <div className="rv" style={css('margin-bottom:50px;max-width:680px;')}>
           <h2 style={css("font-family:'Clash Display','General Sans',sans-serif;font-size:clamp(30px,4vw,52px);line-height:1.06;letter-spacing:-.02em;font-weight:500;margin:0 0 14px;color:#0b1020;")}>How we work.</h2>
           <p style={css('font-size:17px;line-height:1.55;color:#6b7488;margin:0;')}>The hard part is figuring it out first. Most of the value is decided before a line of production code.</p>
         </div>
-        <div className="rv" style={css('display:grid;grid-template-columns:repeat(4,1fr);gap:22px;')}>
+        <div className="rv grid-4" style={css('display:grid;grid-template-columns:repeat(4,1fr);gap:22px;')}>
           {PROCESS.map((p) => (
             <div key={p.n} className="tile" style={css('border-radius:20px;border:1px solid rgba(20,40,90,.08);background:linear-gradient(165deg,#f1f5ff,#fff);padding:28px;box-shadow:0 10px 30px rgba(28,50,110,.06);')}>
               <div style={css('font-size:13px;font-weight:600;color:#2a6bff;margin-bottom:20px;')}>{p.n}</div>
@@ -139,7 +139,7 @@ export default function Services() {
       </section>
 
       {/* CERTIFICATIONS */}
-      <section style={css('max-width:1240px;margin:0 auto;padding:60px 40px 30px;')}>
+      <section className="section-x" style={css('max-width:1240px;margin:0 auto;padding:60px 40px 30px;')}>
         <div className="rv" style={css('display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:30px;')}>
           <p style={css('font-size:14px;color:#9aa3b8;margin:0;max-width:220px;')}>Certified where it matters</p>
           <div style={css('display:flex;gap:18px;flex-wrap:wrap;')}>

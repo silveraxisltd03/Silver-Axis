@@ -34,10 +34,10 @@ export default function Portfolio() {
       />
 
       {/* STATS */}
-      <section style={css('max-width:1240px;margin:0 auto;padding:70px 40px 30px;')}>
-        <div className="rv" style={css('display:grid;grid-template-columns:repeat(4,1fr);gap:22px;')}>
+      <section className="section-x" style={css('max-width:1240px;margin:0 auto;padding:70px 40px 30px;')}>
+        <div className="rv grid-4" style={css('display:grid;grid-template-columns:repeat(4,1fr);gap:22px;')}>
           {STATS.map((s, i) => (
-            <div key={i} style={css(i < 3 ? 'border-right:1px solid #eef1f6;padding-right:18px;' : '')}>
+            <div key={i} className="stat-item" style={css(i < 3 ? 'border-right:1px solid #eef1f6;padding-right:18px;' : '')}>
               <div style={css("font-family:'Clash Display','General Sans',sans-serif;font-size:clamp(34px,4vw,50px);font-weight:500;color:#0b1020;letter-spacing:-.02em;")}>{s.v}</div>
               <div style={css('font-size:14px;color:#6b7488;margin-top:4px;')}>{s.l}</div>
             </div>
@@ -46,8 +46,8 @@ export default function Portfolio() {
       </section>
 
       {/* CASE STUDIES */}
-      <section style={css('max-width:1240px;margin:0 auto;padding:60px 40px 40px;')}>
-        <div style={css('display:grid;grid-template-columns:1fr 1fr;gap:26px;')}>
+      <section className="section-x" style={css('max-width:1240px;margin:0 auto;padding:60px 40px 40px;')}>
+        <div className="grid-2" style={css('display:grid;grid-template-columns:1fr 1fr;gap:26px;')}>
           {CASES.map((cs, i) => (
             <Link key={i} to="/contact" className="rv tile" style={css('display:block;border-radius:24px;overflow:hidden;border:1px solid rgba(20,40,90,.08);background:#fff;box-shadow:0 14px 40px rgba(28,50,110,.08);')}>
               <div style={css('position:relative;height:240px;background:linear-gradient(165deg,#e9eeff 0%,#f7f9ff 70%);display:flex;align-items:flex-end;padding:24px;')}>
@@ -69,11 +69,11 @@ export default function Portfolio() {
       </section>
 
       {/* TESTIMONIALS */}
-      <section style={css('max-width:1240px;margin:0 auto;padding:70px 40px;')}>
+      <section className="section-x" style={css('max-width:1240px;margin:0 auto;padding:70px 40px;')}>
         <div className="rv" style={css('margin:0 auto 50px;text-align:center;display:flex;flex-direction:column;align-items:center;')}>
           <h2 style={css("font-family:'Clash Display','General Sans',sans-serif;font-size:clamp(30px,4vw,52px);line-height:1.06;letter-spacing:-.02em;font-weight:500;margin:0;color:#0b1020;")}>What it is like to work with us.</h2>
         </div>
-        <div style={css('display:grid;grid-template-columns:repeat(3,1fr);gap:26px;')}>
+        <div className="grid-3" style={css('display:grid;grid-template-columns:repeat(3,1fr);gap:26px;')}>
           {QUOTES.map((q, i) => (
             <div key={i} className="rv tile" style={css('border-radius:24px;padding:32px;border:1px solid rgba(20,40,90,.08);background:linear-gradient(165deg,#f1f5ff 0%,#ffffff 70%);box-shadow:0 14px 40px rgba(28,50,110,.07);display:flex;flex-direction:column;')}>
               <p style={css('font-size:16.5px;line-height:1.62;color:#2b3346;margin:0 0 28px;flex:1;')}>&ldquo;{q.text}&rdquo;</p>

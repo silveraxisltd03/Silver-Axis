@@ -52,7 +52,7 @@ export default function Home() {
       </section>
 
       {/* SERVICES */}
-      <section id="services" style={css('max-width:1240px;margin:0 auto;padding:120px 40px 70px;')}>
+      <section id="services" className="section-x" style={css('max-width:1240px;margin:0 auto;padding:120px 40px 70px;')}>
         <div className="rv" style={css('margin-bottom:60px;')}>
           <div style={css('display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:28px;')}>
             <h2 style={css("font-size:clamp(32px,4.2vw,58px);font-family:'Clash Display','General Sans',sans-serif;line-height:1.06;letter-spacing:-.02em;font-weight:500;margin:0;color:#0b1020;max-width:620px;")}>We start with the problem,<br />not the tech.</h2>
@@ -60,7 +60,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div style={css('display:grid;grid-template-columns:repeat(3,1fr);gap:26px;')}>
+        <div className="grid-3" style={css('display:grid;grid-template-columns:repeat(3,1fr);gap:26px;')}>
           {/* TILE 1: Automation */}
           <div className="rv" data-rv-d="0">
             <div className="tile" style={css('position:relative;border-radius:24px;overflow:hidden;border:1px solid rgba(20,40,90,.08);background:rgb(212,227,251);box-shadow:0 14px 40px rgba(28,50,110,.08);height:300px;')}>
@@ -112,7 +112,7 @@ export default function Home() {
                 <div style={css('flex:1;height:50%;background:#cdd9f7;border-radius:5px;')}></div>
               </div>
             </div>
-            <h3 style={css('font-size:20px;font-weight:600;margin:24px 0 7px;color:#0b1020;letter-spacing:-.01em;white-space:nowrap;')}>CRMs, ERPs &amp; internal tools</h3>
+            <h3 className="nowrap-title" style={css('font-size:20px;font-weight:600;margin:24px 0 7px;color:#0b1020;letter-spacing:-.01em;white-space:nowrap;')}>CRMs, ERPs &amp; internal tools</h3>
             <p style={css('font-size:15px;line-height:1.55;color:#6b7488;margin:0;')}>CRMs, ERPs and dashboards on a clean schema with role-based access — shaped around your workflow, not a template you bend to fit.</p>
             <Link to="/portfolio" className="caseLink" style={css('display:inline-flex;align-items:center;gap:7px;margin-top:16px;font-size:14px;font-weight:600;color:#2a6bff;')}>View case studies<ArrowUR /></Link>
           </div>
@@ -120,9 +120,9 @@ export default function Home() {
       </section>
 
       {/* PROCESS */}
-      <section id="process" style={css('max-width:1240px;margin:0 auto;padding:80px 40px;')}>
-        <div style={css('display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;')}>
-          <div className="rv" style={css('position:sticky;top:110px;')}>
+      <section id="process" className="section-x" style={css('max-width:1240px;margin:0 auto;padding:80px 40px;')}>
+        <div className="grid-2" style={css('display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;')}>
+          <div className="rv sticky-panel" style={css('position:sticky;top:110px;')}>
             <div style={css('position:relative;border-radius:24px;overflow:hidden;border:1px solid rgba(20,40,90,.08);background:linear-gradient(165deg,#e9eeff 0%,#f7f9ff 60%);box-shadow:0 18px 50px rgba(28,50,110,.1);padding:28px;')}>
               <div style={css('border-radius:16px;overflow:hidden;background:#fff;box-shadow:0 12px 32px rgba(28,50,110,.12);')}>
                 <div style={css('display:flex;align-items:center;gap:7px;padding:13px 16px;border-bottom:1px solid #eef1f6;background:#fafbff;')}>
@@ -168,11 +168,11 @@ export default function Home() {
       </section>
 
       {/* SELECTED WORK */}
-      <section id="work" style={css('max-width:1240px;margin:0 auto;padding:80px 40px;')}>
+      <section id="work" className="section-x" style={css('max-width:1240px;margin:0 auto;padding:80px 40px;')}>
         <div className="rv" style={css('margin-bottom:54px;')}>
           <h2 style={css("font-size:clamp(32px,4.2vw,56px);font-family:'Clash Display','General Sans',sans-serif;line-height:1.06;letter-spacing:-.02em;font-weight:500;margin:0;color:#0b1020;")}>A few things we&rsquo;ve shipped.</h2>
         </div>
-        <div style={css('display:grid;grid-template-columns:1fr 1fr;gap:26px;')}>
+        <div className="grid-2" style={css('display:grid;grid-template-columns:1fr 1fr;gap:26px;')}>
           {CASES.map((cs, i) => (
             <Link key={i} to="/portfolio" className="rv tile" style={css('display:block;border-radius:24px;overflow:hidden;border:1px solid rgba(20,40,90,.08);background:#fff;box-shadow:0 14px 40px rgba(28,50,110,.08);')}>
               <div style={css('position:relative;height:250px;background:linear-gradient(165deg,#e9eeff 0%,#f7f9ff 70%);display:flex;align-items:flex-end;padding:24px;')}>
@@ -194,11 +194,11 @@ export default function Home() {
       </section>
 
       {/* TESTIMONIALS */}
-      <section style={css('max-width:1240px;margin:0 auto;padding:80px 40px;')}>
+      <section className="section-x" style={css('max-width:1240px;margin:0 auto;padding:80px 40px;')}>
         <div className="rv" style={css('margin:0 auto 54px;text-align:center;display:flex;flex-direction:column;align-items:center;')}>
           <h2 style={css("font-size:clamp(32px,4.2vw,52px);font-family:'Clash Display','General Sans',sans-serif;line-height:1.07;letter-spacing:-.02em;font-weight:500;margin:0;color:#0b1020;")}>What it&rsquo;s like to work with us.</h2>
         </div>
-        <div style={css('display:grid;grid-template-columns:repeat(3,1fr);gap:26px;')}>
+        <div className="grid-3" style={css('display:grid;grid-template-columns:repeat(3,1fr);gap:26px;')}>
           {QUOTES.map((q, i) => (
             <div key={i} className="rv tile" style={css('border-radius:24px;padding:32px;border:1px solid rgba(20,40,90,.08);background:linear-gradient(165deg,#f1f5ff 0%,#ffffff 70%);box-shadow:0 14px 40px rgba(28,50,110,.07);display:flex;flex-direction:column;')}>
               <p style={css('font-size:16.5px;line-height:1.62;color:#2b3346;margin:0 0 28px;flex:1;')}>&ldquo;{q.text}&rdquo;</p>
@@ -212,7 +212,7 @@ export default function Home() {
       </section>
 
       {/* CERTIFICATIONS */}
-      <section style={css('max-width:1240px;margin:0 auto;padding:40px 40px 70px;')}>
+      <section className="section-x" style={css('max-width:1240px;margin:0 auto;padding:40px 40px 70px;')}>
         <div className="rv" style={css('display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:30px;')}>
           <p style={css('font-size:14px;color:#9aa3b8;margin:0;max-width:220px;')}>Certified where it matters</p>
           <div style={css('display:flex;gap:18px;flex-wrap:wrap;')}>
