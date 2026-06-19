@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom';
 import { ROUTES } from '@/shared/constants/routes';
+import { ENV } from '@/shared/config/env';
 import { css } from '@/shared/lib/css';
 
 export function Footer() {
   return (
     <footer className="section-x" style={css('position:relative;background:#070b16;color:#eef1f8;padding:70px 40px 0;overflow:hidden;')}>
-      <div className="grid-4" style={css('max-width:1240px;margin:0 auto;display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px;position:relative;z-index:2;')}>
+      <div className="grid-4 container" style={css('grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px;position:relative;z-index:2;')}>
         <div>
           <Link to={ROUTES.home} style={css('display:flex;align-items:center;gap:12px;margin-bottom:20px;')}>
             <img src="/assets/logo-mark-white.png" alt="Silver Axis" style={css('height:28px;width:auto;')} />
@@ -32,13 +33,17 @@ export function Footer() {
         <div>
           <p style={css('font-size:13px;color:#5b6680;margin:0 0 16px;font-weight:500;')}>Connect</p>
           <div style={css('display:flex;flex-direction:column;gap:11px;')}>
-            <a href="#" className="navlink" style={css('font-size:14px;color:#9aa3b8;')}>LinkedIn</a>
-            <a href="#" className="navlink" style={css('font-size:14px;color:#9aa3b8;')}>X / Twitter</a>
+            {ENV.linkedin ? (
+              <a href={ENV.linkedin} className="navlink" style={css('font-size:14px;color:#9aa3b8;')} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            ) : null}
+            {ENV.twitter ? (
+              <a href={ENV.twitter} className="navlink" style={css('font-size:14px;color:#9aa3b8;')} target="_blank" rel="noopener noreferrer">X / Twitter</a>
+            ) : null}
             <a href="mailto:hello@silveraxis.com" className="navlink" style={css('font-size:14px;color:#9aa3b8;')}>hello@silveraxis.com</a>
           </div>
         </div>
       </div>
-      <div style={css('max-width:1240px;margin:48px auto 0;padding:22px 0;border-top:1px solid rgba(255,255,255,.06);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;position:relative;z-index:2;')}>
+      <div className="container" style={css('margin:48px auto 0;padding:22px 0;border-top:1px solid rgba(255,255,255,.06);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;position:relative;z-index:2;')}>
         <span style={css('font-size:13px;color:#5b6680;')}>© 2026 Silver Axis. All rights reserved.</span>
         <span style={css('font-size:13px;color:#5b6680;')}>Built, not assembled.</span>
       </div>

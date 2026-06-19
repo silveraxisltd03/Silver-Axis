@@ -1,8 +1,5 @@
 import { ROUTES } from '@/shared/constants/routes';
-import { ContactPage } from '@/features/contact/ContactPage';
-import { HomePage } from '@/features/home/HomePage';
-import { ProjectsPage } from '@/features/projects/ProjectsPage';
-import { ServicesPage } from '@/features/services/ServicesPage';
+import { ContactPage, HomePage, ProjectsPage, ServicesPage } from './lazyPages';
 
 export const appRoutes = [
   { path: ROUTES.home, element: <HomePage /> },
