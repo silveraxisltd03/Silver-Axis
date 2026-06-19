@@ -1,25 +1,21 @@
 import { useState } from 'react';
+import type { ChangeEvent } from 'react';
 import { Link } from 'react-router-dom';
-import { css } from '../lib/css.js';
-import { useReveal } from '../lib/useReveal.js';
-import HeroBand from '../components/HeroBand.jsx';
+import { HeroBand } from '@/shared/components/ui/HeroBand';
+import { ROUTES } from '@/shared/constants/routes';
+import { useReveal } from '@/shared/hooks/useReveal';
+import { css } from '@/shared/lib/css';
+import type { ContactFormState } from '@/shared/types';
+import { CALENDLY_URL, STEPS } from './contact.data';
 
-// TODO: replace with your real Calendly link
-const CALENDLY_URL = 'https://calendly.com';
-
-const STEPS = [
-  { n: '1', title: 'We talk', desc: 'A short call to understand your business and where the friction is.' },
-  { n: '2', title: 'We audit', desc: 'We map your automation gaps and the engineering that fixes them.' },
-  { n: '3', title: 'You get a plan', desc: 'A clear, honest recommendation — whether or not you build with us.' },
-];
-
-export default function Contact() {
+export function ContactPage() {
   useReveal();
-  const [form, setForm] = useState({ name: '', email: '', company: '', message: '' });
+  const [form, setForm] = useState<ContactFormState>({ name: '', email: '', company: '', message: '' });
   const [sent, setSent] = useState(false);
   const [sentName, setSentName] = useState('there');
 
-  const upd = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }));
+  const upd = (k: keyof ContactFormState) => (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
+    setForm((f) => ({ ...f, [k]: e.target.value }));
   const onSubmit = () => {
     // Front-end only. To actually receive emails, point this at a form service
     // (e.g. Formspree) or your own API — see README.
@@ -89,7 +85,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <label style={css('display:block;font-size:13px;font-weight:600;color:#0b1020;margin-bottom:8px;')}>What are you trying to fix?</label>
-                  <textarea className="field" value={form.message} onChange={upd('message')} rows="4" placeholder="A few lines about where things are slow, manual, or breaking." style={css('width:100%;padding:13px 15px;font-size:15px;color:#0b1020;background:#fff;border:1px solid #dfe4ee;border-radius:11px;resize:vertical;')}></textarea>
+                  <textarea className="field" value={form.message} onChange={upd('message')} rows={4} placeholder="A few lines about where things are slow, manual, or breaking." style={css('width:100%;padding:13px 15px;font-size:15px;color:#0b1020;background:#fff;border:1px solid #dfe4ee;border-radius:11px;resize:vertical;')}></textarea>
                 </div>
                 <button className="submit" onClick={onSubmit} style={{ all: 'unset', cursor: 'pointer', textAlign: 'center', background: '#2a6bff', color: '#fff', fontSize: '16px', fontWeight: 600, padding: '16px', borderRadius: '12px', marginTop: '4px' }}>Request my free audit</button>
                 <p style={css('font-size:12.5px;color:#9aa3b8;text-align:center;margin:0;')}>We will only use your details to reply about your audit.</p>
@@ -101,7 +97,7 @@ export default function Contact() {
                 </div>
                 <h3 style={css("font-family:'Clash Display','General Sans',sans-serif;font-size:26px;font-weight:500;margin:0 0 10px;color:#0b1020;")}>Thanks, {sentName}.</h3>
                 <p style={css('font-size:16px;line-height:1.55;color:#6b7488;margin:0 0 26px;max-width:340px;')}>We have got your request and will be in touch within one business day to set up your audit.</p>
-                <Link to="/" style={css('font-size:15px;font-weight:600;color:#2a6bff;')}>Back to home</Link>
+                <Link to={ROUTES.home} style={css('font-size:15px;font-weight:600;color:#2a6bff;')}>Back to home</Link>
               </div>
             )}
           </div>

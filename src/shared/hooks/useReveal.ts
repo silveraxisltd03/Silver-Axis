@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 
 // Scroll-reveal for any element with className "rv".
 // Re-runs on each page mount so route changes re-arm the animation.
-export function useReveal() {
+export function useReveal(): void {
   useEffect(() => {
     const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const els = Array.from(document.querySelectorAll('.rv'));
@@ -15,7 +15,7 @@ export function useReveal() {
         entries.forEach((en) => {
           if (en.isIntersecting) {
             const d = en.target.getAttribute('data-rv-d');
-            if (d) en.target.style.transitionDelay = d + 'ms';
+            if (d) (en.target as HTMLElement).style.transitionDelay = d + 'ms';
             en.target.classList.add('in');
             io.unobserve(en.target);
           }

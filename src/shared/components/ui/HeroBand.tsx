@@ -1,7 +1,12 @@
-import { css } from '../lib/css.js';
+import { css } from '@/shared/lib/css';
+
+interface HeroBandProps {
+  title: string;
+  subtitle: string;
+}
 
 // Dark hero band used at the top of the sub-pages.
-export default function HeroBand({ title, subtitle }) {
+export function HeroBand({ title, subtitle }: HeroBandProps) {
   return (
     <section className="hero-band section-x" style={css('position:relative;background:#070b16;padding:180px 40px 100px;overflow:hidden;')}>
       <div style={css('position:absolute;top:-25%;left:50%;transform:translateX(-50%);width:1100px;height:1100px;max-width:170vw;border-radius:50%;background:radial-gradient(circle,rgba(42,107,255,.34) 0%,rgba(42,107,255,0) 62%);pointer-events:none;')}></div>

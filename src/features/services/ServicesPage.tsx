@@ -1,32 +1,12 @@
-import { css } from '../lib/css.js';
-import { useReveal } from '../lib/useReveal.js';
-import { Check } from '../components/icons.jsx';
-import HeroBand from '../components/HeroBand.jsx';
-import CTA from '../components/CTA.jsx';
+import { HeroBand } from '@/shared/components/ui/HeroBand';
+import { CTA } from '@/shared/components/ui/CTA';
+import { CERTS } from '@/shared/constants/certifications';
+import { useReveal } from '@/shared/hooks/useReveal';
+import { css } from '@/shared/lib/css';
+import { BulletList } from './components/BulletList';
+import { PROCESS } from './services.data';
 
-const PROCESS = [
-  { n: '01', title: 'Audit', desc: 'We trace your workflows and split what needs AI from a straightforward engineering fix.' },
-  { n: '02', title: 'Prototype', desc: 'We build a working model and stress the edge cases. Weak points surface here, cheaply.' },
-  { n: '03', title: 'Build', desc: 'Typed, test-covered and modular, behind versioned APIs. Only as complex as it needs to be.' },
-  { n: '04', title: 'Grow with it', desc: 'We layer on apps, services and dashboards on the same foundation — observable from day one.' },
-];
-
-const CERTS = ['ISO 27001', 'SOC 2 Type II', 'GDPR Ready', 'Cloud Certified'];
-
-function Bullets({ items }) {
-  return (
-    <div style={css('display:flex;flex-direction:column;gap:13px;')}>
-      {items.map((t, i) => (
-        <div key={i} style={css('display:flex;align-items:flex-start;gap:11px;')}>
-          <Check />
-          <span style={css('font-size:15.5px;color:#2b3346;')}>{t}</span>
-        </div>
-      ))}
-    </div>
-  );
-}
-
-export default function Services() {
+export function ServicesPage() {
   useReveal();
   return (
     <>
@@ -45,7 +25,7 @@ export default function Services() {
             <span style={css('font-size:13px;font-weight:600;color:#2a6bff;letter-spacing:.02em;')}>01 — AI Automation</span>
             <h2 style={css("font-family:'Clash Display','General Sans',sans-serif;font-size:clamp(28px,3.4vw,44px);line-height:1.08;letter-spacing:-.02em;font-weight:500;margin:14px 0 16px;color:#0b1020;")}>Let AI run the busywork.</h2>
             <p style={css('font-size:16.5px;line-height:1.6;color:#6b7488;margin:0 0 26px;')}>We connect the tools you already use and hand the repetitive work to reliable, observable workflows — with retries, logging and human approval where it matters.</p>
-            <Bullets items={[
+            <BulletList items={[
               'Workflow automation across Zapier, n8n, Make and custom code',
               'AI agents for triage, drafting, enrichment and routing',
               'CRM, email, sheets and database sync that stays in step',
@@ -62,7 +42,7 @@ export default function Services() {
             <span style={css('font-size:13px;font-weight:600;color:#2a6bff;letter-spacing:.02em;')}>02 — Web &amp; Mobile</span>
             <h2 style={css("font-family:'Clash Display','General Sans',sans-serif;font-size:clamp(28px,3.4vw,44px);line-height:1.08;letter-spacing:-.02em;font-weight:500;margin:14px 0 16px;color:#0b1020;")}>Apps people actually keep using.</h2>
             <p style={css('font-size:16.5px;line-height:1.6;color:#6b7488;margin:0 0 26px;')}>Native mobile and web on one typed codebase — fast, instrumented and built to stay maintainable as your team and traffic grow.</p>
-            <Bullets items={[
+            <BulletList items={[
               'Native iOS & Android, plus React / Next web',
               'Shared design system for a consistent product',
               'Caching, performance budgets and analytics from day one',
@@ -111,7 +91,7 @@ export default function Services() {
             <span style={css('font-size:13px;font-weight:600;color:#2a6bff;letter-spacing:.02em;')}>03 — Custom Systems</span>
             <h2 style={css("font-family:'Clash Display','General Sans',sans-serif;font-size:clamp(28px,3.4vw,44px);line-height:1.08;letter-spacing:-.02em;font-weight:500;margin:14px 0 16px;color:#0b1020;")}>Software shaped around you.</h2>
             <p style={css('font-size:16.5px;line-height:1.6;color:#6b7488;margin:0 0 26px;')}>CRMs, ERPs, dashboards and internal tools on a clean schema with proper access control — built around how you work, not a template you bend to fit.</p>
-            <Bullets items={[
+            <BulletList items={[
               'Custom CRMs, ERPs and operational dashboards',
               'Role-based access, audit trails and clean data models',
               'Integrations with the systems you already run on',

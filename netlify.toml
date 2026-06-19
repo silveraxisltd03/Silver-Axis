@@ -6,7 +6,12 @@
   NODE_VERSION = "20"
   NPM_FLAGS = "--no-audit"
 
-# SPA fallback so client-side routes (/services, /portfolio, /contact) work on reload
+# SPA fallback so client-side routes (/services, /projects, /contact) work on reload
+[[redirects]]
+  from = "/portfolio"
+  to = "/projects"
+  status = 301
+
 [[redirects]]
   from = "/*"
   to = "/index.html"

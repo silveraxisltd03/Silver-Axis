@@ -1,6 +1,6 @@
 # Silver Axis — Website
 
-Marketing site for Silver Axis, built with **React + Vite** and **React Router**. Four pages: Home, Services, Portfolio, Contact.
+Marketing site for Silver Axis, built with **React + TypeScript + Vite** and **React Router**. Four pages: Home, Services, Projects, Contact.
 
 ## Run locally
 
@@ -14,6 +14,7 @@ npm run dev      # http://localhost:5173
 ```bash
 npm run build    # outputs to /dist
 npm run preview  # preview the production build locally
+npm run typecheck  # TypeScript check
 ```
 
 ## Deploy to Netlify
@@ -37,12 +38,12 @@ Add your custom domain (e.g. `silveraxis.com`) under **Domain settings** — HTT
 
 ## Things to wire up before launch
 
-- **Calendly link** — set `CALENDLY_URL` at the top of `src/pages/Contact.jsx`.
+- **Calendly link** — set `CALENDLY_URL` in `src/features/contact/contact.data.ts`.
 - **Contact form** — currently front-end only (shows a thank-you). To actually receive
   submissions, point the form at a service like Formspree, or your own endpoint, inside
-  `onSubmit` in `src/pages/Contact.jsx`. With Formspree it's roughly:
+  `onSubmit` in `src/features/contact/ContactPage.tsx`. With Formspree it's roughly:
 
-  ```js
+  ```ts
   const onSubmit = async () => {
     await fetch('https://formspree.io/f/XXXXXXX', {
       method: 'POST',
@@ -52,25 +53,35 @@ Add your custom domain (e.g. `silveraxis.com`) under **Domain settings** — HTT
     setSent(true);
   };
   ```
-- **Case studies / testimonials / certifications** are placeholders — edit the data arrays
-  at the top of `src/pages/Home.jsx` and `src/pages/Portfolio.jsx`, and swap the
+- **Case studies / testimonials / certifications** are placeholders — edit the data in
+  `src/features/home/home.data.ts` and `src/features/projects/projects.data.ts`, and swap the
   `[ case-study screenshot ]` tiles for real images placed in `public/assets/`.
 
 ## Project structure
 
 ```
-public/assets/        logos + automation graphic
+public/assets/              logos + automation graphic
 src/
-  components/         Nav, Footer, CTA, HeroBand, icons
-  lib/                css() style helper, useReveal() scroll-reveal hook
-  pages/              Home, Services, Portfolio, Contact
-  App.jsx             router + shared layout
-  index.css           fonts, hover/focus states, keyframes
+  app/                      App shell + route table
+  features/
+    home/                   HomePage + home.data.ts
+    services/               ServicesPage + services.data.ts
+    projects/               ProjectsPage + projects.data.ts
+    contact/                ContactPage + contact.data.ts
+  shared/
+    components/layout/      Nav, Footer, ScrollToTop
+    components/ui/          HeroBand, CTA, icons
+    constants/              routes, certifications
+    hooks/                  useReveal
+    lib/                    css() style helper
+    types/                  shared TypeScript interfaces
+  index.css                 fonts, hover/focus states, keyframes
+  main.tsx                  entry point
 ```
 
 ## Notes
 
 - Fonts (General Sans, Clash Display) load from Fontshare via `@import` in `index.css`.
 - Styling uses the original inline styles, parsed to React style objects via the small
-  `css()` helper in `src/lib/css.js`. Hover/focus/animation states live as classes in
+  `css()` helper in `src/shared/lib/css.ts`. Hover/focus/animation states live as classes in
   `index.css`.

@@ -1,31 +1,14 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { css } from '../lib/css.js';
-import { useReveal } from '../lib/useReveal.js';
-import { ArrowUR } from '../components/icons.jsx';
-import CTA from '../components/CTA.jsx';
+import { CTA } from '@/shared/components/ui/CTA';
+import { ArrowUR } from '@/shared/components/ui/icons';
+import { CERTS } from '@/shared/constants/certifications';
+import { ROUTES } from '@/shared/constants/routes';
+import { useReveal } from '@/shared/hooks/useReveal';
+import { css } from '@/shared/lib/css';
+import { CASES, QUOTES, STEPS } from './home.data';
 
-const STEPS = [
-  { title: 'Audit', desc: 'We trace your workflows, data flows and integrations, then separate what genuinely needs AI from what is a straightforward engineering fix.' },
-  { title: 'Prototype', desc: 'Before any production code, we build a working model and stress the edge cases — race conditions, bad data, scale. The weak points surface here, cheaply, instead of in front of your users.' },
-  { title: 'Build', desc: 'Then we build it properly: typed, test-covered and modular, behind versioned APIs — only as complex as it needs to be, and documented for whoever ships next.' },
-  { title: 'Grow with it', desc: 'Once the automations are wired in, we layer on apps, services and dashboards on the same foundation — CI-deployed and observable from day one.' },
-];
-
-const CASES = [
-  { shot: 'case-study screenshot', tag: 'AI Automation + ERP', title: 'Ops platform for a logistics network', desc: 'Swapped manual dispatch for an event-driven workflow engine and a custom ERP layer — queue-backed, idempotent, with a full audit trail.', m1v: '70%', m1l: 'less manual work', m2v: '4 wks', m2l: 'to first launch' },
-  { shot: 'case-study screenshot', tag: 'Web + Mobile', title: 'Member app for a health provider', desc: 'Native mobile and web on a shared TypeScript core and a cached API gateway — scoped and load-tested in a prototyping phase before build.', m1v: '99.9%', m1l: 'uptime', m2v: '4.8\u2605', m2l: 'store rating' },
-];
-
-const QUOTES = [
-  { text: 'They spent real time understanding the problem before writing any code. The prototype caught issues that would have cost us months.', name: 'Placeholder Name', role: 'Founder, Client Co' },
-  { text: 'The automation work paid for itself in weeks. Then they built the custom system on top of it without missing a beat.', name: 'Placeholder Name', role: 'COO, Client Co' },
-  { text: 'Fast, modular, and genuinely scalable. It still runs perfectly two years and a lot of users later.', name: 'Placeholder Name', role: 'CTO, Client Co' },
-];
-
-const CERTS = ['ISO 27001', 'SOC 2 Type II', 'GDPR Ready', 'Cloud Certified'];
-
-export default function Home() {
+export function HomePage() {
   useReveal();
   const [open, setOpen] = useState(0);
 
@@ -45,7 +28,7 @@ export default function Home() {
           <h1 style={css("font-size:clamp(42px,6.4vw,88px);font-family:'Clash Display','General Sans',sans-serif;line-height:1.04;letter-spacing:-.02em;font-weight:500;margin:0 0 26px;color:#fff;")}>We automate, build, and<br />scale your software.</h1>
           <p style={css('font-size:clamp(17px,1.6vw,21px);line-height:1.55;color:#9aa3b8;max-width:600px;margin:0 0 42px;')}>The right blend of AI and engineering — we automate what should be, build the rest by hand, and ship web and mobile systems that scale to millions of users.</p>
           <div style={css('display:flex;gap:14px;flex-wrap:wrap;justify-content:center;')}>
-            <Link to="/contact" className="btnW" style={css('background:#fff;color:#070b16;font-size:15.5px;font-weight:600;padding:17px 36px;border-radius:999px;')}>Book a free audit</Link>
+            <Link to={ROUTES.contact} className="btnW" style={css('background:#fff;color:#070b16;font-size:15.5px;font-weight:600;padding:17px 36px;border-radius:999px;')}>Book a free audit</Link>
             <a href="#process" className="btnG" style={css('background:rgba(255,255,255,.05);color:#eef1f8;font-size:15.5px;font-weight:500;padding:17px 36px;border-radius:999px;border:1px solid rgba(255,255,255,.16);')}>See how we work</a>
           </div>
         </div>
@@ -68,7 +51,7 @@ export default function Home() {
             </div>
             <h3 style={css('font-size:21px;font-weight:600;margin:24px 0 7px;color:#0b1020;letter-spacing:-.01em;')}>Automate the busywork</h3>
             <p style={css('font-size:15px;line-height:1.55;color:#6b7488;margin:0;')}>We wire your tools together with webhooks and queues, then let AI agents run the repetitive work — with retries, logging and human approval where it counts.</p>
-            <Link to="/portfolio" className="caseLink" style={css('display:inline-flex;align-items:center;gap:7px;margin-top:16px;font-size:14px;font-weight:600;color:#2a6bff;')}>View case studies<ArrowUR /></Link>
+            <Link to={ROUTES.projects} className="caseLink" style={css('display:inline-flex;align-items:center;gap:7px;margin-top:16px;font-size:14px;font-weight:600;color:#2a6bff;')}>View case studies<ArrowUR /></Link>
           </div>
 
           {/* TILE 2: Web & Mobile */}
@@ -92,7 +75,7 @@ export default function Home() {
             </div>
             <h3 style={css('font-size:21px;font-weight:600;margin:24px 0 7px;color:#0b1020;letter-spacing:-.01em;')}>Web &amp; mobile, done right</h3>
             <p style={css('font-size:15px;line-height:1.55;color:#6b7488;margin:0;')}>Native iOS and Android plus a React web app on one typed codebase — cached, instrumented and built to stay fast as traffic climbs.</p>
-            <Link to="/portfolio" className="caseLink" style={css('display:inline-flex;align-items:center;gap:7px;margin-top:16px;font-size:14px;font-weight:600;color:#2a6bff;')}>View case studies<ArrowUR /></Link>
+            <Link to={ROUTES.projects} className="caseLink" style={css('display:inline-flex;align-items:center;gap:7px;margin-top:16px;font-size:14px;font-weight:600;color:#2a6bff;')}>View case studies<ArrowUR /></Link>
           </div>
 
           {/* TILE 3: Custom systems */}
@@ -114,7 +97,7 @@ export default function Home() {
             </div>
             <h3 className="nowrap-title" style={css('font-size:20px;font-weight:600;margin:24px 0 7px;color:#0b1020;letter-spacing:-.01em;white-space:nowrap;')}>CRMs, ERPs &amp; internal tools</h3>
             <p style={css('font-size:15px;line-height:1.55;color:#6b7488;margin:0;')}>CRMs, ERPs and dashboards on a clean schema with role-based access — shaped around your workflow, not a template you bend to fit.</p>
-            <Link to="/portfolio" className="caseLink" style={css('display:inline-flex;align-items:center;gap:7px;margin-top:16px;font-size:14px;font-weight:600;color:#2a6bff;')}>View case studies<ArrowUR /></Link>
+            <Link to={ROUTES.projects} className="caseLink" style={css('display:inline-flex;align-items:center;gap:7px;margin-top:16px;font-size:14px;font-weight:600;color:#2a6bff;')}>View case studies<ArrowUR /></Link>
           </div>
         </div>
       </section>
@@ -174,7 +157,7 @@ export default function Home() {
         </div>
         <div className="grid-2" style={css('display:grid;grid-template-columns:1fr 1fr;gap:26px;')}>
           {CASES.map((cs, i) => (
-            <Link key={i} to="/portfolio" className="rv tile" style={css('display:block;border-radius:24px;overflow:hidden;border:1px solid rgba(20,40,90,.08);background:#fff;box-shadow:0 14px 40px rgba(28,50,110,.08);')}>
+            <Link key={i} to={ROUTES.projects} className="rv tile" style={css('display:block;border-radius:24px;overflow:hidden;border:1px solid rgba(20,40,90,.08);background:#fff;box-shadow:0 14px 40px rgba(28,50,110,.08);')}>
               <div style={css('position:relative;height:250px;background:linear-gradient(165deg,#e9eeff 0%,#f7f9ff 70%);display:flex;align-items:flex-end;padding:24px;')}>
                 <div style={css('position:absolute;inset:0;background:radial-gradient(circle at 74% 20%,rgba(42,107,255,.16),transparent 56%);')}></div>
                 <span style={css('font-family:ui-monospace,monospace;font-size:11px;color:#9aa3b8;position:relative;')}>[ {cs.shot} ]</span>

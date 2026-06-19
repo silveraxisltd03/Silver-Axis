@@ -1,12 +1,13 @@
 import { Link } from 'react-router-dom';
-import { css } from '../lib/css.js';
+import { ROUTES } from '@/shared/constants/routes';
+import { css } from '@/shared/lib/css';
 
-export default function Footer() {
+export function Footer() {
   return (
     <footer className="section-x" style={css('position:relative;background:#070b16;color:#eef1f8;padding:70px 40px 0;overflow:hidden;')}>
       <div className="grid-4" style={css('max-width:1240px;margin:0 auto;display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px;position:relative;z-index:2;')}>
         <div>
-          <Link to="/" style={css('display:flex;align-items:center;gap:12px;margin-bottom:20px;')}>
+          <Link to={ROUTES.home} style={css('display:flex;align-items:center;gap:12px;margin-bottom:20px;')}>
             <img src="/assets/logo-mark-white.png" alt="Silver Axis" style={css('height:28px;width:auto;')} />
             <span style={css('font-size:16px;font-weight:600;letter-spacing:.2em;')}>SILVER AXIS</span>
           </Link>
@@ -15,17 +16,17 @@ export default function Footer() {
         <div>
           <p style={css('font-size:13px;color:#5b6680;margin:0 0 16px;font-weight:500;')}>Services</p>
           <div style={css('display:flex;flex-direction:column;gap:11px;')}>
-            <Link to="/services" className="navlink" style={css('font-size:14px;color:#9aa3b8;')}>AI Automation</Link>
-            <Link to="/services" className="navlink" style={css('font-size:14px;color:#9aa3b8;')}>Web &amp; Mobile</Link>
-            <Link to="/services" className="navlink" style={css('font-size:14px;color:#9aa3b8;')}>Custom Systems</Link>
+            <Link to={ROUTES.services} className="navlink" style={css('font-size:14px;color:#9aa3b8;')}>AI Automation</Link>
+            <Link to={ROUTES.services} className="navlink" style={css('font-size:14px;color:#9aa3b8;')}>Web &amp; Mobile</Link>
+            <Link to={ROUTES.services} className="navlink" style={css('font-size:14px;color:#9aa3b8;')}>Custom Systems</Link>
           </div>
         </div>
         <div>
           <p style={css('font-size:13px;color:#5b6680;margin:0 0 16px;font-weight:500;')}>Company</p>
           <div style={css('display:flex;flex-direction:column;gap:11px;')}>
-            <Link to="/portfolio" className="navlink" style={css('font-size:14px;color:#9aa3b8;')}>Projects</Link>
-            <Link to="/contact" className="navlink" style={css('font-size:14px;color:#9aa3b8;')}>Contact</Link>
-            <Link to="/contact" className="navlink" style={css('font-size:14px;color:#9aa3b8;')}>Free audit</Link>
+            <Link to={ROUTES.projects} className="navlink" style={css('font-size:14px;color:#9aa3b8;')}>Projects</Link>
+            <Link to={ROUTES.contact} className="navlink" style={css('font-size:14px;color:#9aa3b8;')}>Contact</Link>
+            <Link to={ROUTES.contact} className="navlink" style={css('font-size:14px;color:#9aa3b8;')}>Free audit</Link>
           </div>
         </div>
         <div>

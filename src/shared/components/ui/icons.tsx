@@ -6,7 +6,11 @@ export function Check() {
   );
 }
 
-export function ArrowUR({ size = 15 }) {
+interface ArrowURProps {
+  size?: number;
+}
+
+export function ArrowUR({ size = 15 }: ArrowURProps) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
       <path d="M7 17 17 7M9 7h8v8" />
