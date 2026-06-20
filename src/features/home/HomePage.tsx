@@ -61,22 +61,8 @@ export function HomePage() {
           </Reveal>
 
           <Reveal delay={90}>
-            <div className="tile" style={css('position:relative;border-radius:24px;overflow:hidden;border:1px solid rgba(20,40,90,.08);background:linear-gradient(165deg,#e9eeff 0%,#f7f9ff 60%);box-shadow:0 14px 40px rgba(28,50,110,.08);height:300px;padding:26px;display:flex;align-items:center;justify-content:center;gap:16px;')}>
-              <div style={css('width:96px;height:188px;border-radius:18px;background:#fff;border:1px solid rgba(20,40,90,.08);box-shadow:0 12px 30px rgba(28,50,110,.14);padding:14px 11px;display:flex;flex-direction:column;gap:9px;flex:none;')}>
-                <div style={css('height:7px;width:55%;background:#2a6bff;border-radius:4px;')}></div>
-                <div style={css('height:7px;width:88%;background:#eef1f7;border-radius:4px;')}></div>
-                <div style={css('height:46px;background:#eef3ff;border-radius:9px;margin-top:3px;')}></div>
-                <div style={css('height:7px;width:74%;background:#eef1f7;border-radius:4px;')}></div>
-                <div style={css('height:7px;width:60%;background:#eef1f7;border-radius:4px;')}></div>
-                <div style={css('height:30px;background:#2a6bff;border-radius:9px;margin-top:auto;')}></div>
-              </div>
-              <div style={css('flex:1;align-self:stretch;margin:20px 0;border-radius:14px;background:#fff;border:1px solid rgba(20,40,90,.08);box-shadow:0 12px 30px rgba(28,50,110,.14);padding:16px;display:flex;flex-direction:column;gap:10px;')}>
-                <div style={css('display:flex;gap:6px;align-items:center;')}><span style={css('width:9px;height:9px;border-radius:50%;background:#ff5f57;')}></span><span style={css('width:9px;height:9px;border-radius:50%;background:#febc2e;')}></span><span style={css('width:9px;height:9px;border-radius:50%;background:#28c840;')}></span></div>
-                <div style={css('height:8px;width:50%;background:#2a6bff;border-radius:5px;')}></div>
-                <div style={css('height:8px;width:88%;background:#eef1f7;border-radius:5px;')}></div>
-                <div style={css('height:8px;width:72%;background:#eef1f7;border-radius:5px;')}></div>
-                <div style={css('height:48px;background:#eef3ff;border-radius:10px;margin-top:auto;')}></div>
-              </div>
+            <div className="tile" style={css('position:relative;border-radius:24px;overflow:hidden;border:1px solid rgba(20,40,90,.08);background:rgb(212,227,251);box-shadow:0 14px 40px rgba(28,50,110,.08);height:300px;')}>
+              <img src="/assets/web-and-mobile.png" alt="Web and mobile portfolio designs on laptop and phone" style={css('width:100%;height:100%;object-fit:cover;display:block;')} />
             </div>
             <h3 style={css('font-size:21px;font-weight:600;margin:24px 0 7px;color:#0b1020;letter-spacing:-.01em;')}>Web &amp; mobile, done right</h3>
             <p style={css('font-size:15px;line-height:1.55;color:#6b7488;margin:0;')}>Native iOS and Android plus a React web app on one typed codebase — cached, instrumented and built to stay fast as traffic climbs.</p>

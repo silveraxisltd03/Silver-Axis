@@ -55,22 +55,8 @@ export function ServicesPage() {
                 'App Store and Play Store release handled end to end',
               ]} />
             </div>
-            <div className="tile" style={css('order:1;position:relative;border-radius:24px;overflow:hidden;border:1px solid rgba(20,40,90,.08);background:linear-gradient(165deg,#e9eeff 0%,#f7f9ff 60%);box-shadow:0 14px 40px rgba(28,50,110,.08);height:380px;display:flex;align-items:center;justify-content:center;gap:18px;padding:30px;')}>
-              <div style={css('width:120px;height:236px;border-radius:22px;background:#fff;border:1px solid rgba(20,40,90,.08);box-shadow:0 14px 34px rgba(28,50,110,.16);padding:16px 13px;display:flex;flex-direction:column;gap:11px;flex:none;')}>
-                <div style={css('height:8px;width:55%;background:#2a6bff;border-radius:5px;')}></div>
-                <div style={css('height:8px;width:88%;background:#eef1f7;border-radius:5px;')}></div>
-                <div style={css('height:58px;background:#eef3ff;border-radius:11px;margin-top:3px;')}></div>
-                <div style={css('height:8px;width:74%;background:#eef1f7;border-radius:5px;')}></div>
-                <div style={css('height:8px;width:60%;background:#eef1f7;border-radius:5px;')}></div>
-                <div style={css('height:38px;background:#2a6bff;border-radius:11px;margin-top:auto;')}></div>
-              </div>
-              <div style={css('flex:1;align-self:stretch;margin:28px 0;border-radius:16px;background:#fff;border:1px solid rgba(20,40,90,.08);box-shadow:0 14px 34px rgba(28,50,110,.16);padding:20px;display:flex;flex-direction:column;gap:12px;')}>
-                <div style={css('display:flex;gap:6px;align-items:center;')}><span style={css('width:10px;height:10px;border-radius:50%;background:#ff5f57;')}></span><span style={css('width:10px;height:10px;border-radius:50%;background:#febc2e;')}></span><span style={css('width:10px;height:10px;border-radius:50%;background:#28c840;')}></span></div>
-                <div style={css('height:9px;width:50%;background:#2a6bff;border-radius:5px;')}></div>
-                <div style={css('height:9px;width:88%;background:#eef1f7;border-radius:5px;')}></div>
-                <div style={css('height:9px;width:72%;background:#eef1f7;border-radius:5px;')}></div>
-                <div style={css('height:60px;background:#eef3ff;border-radius:12px;margin-top:auto;')}></div>
-              </div>
+            <div className="tile" style={css('order:1;border-radius:24px;overflow:hidden;border:1px solid rgba(20,40,90,.08);background:rgb(212,227,251);box-shadow:0 14px 40px rgba(28,50,110,.08);height:380px;')}>
+              <img src="/assets/web-and-mobile.png" alt="Web and mobile portfolio designs on laptop and phone" style={css('width:100%;height:100%;object-fit:cover;display:block;')} />
             </div>
           </div>
         </Reveal>
