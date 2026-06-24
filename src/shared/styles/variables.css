@@ -27,4 +27,6 @@
   --shadow-card: 0 14px 40px rgba(28, 50, 110, 0.08);
   --shadow-card-hover: 0 28px 64px rgba(28, 50, 110, 0.14);
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --nav-height: 80px;
 }

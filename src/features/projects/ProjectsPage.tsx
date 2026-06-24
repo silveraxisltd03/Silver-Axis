@@ -3,15 +3,17 @@ import { HeroBand } from '@/shared/components/ui/HeroBand';
 import { CTA } from '@/shared/components/ui/CTA';
 import { CaseStudyCard } from '@/shared/components/ui/CaseStudyCard';
 import { Reveal } from '@/shared/components/ui/Reveal';
-import { StatsRow } from '@/shared/components/ui/StatsRow';
 import { TestimonialCard } from '@/shared/components/ui/TestimonialCard';
-import { ALL_CASES } from '@/shared/content/case-studies';
+import { filterCaseStudiesByCategory } from '@/shared/content/case-studies';
 import { QUOTES } from '@/shared/content/quotes';
-import { ROUTES } from '@/shared/constants/routes';
+import { projectDetailPath } from '@/shared/constants/routes';
 import { css } from '@/shared/lib/css';
-import { STATS } from './projects.data';
+import { ProjectFilters, useProjectCategoryFilter } from './components/ProjectFilters';
 
 export function ProjectsPage() {
+  const [activeCategory, setCategory] = useProjectCategoryFilter();
+  const filtered = filterCaseStudiesByCategory(activeCategory);
+
   return (
     <>
       <PageMeta
@@ -21,23 +23,23 @@ export function ProjectsPage() {
 
       <HeroBand
         title="Proof over promises."
-        subtitle="A few systems we have audited, prototyped and shipped — and what changed for the teams running them."
+        subtitle="A few systems we have audited, prototyped and shipped, and what changed for the teams running them."
       />
 
-      <section className="section-x container" style={css('padding:70px 0 30px;')}>
-        <Reveal>
-          <StatsRow stats={STATS} />
-        </Reveal>
-      </section>
-
       <section className="section-x container" style={css('padding:60px 0 40px;')}>
+        <Reveal>
+          <ProjectFilters active={activeCategory} onChange={setCategory} />
+        </Reveal>
         <div className="grid-2">
-          {ALL_CASES.map((cs) => (
-            <Reveal key={cs.title}>
-              <CaseStudyCard caseStudy={cs} to={ROUTES.contact} imageHeight={240} />
+          {filtered.map((cs) => (
+            <Reveal key={cs.slug}>
+              <CaseStudyCard caseStudy={cs} to={projectDetailPath(cs.slug)} imageHeight={240} />
             </Reveal>
           ))}
         </div>
+        {filtered.length === 0 && (
+          <p style={css('font-size:16px;color:#6b7488;text-align:center;padding:40px 0;')}>No projects in this category yet.</p>
+        )}
       </section>
 
       <section className="section-x container" style={css('padding:70px 0;')}>

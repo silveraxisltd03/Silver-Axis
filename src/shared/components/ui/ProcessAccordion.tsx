@@ -4,33 +4,49 @@ import { css } from '@/shared/lib/css';
 
 interface ProcessAccordionProps {
   steps: ProcessStep[];
+  active?: number;
+  onChange?: (index: number) => void;
 }
 
-export function ProcessAccordion({ steps }: ProcessAccordionProps) {
-  const [open, setOpen] = useState(0);
+export function ProcessAccordion({ steps, active: controlledActive, onChange }: ProcessAccordionProps) {
+  const [internalActive, setInternalActive] = useState(0);
+  const isControlled = controlledActive !== undefined;
+  const open = isControlled ? controlledActive : internalActive;
+
+  const setOpen = (index: number) => {
+    if (!isControlled) setInternalActive(index);
+    onChange?.(index);
+  };
 
   return (
-    <div style={css('display:flex;flex-direction:column;')}>
-      {steps.map((s, i) => (
-        <div key={s.title} style={css('border-bottom:1px solid #e8ecf3;')}>
-          <button
-            type="button"
-            className="accordion-btn"
-            aria-expanded={open === i}
-            onClick={() => setOpen(i)}
+    <div className="process-accordion" style={css('display:flex;flex-direction:column;')}>
+      {steps.map((s, i) => {
+        const isOpen = open === i;
+        return (
+          <div
+            key={s.title}
+            className={`process-accordion__item${isOpen ? ' process-accordion__item--open' : ''}`}
+            style={css('border-bottom:1px solid #e8ecf3;')}
           >
-            <span style={css('font-size:13px;color:#2a6bff;font-weight:600;width:26px;')}>{String(i + 1).padStart(2, '0')}</span>
-            <span style={css('font-size:21px;font-weight:600;color:#0b1020;letter-spacing:-.01em;flex:1;')}>{s.title}</span>
-            <span style={css('font-size:22px;color:#aab1c0;font-weight:300;')} aria-hidden="true">{open === i ? '\u2212' : '+'}</span>
-          </button>
-          {open === i && (
-            <div style={css('padding:0 2px 24px 44px;')}>
-              <p style={css('font-size:16px;line-height:1.6;color:#6b7488;margin:0;max-width:440px;')}>{s.desc}</p>
-              <div style={css('height:2px;width:60px;background:#2a6bff;border-radius:2px;margin-top:18px;')} aria-hidden="true"></div>
+            <button
+              type="button"
+              className="accordion-btn"
+              aria-expanded={isOpen}
+              onClick={() => setOpen(i)}
+            >
+              <span style={css('font-size:13px;color:#2a6bff;font-weight:600;width:26px;')}>{String(i + 1).padStart(2, '0')}</span>
+              <span style={css('font-size:21px;font-weight:600;color:#0b1020;letter-spacing:-.01em;flex:1;text-align:left;')}>{s.title}</span>
+              <span className="process-accordion__icon" aria-hidden="true">{isOpen ? '\u2212' : '+'}</span>
+            </button>
+            <div className={`process-accordion__panel${isOpen ? ' process-accordion__panel--open' : ''}`}>
+              <div className="process-accordion__panel-inner">
+                <p style={css('font-size:16px;line-height:1.6;color:#6b7488;margin:0;max-width:440px;')}>{s.desc}</p>
+                <div className="process-accordion__accent" aria-hidden="true" />
+              </div>
             </div>
-          )}
-        </div>
-      ))}
+          </div>
+        );
+      })}
     </div>
   );
 }

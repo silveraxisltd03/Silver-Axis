@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ROUTES } from '@/shared/constants/routes';
+import { ROUTES, serviceDetailPath } from '@/shared/constants/routes';
 import { ENV } from '@/shared/config/env';
 import { css } from '@/shared/lib/css';
 
@@ -17,9 +17,9 @@ export function Footer() {
         <div>
           <p style={css('font-size:13px;color:#5b6680;margin:0 0 16px;font-weight:500;')}>Services</p>
           <div style={css('display:flex;flex-direction:column;gap:11px;')}>
-            <Link to={ROUTES.services} className="navlink" style={css('font-size:14px;color:#9aa3b8;')}>AI Automation</Link>
-            <Link to={ROUTES.services} className="navlink" style={css('font-size:14px;color:#9aa3b8;')}>Web &amp; Mobile</Link>
-            <Link to={ROUTES.services} className="navlink" style={css('font-size:14px;color:#9aa3b8;')}>Custom Systems</Link>
+            <Link to={serviceDetailPath('ai-automation')} className="navlink" style={css('font-size:14px;color:#9aa3b8;')}>AI Automation</Link>
+            <Link to={serviceDetailPath('web-mobile')} className="navlink" style={css('font-size:14px;color:#9aa3b8;')}>Web &amp; Mobile</Link>
+            <Link to={serviceDetailPath('custom-systems')} className="navlink" style={css('font-size:14px;color:#9aa3b8;')}>Custom Systems</Link>
           </div>
         </div>
         <div>

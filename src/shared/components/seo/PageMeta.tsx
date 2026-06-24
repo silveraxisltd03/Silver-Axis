@@ -3,15 +3,21 @@ import { Helmet } from 'react-helmet-async';
 interface PageMetaProps {
   title: string;
   description: string;
+  jsonLd?: Record<string, unknown>;
 }
 
-export function PageMeta({ title, description }: PageMetaProps) {
+export function PageMeta({ title, description, jsonLd }: PageMetaProps) {
   const fullTitle = title === 'Home' ? 'Silver Axis — AI automation & custom software' : `${title} — Silver Axis`;
 
   return (
     <Helmet>
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
+      {jsonLd && (
+        <script type="application/ld+json">
+          {JSON.stringify(jsonLd)}
+        </script>
+      )}
     </Helmet>
   );
 }

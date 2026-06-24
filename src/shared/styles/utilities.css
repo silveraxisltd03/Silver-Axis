@@ -21,6 +21,13 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 26px;
+  align-items: stretch;
+}
+
+.grid-2 > .reveal,
+.grid-3 > .reveal {
+  display: flex;
+  flex-direction: column;
 }
 
 .grid-2--wide {

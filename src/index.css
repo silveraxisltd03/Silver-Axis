@@ -5,6 +5,7 @@
 
 * { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; background: #ffffff; }
+html { scroll-padding-top: var(--nav-height); }
 body {
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
@@ -17,6 +18,14 @@ input::placeholder, textarea::placeholder { color: var(--color-placeholder); }
 
 @keyframes spinSlow { to { transform: rotate(360deg); } }
 @keyframes spinRev { to { transform: rotate(-360deg); } }
+@keyframes processScan { 0% { top: 0; opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { top: 100%; opacity: 0; } }
+@keyframes processLineDraw { to { stroke-dashoffset: 0; } }
+@keyframes processPulse { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.06); opacity: 0.85; } }
+@keyframes processShimmer { to { background-position: 200% center; } }
+@keyframes processProgress { from { width: 18%; } to { width: 88%; } }
+@keyframes processBarGrow { from { transform: scaleY(0.2); } to { transform: scaleY(1); } }
+@keyframes processGlow { 0%, 100% { opacity: 0.45; transform: scale(1); } 50% { opacity: 0.75; transform: scale(1.04); } }
+@keyframes processFadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
 
 @media (prefers-reduced-motion: reduce) {
   * { animation: none !important; }

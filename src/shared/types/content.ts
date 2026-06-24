@@ -9,8 +9,15 @@ export interface NumberedProcessStep {
   desc: string;
 }
 
+import type { ServiceCategorySlug } from '@/shared/constants/categories';
+
 export interface CaseStudy {
+  slug: string;
+  category: ServiceCategorySlug;
+  /** Legacy placeholder text shown in card when no thumbnail */
   shot: string;
+  /** Path to hero image, e.g. /assets/project-thumb.png */
+  thumbnail?: string;
   tag: string;
   title: string;
   desc: string;
@@ -18,6 +25,28 @@ export interface CaseStudy {
   m1l: string;
   m2v: string;
   m2l: string;
+  /** Short single-paragraph challenge summary (used on cards) */
+  challenge?: string;
+  /** Short single-paragraph solution summary (used on cards) */
+  solution?: string;
+  /** Short single-paragraph outcome summary (used on cards) */
+  outcome?: string;
+  /** TL;DR bullet points shown in a callout box */
+  tldr?: string[];
+  /** Expanded problem bullet points */
+  problemPoints?: string[];
+  /** Expanded solution bullet points */
+  solutionPoints?: string[];
+  /** Expanded outcome bullet points */
+  outcomePoints?: string[];
+  /** Numbered delivery steps */
+  deliverySteps?: string[];
+  /** Technologies/tools used */
+  tools?: string[];
+  /** Project screenshots for the gallery */
+  screenshots?: { src: string; caption: string }[];
+  /** Live URL to link from the detail page */
+  liveUrl?: string;
 }
 
 export interface Quote {
