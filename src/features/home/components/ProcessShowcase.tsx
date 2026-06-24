@@ -20,7 +20,7 @@ const MARKER_POINTS = [
   { cx: 68, cy: 150 },
 ];
 
-const CARD_SLOTS = ['top', 'right', 'bottom', 'left'] as const;
+type CardSlot = 'top' | 'right' | 'bottom' | 'left';
 
 function getNavOffset() {
   const nav = document.querySelector('.nav');
@@ -271,7 +271,7 @@ export function ProcessShowcase({ steps, title }: ProcessShowcaseProps) {
 
 const ProcessCard = forwardRef<
   HTMLElement,
-  { step: ProcessStep; index: number; slot: (typeof CARD_SLOTS)[number] }
+  { step: ProcessStep; index: number; slot: CardSlot }
 >(function ProcessCard({ step, index, slot }, ref) {
   return (
     <article ref={ref} className={`process-loop__card process-loop__card--${slot}`}>

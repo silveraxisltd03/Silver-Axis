@@ -8,7 +8,8 @@ import { filterCaseStudiesByCategory } from '@/shared/content/case-studies';
 import { QUOTES } from '@/shared/content/quotes';
 import { projectDetailPath } from '@/shared/constants/routes';
 import { css } from '@/shared/lib/css';
-import { ProjectFilters, useProjectCategoryFilter } from './components/ProjectFilters';
+import { ProjectFilters } from './components/ProjectFilters';
+import { useProjectCategoryFilter } from './components/useProjectCategoryFilter';
 
 export function ProjectsPage() {
   const [activeCategory, setCategory] = useProjectCategoryFilter();

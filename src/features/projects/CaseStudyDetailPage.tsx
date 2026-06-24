@@ -15,13 +15,14 @@ library.add(faXmark, faCheck, faExpand);
 
 export function CaseStudyDetailPage() {
   const { slug } = useParams<{ slug: string }>();
+  const [lightbox, setLightbox] = useState<{ src: string; caption: string } | null>(null);
+
   if (!slug) return <Navigate to={ROUTES.projects} replace />;
 
   const cs = getCaseStudyBySlug(slug);
   if (!cs) return <Navigate to={ROUTES.projects} replace />;
 
   const related = getRelatedCaseStudies(slug);
-  const [lightbox, setLightbox] = useState<{ src: string; caption: string } | null>(null);
 
   return (
     <>
