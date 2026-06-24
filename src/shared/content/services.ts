@@ -1,4 +1,4 @@
-import type { ServiceCategorySlug } from '@/shared/constants/categories';
+﻿import type { ServiceCategorySlug } from '@/shared/constants/categories';
 
 export interface TechGroup {
   category: string;
@@ -60,8 +60,8 @@ export const SERVICE_ITEMS: ServiceItem[] = [
     label: 'AI Automation',
     metaTitle: 'AI Automation & Workflow Automation Services | Silver Axis',
     metaDescription:
-      'Silver Axis builds reliable AI automations and workflow integrations using n8n, Make, Zapier and custom code — saving your team hours every week with full observability.',
-    eyebrow: '01 — AI Automation',
+      'Silver Axis builds reliable AI automations and workflow integrations using n8n, Make, Zapier and custom code, saving your team hours every week with full observability.',
+    eyebrow: '01, AI Automation',
     title: 'Let AI handle the workflow. You handle the decisions.',
     subtitle: 'Automation that runs in the background, stays observable, and actually works.',
     description:
@@ -81,7 +81,7 @@ export const SERVICE_ITEMS: ServiceItem[] = [
       {
         icon: 'clock',
         title: 'Manual tasks are draining the team',
-        desc: 'Data entry, report generation, lead routing, follow-up emails — your team is doing work a machine should handle.',
+        desc: 'Data entry, report generation, lead routing, follow-up emails, your team is doing work a machine should handle.',
       },
       {
         icon: 'layer-group',
@@ -91,7 +91,7 @@ export const SERVICE_ITEMS: ServiceItem[] = [
       {
         icon: 'eye-slash',
         title: "No visibility into what's actually running",
-        desc: 'Automations built with no logs or alerts. When something breaks, you find out from a customer — not your system.',
+        desc: 'Automations built with no logs or alerts. When something breaks, you find out from a customer, not your system.',
       },
     ],
     techGroups: [
@@ -122,12 +122,12 @@ export const SERVICE_ITEMS: ServiceItem[] = [
       {
         n: '02',
         title: 'Prototype with real data',
-        desc: 'We run the automation on a small slice of live data first — edge cases, malformed records, rate limits. Problems surface here, not in production.',
+        desc: 'We run the automation on a small slice of live data first, edge cases, malformed records, rate limits. Problems surface here, not in production.',
       },
       {
         n: '03',
         title: 'Build with observability',
-        desc: 'Every workflow ships with logs, error handling, retry logic, and alerts. You see exactly what ran, what failed, and why — without digging through code.',
+        desc: 'Every workflow ships with logs, error handling, retry logic, and alerts. You see exactly what ran, what failed, and why, without digging through code.',
       },
       {
         n: '04',
@@ -147,7 +147,7 @@ export const SERVICE_ITEMS: ServiceItem[] = [
       },
       {
         q: 'Do we actually need AI, or just regular automation?',
-        a: 'Honest answer: most of the time, a well-built deterministic workflow is more reliable and cheaper than AI. We use AI where the task requires understanding ambiguous input — classifying emails, summarising documents, extracting fields from free text. Otherwise we keep it simple.',
+        a: 'Honest answer: most of the time, a well-built deterministic workflow is more reliable and cheaper than AI. We use AI where the task requires understanding ambiguous input, classifying emails, summarising documents, extracting fields from free text. Otherwise we keep it simple.',
       },
       {
         q: 'What happens when an automation breaks?',
@@ -155,7 +155,7 @@ export const SERVICE_ITEMS: ServiceItem[] = [
       },
       {
         q: 'How long does a typical project take?',
-        a: 'A single-workflow automation — say, syncing leads from a form to your CRM and triggering a Slack notification — can be live within a week. A full automation layer across multiple teams usually takes 4–8 weeks, depending on the number of workflows and integration complexity.',
+        a: 'A single-workflow automation, say, syncing leads from a form to your CRM and triggering a Slack notification, can be live within a week. A full automation layer across multiple teams usually takes 4–8 weeks, depending on the number of workflows and integration complexity.',
       },
       {
         q: 'Who owns the automations after we launch?',
@@ -179,12 +179,12 @@ export const SERVICE_ITEMS: ServiceItem[] = [
     label: 'Web & Mobile',
     metaTitle: 'Web & Mobile App Development Services | Silver Axis',
     metaDescription:
-      'Silver Axis builds fast, scalable web apps and native mobile apps in React, Next.js and React Native — with shared design systems, analytics and full App Store release support.',
-    eyebrow: '02 — Web & Mobile',
+      'Silver Axis builds fast, scalable web apps and native mobile apps in React, Next.js and React Native, with shared design systems, analytics and full App Store release support.',
+    eyebrow: '02, Web & Mobile',
     title: 'Apps people actually keep using.',
     subtitle: 'Fast, maintainable, and built to grow with your users.',
     description:
-      'Native mobile and web on one typed codebase — designed, built and instrumented for the long run. We handle the full stack from first wireframe to App Store submission.',
+      'Native mobile and web on one typed codebase, designed, built and instrumented for the long run. We handle the full stack from first wireframe to App Store submission.',
     image: '/assets/web-and-mobile.png',
     imageAlt: 'Web and mobile app designs on laptop and phone',
     imageFit: 'cover',
@@ -241,7 +241,7 @@ export const SERVICE_ITEMS: ServiceItem[] = [
       {
         n: '02',
         title: 'Design with your system in mind',
-        desc: 'We build a design system — tokens, components, spacing — so every screen looks intentional and stays consistent at scale.',
+        desc: 'We build a design system, tokens, components, spacing, so every screen looks intentional and stays consistent at scale.',
       },
       {
         n: '03',
@@ -262,7 +262,7 @@ export const SERVICE_ITEMS: ServiceItem[] = [
     faq: [
       {
         q: 'Do you do iOS first, or Android?',
-        a: 'We default to React Native with Expo, which ships both simultaneously from one codebase. If you need platform-specific native modules or have an existing codebase in Swift/Kotlin, we adjust. We typically recommend starting with the platform your target users prefer — which we assess in the discovery phase.',
+        a: 'We default to React Native with Expo, which ships both simultaneously from one codebase. If you need platform-specific native modules or have an existing codebase in Swift/Kotlin, we adjust. We typically recommend starting with the platform your target users prefer, which we assess in the discovery phase.',
       },
       {
         q: 'Do you handle design as well as development?',
@@ -270,7 +270,7 @@ export const SERVICE_ITEMS: ServiceItem[] = [
       },
       {
         q: 'Can you take over an existing codebase?',
-        a: 'Yes. We do a code audit first — architecture, performance, test coverage, dependency health — and give you an honest read before we commit. We have taken over React, Next.js, React Native and legacy jQuery codebases.',
+        a: 'Yes. We do a code audit first, architecture, performance, test coverage, dependency health, and give you an honest read before we commit. We have taken over React, Next.js, React Native and legacy jQuery codebases.',
       },
       {
         q: 'Do you maintain the app after launch?',
@@ -278,7 +278,7 @@ export const SERVICE_ITEMS: ServiceItem[] = [
       },
       {
         q: 'How long does a typical web or mobile project take?',
-        a: 'A focused marketing site or MVP takes 6–10 weeks. A full product — multi-role app with backend, CMS and integrations — typically runs 12–20 weeks. We give a fixed-scope estimate after the discovery session.',
+        a: 'A focused marketing site or MVP takes 6–10 weeks. A full product, multi-role app with backend, CMS and integrations, typically runs 12–20 weeks. We give a fixed-scope estimate after the discovery session.',
       },
     ],
     jsonLd: {
@@ -298,10 +298,10 @@ export const SERVICE_ITEMS: ServiceItem[] = [
     label: 'Custom Systems',
     metaTitle: 'Custom CRM, ERP & Internal Tools Development | Silver Axis',
     metaDescription:
-      'Silver Axis builds custom CRMs, ERPs, dashboards and operational software tailored to your workflows — with clean data models, role-based access and full documentation.',
-    eyebrow: '03 — Custom Systems',
+      'Silver Axis builds custom CRMs, ERPs, dashboards and operational software tailored to your workflows, with clean data models, role-based access and full documentation.',
+    eyebrow: '03, Custom Systems',
     title: 'Software shaped around how you work.',
-    subtitle: 'Internal tools and systems that fit your operations — not the other way around.',
+    subtitle: 'Internal tools and systems that fit your operations, not the other way around.',
     description:
       'CRMs, ERPs, dashboards and internal tools built on a clean schema with proper access control. We design the data model around how your team actually operates, not a template you spend years bending to fit.',
     image: '/assets/crm-erp.png',
@@ -324,7 +324,7 @@ export const SERVICE_ITEMS: ServiceItem[] = [
       {
         icon: 'table-columns',
         title: 'Spreadsheets are running critical operations',
-        desc: 'Finance, inventory, project tracking or sales pipeline — all in files that break, get out of sync, and have no access control.',
+        desc: 'Finance, inventory, project tracking or sales pipeline, all in files that break, get out of sync, and have no access control.',
       },
       {
         icon: 'database',
@@ -355,7 +355,7 @@ export const SERVICE_ITEMS: ServiceItem[] = [
       {
         n: '01',
         title: 'Deep-dive discovery',
-        desc: 'We interview your team, map every workflow, and document the edge cases. The real requirements surface in the process — not months later.',
+        desc: 'We interview your team, map every workflow, and document the edge cases. The real requirements surface in the process, not months later.',
       },
       {
         n: '02',
@@ -381,7 +381,7 @@ export const SERVICE_ITEMS: ServiceItem[] = [
     faq: [
       {
         q: 'Can it integrate with the tools we already use?',
-        a: 'Yes. We design the integration layer as part of the data model — not as an afterthought. Typical integrations include accounting tools (Xero, QuickBooks), communication tools (Slack, email), and cloud storage. If it has an API, we can connect it.',
+        a: 'Yes. We design the integration layer as part of the data model, not as an afterthought. Typical integrations include accounting tools (Xero, QuickBooks), communication tools (Slack, email), and cloud storage. If it has an API, we can connect it.',
       },
       {
         q: 'Who owns the code?',
@@ -393,7 +393,7 @@ export const SERVICE_ITEMS: ServiceItem[] = [
       },
       {
         q: 'How long does a custom system typically take?',
-        a: 'A focused internal tool — say, a pipeline tracker or simple CRM — takes 6–10 weeks. A full ERP or multi-module operational system with reporting and integrations is typically 16–24 weeks. We scope each engagement after discovery.',
+        a: 'A focused internal tool, say, a pipeline tracker or simple CRM, takes 6–10 weeks. A full ERP or multi-module operational system with reporting and integrations is typically 16–24 weeks. We scope each engagement after discovery.',
       },
       {
         q: 'Do you provide support after launch?',

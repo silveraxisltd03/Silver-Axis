@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet-async';
+﻿import { Helmet } from 'react-helmet-async';
 
 interface PageMetaProps {
   title: string;
@@ -7,7 +7,7 @@ interface PageMetaProps {
 }
 
 export function PageMeta({ title, description, jsonLd }: PageMetaProps) {
-  const fullTitle = title === 'Home' ? 'Silver Axis — AI automation & custom software' : `${title} — Silver Axis`;
+  const fullTitle = title === 'Home' ? 'Silver Axis, AI automation & custom software' : `${title}, Silver Axis`;
 
   return (
     <Helmet>

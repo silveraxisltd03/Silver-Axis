@@ -1,11 +1,9 @@
 import { Link } from 'react-router-dom';
 import { PageMeta } from '@/shared/components/seo/PageMeta';
-import { CTA } from '@/shared/components/ui/CTA';
 import { ArrowUR } from '@/shared/components/ui/icons';
 import { CaseStudyCard } from '@/shared/components/ui/CaseStudyCard';
-import { CertificationsBar } from '@/shared/components/ui/CertificationsBar';
 import { Reveal } from '@/shared/components/ui/Reveal';
-import { TestimonialCard } from '@/shared/components/ui/TestimonialCard';
+import { TestimonialsMarquee } from '@/shared/components/ui/TestimonialsMarquee';
 import { HOME_CASES } from '@/shared/content/case-studies';
 import { QUOTES } from '@/shared/content/quotes';
 import { projectDetailPath, projectsFilteredPath, ROUTES, serviceDetailPath } from '@/shared/constants/routes';
@@ -32,7 +30,7 @@ const HOME_SERVICE_TILES: HomeServiceTile[] = [
     imageFit: 'contain',
     title: 'Automate the busywork',
     description:
-      'We wire your tools together with webhooks and queues, then let AI agents run the repetitive work — with retries, logging and human approval where it counts.',
+      'We wire your tools together with webhooks and queues, then let AI agents run the repetitive work, with retries, logging, and human approval where it counts.',
   },
   {
     slug: 'web-mobile',
@@ -41,7 +39,7 @@ const HOME_SERVICE_TILES: HomeServiceTile[] = [
     imageFit: 'cover',
     title: 'Web & mobile, done right',
     description:
-      'Native iOS and Android plus a React web app on one typed codebase — cached, instrumented and built to stay fast as traffic climbs.',
+      'Native iOS and Android plus a React web app on one typed codebase, cached, instrumented, and built to stay fast as traffic climbs.',
   },
   {
     slug: 'custom-systems',
@@ -50,7 +48,7 @@ const HOME_SERVICE_TILES: HomeServiceTile[] = [
     imageFit: 'cover',
     title: 'CRMs, ERPs & internal tools',
     description:
-      'CRMs, ERPs and dashboards on a clean schema with role-based access — shaped around your workflow, not a template you bend to fit.',
+      'CRMs, ERPs and dashboards on a clean schema with role-based access, shaped around your workflow, not a template you bend to fit.',
     titleClass: 'nowrap-title',
   },
 ];
@@ -60,7 +58,7 @@ export function HomePage() {
     <>
       <PageMeta
         title="Home"
-        description="Silver Axis — AI automation and custom software. We automate, build, and scale your software."
+        description="Silver Axis: AI automation and custom software. We automate, build, and scale your software."
       />
 
       {/* HERO: AXIS */}
@@ -79,7 +77,7 @@ export function HomePage() {
             <br className="hero-headline__break" />
             scale your software.
           </h1>
-          <p style={css('font-size:clamp(17px,1.6vw,21px);line-height:1.55;color:#9aa3b8;max-width:600px;margin:0 0 42px;')}>The right blend of AI and engineering — we automate what should be, build the rest by hand, and ship web and mobile systems that scale to millions of users.</p>
+          <p style={css('font-size:clamp(17px,1.6vw,21px);line-height:1.55;color:#9aa3b8;max-width:600px;margin:0 0 42px;')}>The right blend of AI and engineering. We automate what should be, build the rest by hand, and ship web and mobile systems that scale to millions of users.</p>
           <div style={css('display:flex;gap:14px;flex-wrap:wrap;justify-content:center;')}>
             <Link to={ROUTES.contact} className="btnW" style={css('background:#fff;color:#070b16;font-size:15.5px;font-weight:600;padding:17px 36px;border-radius:999px;')}>Book a free audit</Link>
             <Link to={ROUTES.projects} className="btnG" style={css('background:rgba(255,255,255,.05);color:#eef1f8;font-size:15.5px;font-weight:500;padding:17px 36px;border-radius:999px;border:1px solid rgba(255,255,255,.16);')}>See our work</Link>
@@ -153,27 +151,12 @@ export function HomePage() {
       </section>
 
       {/* TESTIMONIALS */}
-      <section id="testimonials" className="section-x container" style={css('padding:80px 0 40px;')}>
-        <Reveal style={css('margin:0 auto 54px;text-align:center;display:flex;flex-direction:column;align-items:center;')}>
+      <section id="testimonials" style={css('padding:80px 0 60px;')}>
+        <Reveal style={css('margin:0 auto 54px;text-align:center;display:flex;flex-direction:column;align-items:center;padding:0 var(--section-x);')}>
           <h2 style={css("font-size:clamp(32px,4.2vw,52px);font-family:'Clash Display','General Sans',sans-serif;line-height:1.07;letter-spacing:-.02em;font-weight:500;margin:0;color:#0b1020;")}>What it&rsquo;s like to work with us.</h2>
         </Reveal>
-        <div className="grid-3">
-          {QUOTES.map((q) => (
-            <Reveal key={q.name + q.role}>
-              <TestimonialCard quote={q} />
-            </Reveal>
-          ))}
-        </div>
+        <TestimonialsMarquee quotes={QUOTES} />
       </section>
-
-      {/* CERTIFICATIONS */}
-      <section className="section-x container" style={css('padding:20px 0 48px;')}>
-        <Reveal>
-          <CertificationsBar />
-        </Reveal>
-      </section>
-
-      <CTA title="Start with a free audit." text="Tell us where things are slow or breaking. We will show you what to automate, what to rebuild, and what to leave alone." />
     </>
   );
 }

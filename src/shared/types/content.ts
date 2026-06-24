@@ -47,12 +47,16 @@ export interface CaseStudy {
   screenshots?: { src: string; caption: string }[];
   /** Live URL to link from the detail page */
   liveUrl?: string;
+  /** Client testimonial shown below the thumbnail */
+  testimonial?: { quote: string; author?: string; role?: string };
 }
 
 export interface Quote {
   text: string;
   name: string;
   role: string;
+  country?: string;
+  countryCode?: string;
 }
 
 export interface StatItem {

@@ -1,9 +1,8 @@
 import { PageMeta } from '@/shared/components/seo/PageMeta';
 import { HeroBand } from '@/shared/components/ui/HeroBand';
-import { CTA } from '@/shared/components/ui/CTA';
 import { CaseStudyCard } from '@/shared/components/ui/CaseStudyCard';
 import { Reveal } from '@/shared/components/ui/Reveal';
-import { TestimonialCard } from '@/shared/components/ui/TestimonialCard';
+import { TestimonialsMarquee } from '@/shared/components/ui/TestimonialsMarquee';
 import { filterCaseStudiesByCategory } from '@/shared/content/case-studies';
 import { QUOTES } from '@/shared/content/quotes';
 import { projectDetailPath } from '@/shared/constants/routes';
@@ -43,20 +42,12 @@ export function ProjectsPage() {
         )}
       </section>
 
-      <section className="section-x container" style={css('padding:70px 0;')}>
-        <Reveal style={css('margin:0 auto 50px;text-align:center;display:flex;flex-direction:column;align-items:center;')}>
+      <section style={css('padding:70px 0 60px;')}>
+        <Reveal style={css('margin:0 auto 50px;text-align:center;display:flex;flex-direction:column;align-items:center;padding:0 var(--section-x);')}>
           <h2 style={css("font-family:'Clash Display','General Sans',sans-serif;font-size:clamp(30px,4vw,52px);line-height:1.06;letter-spacing:-.02em;font-weight:500;margin:0;color:#0b1020;")}>What it is like to work with us.</h2>
         </Reveal>
-        <div className="grid-3">
-          {QUOTES.map((q) => (
-            <Reveal key={q.name + q.role}>
-              <TestimonialCard quote={q} />
-            </Reveal>
-          ))}
-        </div>
+        <TestimonialsMarquee quotes={QUOTES} />
       </section>
-
-      <CTA title="Your project could be next." text="Start with a free audit and see what is possible — no obligation." />
     </>
   );
 }

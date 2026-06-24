@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { Link, Navigate, useParams } from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faXmark, faCheck, faExpand } from '@fortawesome/free-solid-svg-icons';
@@ -53,7 +53,7 @@ export function CaseStudyDetailPage() {
             <div className="cs-thumbnail__frame">
               <img
                 src={cs.thumbnail}
-                alt={`${cs.title} — project screenshot`}
+                alt={`${cs.title}, project screenshot`}
                 className="cs-thumbnail__img"
                 loading="eager"
               />
@@ -63,13 +63,31 @@ export function CaseStudyDetailPage() {
       )}
 
 
+      {/* ── TESTIMONIAL ── */}
+      {cs.testimonial && (
+        <Reveal>
+          <div className="cs-testimonial section-x container">
+            <blockquote className="cs-testimonial__block">
+              <span className="cs-testimonial__eyebrow">Client feedback</span>
+              <p className="cs-testimonial__quote">&#8220;{cs.testimonial.quote}&#8221;</p>
+              {(cs.testimonial.author || cs.testimonial.role) && (
+                <footer className="cs-testimonial__footer">
+                  {cs.testimonial.author && <span className="cs-testimonial__author">{cs.testimonial.author}</span>}
+                  {cs.testimonial.role && <span className="cs-testimonial__role">{cs.testimonial.role}</span>}
+                </footer>
+              )}
+            </blockquote>
+          </div>
+        </Reveal>
+      )}
+
       {/* ── BEFORE → AFTER ── */}
       {(cs.problemPoints || cs.solutionPoints) && (
         <Reveal>
           <div className="cs-ba section-x container">
             <div className="cs-ba__header">
               <h2 className="cs-ba__heading">The transformation</h2>
-              <p className="cs-ba__sub">What the client was dealing with — and what we replaced it with.</p>
+              <p className="cs-ba__sub">What the client was dealing with, and what we replaced it with.</p>
             </div>
             <div className="cs-ba__panels">
               {/* BEFORE */}
@@ -223,7 +241,7 @@ export function CaseStudyDetailPage() {
 
       <CTA
         title="Want results like this?"
-        text="Start with a free audit — we will map what to automate, what to rebuild, and what to leave alone."
+        text="Start with a free audit, we will map what to automate, what to rebuild, and what to leave alone."
       />
     </>
   );

@@ -1,8 +1,17 @@
 import { useEffect, useRef, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { SERVICE_CATEGORIES } from '@/shared/constants/categories';
 import { homeHash, ROUTES, serviceDetailPath } from '@/shared/constants/routes';
 import { css } from '@/shared/lib/css';
+
+function scrollToId(id: string) {
+  const el = document.getElementById(id);
+  if (el) {
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    return true;
+  }
+  return false;
+}
 
 function Chevron() {
   return (
@@ -14,7 +23,18 @@ function Chevron() {
 
 export function Nav() {
   const { pathname } = useLocation();
+  const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const handleHashLink = (sectionId: string, e: React.MouseEvent) => {
+    e.preventDefault();
+    if (pathname === '/') {
+      scrollToId(sectionId);
+    } else {
+      navigate(`/#${sectionId}`);
+    }
+    setMenuOpen(false);
+  };
   const [servicesOpen, setServicesOpen] = useState(false);
   const [servicesHover, setServicesHover] = useState(false);
   const servicesLeaveTimer = useRef<ReturnType<typeof setTimeout>>();
@@ -92,7 +112,7 @@ export function Nav() {
           </div>
 
           <Link to={ROUTES.projects} className="navlink">Projects</Link>
-          <Link to={homeHash('testimonials')} className="navlink">Testimonials</Link>
+          <a href="/#testimonials" className="navlink" onClick={(e) => handleHashLink('testimonials', e)}>Testimonials</a>
           <Link to={ROUTES.contact} className="navlink">Contact</Link>
         </div>
         <Link to={ROUTES.contact} className="nav-cta btnW">Book a free audit</Link>
@@ -132,7 +152,7 @@ export function Nav() {
         </div>
 
         <Link to={ROUTES.projects} className="navlink nav-drawer-link" onClick={closeMenu}>Projects</Link>
-        <Link to={homeHash('testimonials')} className="navlink nav-drawer-link" onClick={closeMenu}>Testimonials</Link>
+        <a href="/#testimonials" className="navlink nav-drawer-link" onClick={(e) => handleHashLink('testimonials', e)}>Testimonials</a>
         <Link to={ROUTES.contact} className="navlink nav-drawer-link" onClick={closeMenu}>Contact</Link>
         <Link to={ROUTES.contact} className="btnW nav-drawer-cta" onClick={closeMenu}>Book a free audit</Link>
       </div>

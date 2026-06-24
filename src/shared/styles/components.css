@@ -46,8 +46,16 @@
 .field:focus { outline: none; border-color: var(--color-blue); box-shadow: 0 0 0 3px rgba(42, 107, 255, 0.14); }
 .field--invalid { border-color: #e03e3e; }
 
-.submit { transition: transform 0.4s var(--ease-out), box-shadow 0.4s, background 0.3s; }
-.submit:hover { transform: translateY(-2px); box-shadow: 0 14px 40px rgba(42, 107, 255, 0.34); }
+.submit {
+  border-radius: 999px;
+  background: #0b1020;
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+.submit:hover {
+  background: #0b1020;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.28);
+}
 
 .accordion-btn {
   all: unset;
@@ -334,6 +342,50 @@ body.nav-open { overflow: hidden; }
 }
 
 /* ── Project filters ── */
+/* ── Testimonials Marquee ── */
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-33.333%); }
+}
+
+.marquee-outer {
+  overflow: hidden;
+  width: 100%;
+  /* fade edges */
+  mask-image: linear-gradient(to right, transparent 0%, #000 8%, #000 92%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 8%, #000 92%, transparent 100%);
+}
+
+.marquee-track {
+  display: flex;
+  align-items: stretch;
+  gap: 20px;
+  width: max-content;
+  animation: marquee-scroll 40s linear infinite;
+}
+
+.marquee-outer:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+.marquee-card {
+  flex: none;
+  width: 320px;
+  padding: 28px 30px;
+  border-radius: 20px;
+  border: 1px solid rgba(20,40,90,.08);
+  background: linear-gradient(165deg,#f1f5ff 0%,#ffffff 70%);
+  box-shadow: 0 10px 32px rgba(28,50,110,.07);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+@media (max-width: 600px) {
+  .marquee-card { width: 280px; }
+}
+
+/* ── Project Filters ── */
 .filter-chips {
   display: flex;
   flex-wrap: wrap;
@@ -1805,6 +1857,64 @@ body.nav-open { overflow: hidden; }
 
 .cs-lightbox__close:hover {
   background: rgba(255, 255, 255, 0.22);
+}
+
+/* ── Case Study Testimonial ── */
+.cs-testimonial {
+  padding: 12px 0 48px;
+  display: flex;
+  justify-content: center;
+}
+
+.cs-testimonial__block {
+  margin: 0;
+  padding: 0;
+  max-width: 680px;
+  text-align: center;
+  background: none;
+  border: none;
+}
+
+.cs-testimonial__eyebrow {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--clr-accent);
+  margin-bottom: 16px;
+}
+
+.cs-testimonial__quote {
+  font-size: clamp(16px, 1.6vw, 20px);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.7;
+  color: #2c3550;
+  margin: 0;
+}
+
+.cs-testimonial__footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  margin-top: 20px;
+}
+
+.cs-testimonial__author {
+  font-size: 14px;
+  font-weight: 600;
+  color: #0b1020;
+  letter-spacing: 0.01em;
+}
+
+.cs-testimonial__role {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #9aa3b8;
 }
 
 /* ── Inline CTA ── */

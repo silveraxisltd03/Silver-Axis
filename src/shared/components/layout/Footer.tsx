@@ -5,7 +5,7 @@ import { css } from '@/shared/lib/css';
 
 export function Footer() {
   return (
-    <footer className="section-x" style={css('position:relative;background:#070b16;color:#eef1f8;padding:70px 40px 0;overflow:hidden;')}>
+    <footer className="section-x" style={css('position:relative;background:#070b16;color:#eef1f8;padding:52px 40px 0;overflow:hidden;')}>
       <div className="grid-4 container" style={css('grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px;position:relative;z-index:2;')}>
         <div>
           <Link to={ROUTES.home} style={css('display:flex;align-items:center;gap:12px;margin-bottom:20px;')}>
@@ -39,7 +39,7 @@ export function Footer() {
             {ENV.twitter ? (
               <a href={ENV.twitter} className="navlink" style={css('font-size:14px;color:#9aa3b8;')} target="_blank" rel="noopener noreferrer">X / Twitter</a>
             ) : null}
-            <a href="mailto:hello@silveraxis.com" className="navlink" style={css('font-size:14px;color:#9aa3b8;')}>hello@silveraxis.com</a>
+            <a href="mailto:info@silveraxisltd.com" className="navlink" style={css('font-size:14px;color:#9aa3b8;')}>info@silveraxisltd.com</a>
           </div>
         </div>
       </div>

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { Link, Navigate, useParams } from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
@@ -114,7 +114,7 @@ export function ServiceDetailPage() {
           <Reveal>
             <h2 className="svc-section-title">Technologies we work with</h2>
             <p className="svc-section-sub">
-              We pick the right tool for the job — not the trendiest one. These are the platforms
+              We pick the right tool for the job, not the trendiest one. These are the platforms
               and frameworks we use regularly and know deeply.
             </p>
             <div className="svc-tech__groups">
@@ -138,7 +138,7 @@ export function ServiceDetailPage() {
         <Reveal>
           <h2 className="svc-section-title">{service.approachHeading}</h2>
           <p className="svc-section-sub">
-            Every engagement follows the same core discipline — no shortcuts, no surprises.
+            Every engagement follows the same core discipline, no shortcuts, no surprises.
           </p>
           <ol className="svc-approach__steps">
             {service.approach.map((step) => (

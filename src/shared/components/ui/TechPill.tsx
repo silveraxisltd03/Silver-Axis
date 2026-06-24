@@ -64,6 +64,8 @@ const TECH_ICON_MAP: Record<string, IconEntry> = {
   'Tailwind CSS':      { slug: 'tailwindcss',     color: '06B6D4' },
   'Framer Motion':     { slug: 'framer',          color: '0055FF' },
   'Figma':             { slug: 'figma',           color: 'F24E1E' },
+  // Database
+  'MongoDB':           { slug: 'mongodb',          color: '47A248' },
   // Backend / API
   'Express':           { slug: 'express',         color: '000000' },
   'Fastify':           { slug: 'fastify',         color: '000000' },

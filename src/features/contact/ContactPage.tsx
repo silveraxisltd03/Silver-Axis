@@ -5,9 +5,12 @@ import { HeroBand } from '@/shared/components/ui/HeroBand';
 import { Reveal } from '@/shared/components/ui/Reveal';
 import { ROUTES } from '@/shared/constants/routes';
 import { css } from '@/shared/lib/css';
+import { openCalendly } from '@/shared/lib/calendly';
 import type { ContactFormState } from '@/shared/types';
-import { CALENDLY_URL, STEPS } from './contact.data';
+import { STEPS } from './contact.data';
 import { hasErrors, validateContactForm, type ContactFormErrors } from './contact.validation';
+
+const FORMSPREE_URL = 'https://formspree.io/f/mykqkvzl';
 
 const emptyForm: ContactFormState = { name: '', email: '', company: '', message: '' };
 
@@ -15,6 +18,8 @@ export function ContactPage() {
   const [form, setForm] = useState<ContactFormState>(emptyForm);
   const [errors, setErrors] = useState<ContactFormErrors>({});
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [sendError, setSendError] = useState(false);
   const [sentName, setSentName] = useState('there');
 
   const upd = (k: keyof ContactFormState) => (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -22,27 +27,51 @@ export function ContactPage() {
     if (errors[k]) setErrors((prev) => ({ ...prev, [k]: undefined }));
   };
 
-  const onSubmit = (e: FormEvent) => {
+  const onSubmit = async (e: FormEvent) => {
     e.preventDefault();
     const nextErrors = validateContactForm(form);
     setErrors(nextErrors);
     if (hasErrors(nextErrors)) return;
 
-    const first = form.name.trim().split(' ')[0];
-    setSentName(first || 'there');
-    setSent(true);
+    setSending(true);
+    setSendError(false);
+
+    try {
+      const res = await fetch(FORMSPREE_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          name:    form.name,
+          email:   form.email,
+          company: form.company,
+          message: form.message,
+        }),
+      });
+
+      if (res.ok) {
+        const first = form.name.trim().split(' ')[0];
+        setSentName(first || 'there');
+        setSent(true);
+      } else {
+        setSendError(true);
+      }
+    } catch {
+      setSendError(true);
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
     <>
       <PageMeta
         title="Contact"
-        description="Book a free audit with Silver Axis. Tell us where things are slow or breaking — no obligation."
+        description="Book a free audit with Silver Axis. Tell us where things are slow or breaking. No obligation."
       />
 
       <HeroBand
         title="Start with a free audit."
-        subtitle="Tell us where things are slow or breaking. We will map what to automate, what to rebuild, and what to leave alone — no obligation."
+        subtitle="Tell us where things are slow or breaking. We will map what to automate, what to rebuild, and what to leave alone. No obligation."
       />
 
       <section className="section-x container" style={css('padding:90px 0 60px;')}>
@@ -62,16 +91,12 @@ export function ContactPage() {
             </div>
             <div style={css('height:1px;background:#eef1f6;margin-bottom:28px;')} aria-hidden="true"></div>
             <div style={css('display:flex;flex-direction:column;gap:14px;')}>
-              <a href="mailto:hello@silveraxis.com" style={css('display:flex;align-items:center;gap:11px;font-size:15.5px;color:#2b3346;font-weight:500;')}>
+              <a href="mailto:info@silveraxisltd.com" style={css('display:flex;align-items:center;gap:11px;font-size:15.5px;color:#2b3346;font-weight:500;')}>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2a6bff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m3 7 9 6 9-6" /></svg>
-                hello@silveraxis.com
+                info@silveraxisltd.com
               </a>
-              <div style={css('display:flex;align-items:center;gap:11px;font-size:15.5px;color:#2b3346;font-weight:500;')}>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2a6bff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" /></svg>
-                Replies within one business day
-              </div>
             </div>
-            <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" style={css('display:inline-flex;align-items:center;gap:10px;margin-top:30px;font-size:15px;font-weight:600;color:#2a6bff;')}>
+            <a href="#" onClick={openCalendly} style={css('display:inline-flex;align-items:center;gap:10px;margin-top:30px;font-size:15px;font-weight:600;color:#2a6bff;')}>
               Prefer to book directly? Grab a time
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" /></svg>
             </a>
@@ -142,7 +167,14 @@ export function ContactPage() {
                   />
                   {errors.message && <p id="contact-message-error" className="field-error" role="alert">{errors.message}</p>}
                 </div>
-                <button type="submit" className="btn-primary submit">Request my free audit</button>
+                <button type="submit" className="btn-primary submit" disabled={sending}>
+                  {sending ? 'Sending…' : 'Request my free audit'}
+                </button>
+                {sendError && (
+                  <p style={css('font-size:13px;color:#e53935;text-align:center;margin:0;')} role="alert">
+                    Something went wrong. Please email us directly at info@silveraxisltd.com
+                  </p>
+                )}
                 <p style={css('font-size:12.5px;color:#9aa3b8;text-align:center;margin:0;')}>We will only use your details to reply about your audit.</p>
               </form>
             ) : (

@@ -1,5 +1,6 @@
 export const ENV = {
-  calendly: import.meta.env.VITE_CALENDLY_URL ?? 'https://calendly.com',
+  calendly: import.meta.env.VITE_CALENDLY_URL ?? 'https://calendly.com/silveraxisltd',
   linkedin: import.meta.env.VITE_LINKEDIN_URL ?? '',
   twitter: import.meta.env.VITE_TWITTER_URL ?? '',
+
 };
