@@ -74,7 +74,7 @@ export function ContactPage() {
         subtitle="Tell us where things are slow or breaking. We will map what to automate, what to rebuild, and what to leave alone. No obligation."
       />
 
-      <section className="section-x container" style={css('padding:90px 0 60px;')}>
+      <section className="section-x container page-section">
         <div className="grid-contact">
           <Reveal>
             <h2 style={css("font-family:'Clash Display','General Sans',sans-serif;font-size:clamp(26px,2.6vw,38px);line-height:1.1;letter-spacing:-.02em;font-weight:500;margin:0 0 28px;color:#0b1020;")}>What happens next.</h2>
@@ -102,7 +102,7 @@ export function ContactPage() {
             </a>
           </Reveal>
 
-          <Reveal style={css('border-radius:24px;border:1px solid rgba(20,40,90,.08);background:linear-gradient(165deg,#f4f7ff 0%,#ffffff 60%);box-shadow:0 18px 50px rgba(28,50,110,.1);padding:clamp(28px,3vw,42px);')}>
+          <Reveal className="contact-form-panel">
             {!sent ? (
               <form onSubmit={onSubmit} noValidate style={css('display:flex;flex-direction:column;gap:18px;')}>
                 <div className="grid-form-2">
@@ -110,7 +110,7 @@ export function ContactPage() {
                     <label htmlFor="contact-name" style={css('display:block;font-size:13px;font-weight:600;color:#0b1020;margin-bottom:8px;')}>Name</label>
                     <input
                       id="contact-name"
-                      className={`field${errors.name ? ' field--invalid' : ''}`}
+                      className={`field contact-field${errors.name ? ' field--invalid' : ''}`}
                       type="text"
                       value={form.name}
                       onChange={upd('name')}
@@ -118,7 +118,6 @@ export function ContactPage() {
                       autoComplete="name"
                       aria-invalid={Boolean(errors.name)}
                       aria-describedby={errors.name ? 'contact-name-error' : undefined}
-                      style={css('width:100%;padding:13px 15px;font-size:15px;color:#0b1020;background:#fff;border:1px solid #dfe4ee;border-radius:11px;')}
                     />
                     {errors.name && <p id="contact-name-error" className="field-error" role="alert">{errors.name}</p>}
                   </div>
@@ -126,7 +125,7 @@ export function ContactPage() {
                     <label htmlFor="contact-email" style={css('display:block;font-size:13px;font-weight:600;color:#0b1020;margin-bottom:8px;')}>Email</label>
                     <input
                       id="contact-email"
-                      className={`field${errors.email ? ' field--invalid' : ''}`}
+                      className={`field contact-field${errors.email ? ' field--invalid' : ''}`}
                       type="email"
                       value={form.email}
                       onChange={upd('email')}
@@ -134,7 +133,6 @@ export function ContactPage() {
                       autoComplete="email"
                       aria-invalid={Boolean(errors.email)}
                       aria-describedby={errors.email ? 'contact-email-error' : undefined}
-                      style={css('width:100%;padding:13px 15px;font-size:15px;color:#0b1020;background:#fff;border:1px solid #dfe4ee;border-radius:11px;')}
                     />
                     {errors.email && <p id="contact-email-error" className="field-error" role="alert">{errors.email}</p>}
                   </div>
@@ -143,27 +141,26 @@ export function ContactPage() {
                   <label htmlFor="contact-company" style={css('display:block;font-size:13px;font-weight:600;color:#0b1020;margin-bottom:8px;')}>Company</label>
                   <input
                     id="contact-company"
-                    className="field"
+                    className="field contact-field"
                     type="text"
                     value={form.company}
                     onChange={upd('company')}
                     placeholder="Company name"
                     autoComplete="organization"
-                    style={css('width:100%;padding:13px 15px;font-size:15px;color:#0b1020;background:#fff;border:1px solid #dfe4ee;border-radius:11px;')}
                   />
                 </div>
                 <div>
                   <label htmlFor="contact-message" style={css('display:block;font-size:13px;font-weight:600;color:#0b1020;margin-bottom:8px;')}>What are you trying to fix?</label>
                   <textarea
                     id="contact-message"
-                    className={`field${errors.message ? ' field--invalid' : ''}`}
+                    className={`field contact-field${errors.message ? ' field--invalid' : ''}`}
                     value={form.message}
                     onChange={upd('message')}
                     rows={4}
                     placeholder="A few lines about where things are slow, manual, or breaking."
                     aria-invalid={Boolean(errors.message)}
                     aria-describedby={errors.message ? 'contact-message-error' : undefined}
-                    style={css('width:100%;padding:13px 15px;font-size:15px;color:#0b1020;background:#fff;border:1px solid #dfe4ee;border-radius:11px;resize:vertical;')}
+                    style={css('resize:vertical;')}
                   />
                   {errors.message && <p id="contact-message-error" className="field-error" role="alert">{errors.message}</p>}
                 </div>

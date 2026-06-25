@@ -23,11 +23,12 @@ export function ServicesPage() {
 
       {SERVICE_ITEMS.map((service, index) => {
         const imageTile = (
-          <div className="tile" style={css('border-radius:24px;overflow:hidden;border:1px solid rgba(20,40,90,.08);background:rgb(212,227,251);box-shadow:0 14px 40px rgba(28,50,110,.08);height:380px;')}>
+          <div className="tile media-tile media-tile--tall">
             <img
               src={service.image}
               alt={service.imageAlt}
-              style={css(`width:100%;height:100%;object-fit:${service.imageFit};display:block;`)}
+              className="media-tile__img"
+              style={css(`object-fit:${service.imageFit};`)}
             />
           </div>
         );
@@ -58,9 +59,14 @@ export function ServicesPage() {
         );
 
         const altLayout = index % 2 === 1;
+        const sectionClass = [
+          'section-x container services-block',
+          index === 0 ? '' : 'services-block--middle',
+          index === SERVICE_ITEMS.length - 1 ? 'services-block--last' : '',
+        ].filter(Boolean).join(' ');
 
         return (
-          <section key={service.slug} className="section-x container" style={css(`padding:${index === 0 ? '110px' : '90px'} 0 ${index === SERVICE_ITEMS.length - 1 ? '100px' : '0'};`)}>
+          <section key={service.slug} className={sectionClass}>
             <Reveal>
               <div className={`grid-2 grid-2--wide${altLayout ? ' grid-2-alt' : ''}`}>
                 {altLayout ? (
@@ -79,7 +85,6 @@ export function ServicesPage() {
           </section>
         );
       })}
-
     </>
   );
 }

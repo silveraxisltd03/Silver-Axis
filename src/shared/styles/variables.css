@@ -19,14 +19,32 @@
   --font-display: 'Clash Display', 'General Sans', sans-serif;
   --font-body: 'General Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
 
-  --max-content: 1240px;
-  --section-x: 40px;
+  /* Site shell — header, sections, footer content */
+  --max-content: 1440px;
+
+  --section-x: clamp(20px, 4vw, 40px);
   --section-x-mobile: 20px;
-  --radius-card: 24px;
-  --radius-pill: 999px;
+  --section-y-lg: clamp(64px, 10vw, 120px);
+  --section-y-md: clamp(48px, 7vw, 80px);
+  --section-y-sm: clamp(40px, 5vw, 60px);
+
+  /* Unified card system */
+  --border-card: 1px solid rgba(20, 40, 90, 0.08);
+  --radius-card: 20px;
+  --padding-card: 28px;
   --shadow-card: 0 14px 40px rgba(28, 50, 110, 0.08);
   --shadow-card-hover: 0 28px 64px rgba(28, 50, 110, 0.14);
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 
+  --radius-pill: 999px;
+
   --nav-height: 80px;
+  --touch-min: 44px;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --padding-card: 20px;
+    --nav-height: 68px;
+  }
 }

@@ -232,7 +232,7 @@ export function CaseStudyDetailPage() {
           <div className="grid-2">
             {related.map((r) => (
               <Reveal key={r.slug}>
-                <CaseStudyCard caseStudy={r} to={projectDetailPath(r.slug)} imageHeight={200} />
+                <CaseStudyCard caseStudy={r} to={projectDetailPath(r.slug)} />
               </Reveal>
             ))}
           </div>
