@@ -14,16 +14,16 @@ export function App() {
       </a>
       <ScrollToTop />
       <Nav />
-      <main id="main">
-        <Suspense fallback={null}>
+      <Suspense fallback={null}>
+        <main id="main">
           <Routes>
             {appRoutes.map(({ path, element }) => (
               <Route key={path} path={path} element={element} />
             ))}
           </Routes>
-        </Suspense>
-      </main>
-      <Footer />
+        </main>
+        <Footer />
+      </Suspense>
     </div>
   );
 }
