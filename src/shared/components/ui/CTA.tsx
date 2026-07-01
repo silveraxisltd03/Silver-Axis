@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import { ROUTES } from '@/shared/constants/routes';
-import { css } from '@/shared/lib/css';
 
 interface CTAProps {
   title: string;
@@ -9,13 +8,15 @@ interface CTAProps {
 
 export function CTA({ title, text }: CTAProps) {
   return (
-    <section className="cta-section section-x" style={css('max-width:1240px;margin:0 auto;padding:50px 40px 56px;')}>
-      <div className="rv" style={css('position:relative;border-radius:30px;overflow:hidden;padding:clamp(48px,7vw,90px) clamp(32px,5vw,72px);text-align:center;background:linear-gradient(135deg,#0b142e 0%,#070b16 60%);')}>
-        <div style={css('position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:760px;height:760px;max-width:130%;border-radius:50%;background:radial-gradient(circle,rgba(42,107,255,.4) 0%,transparent 62%);pointer-events:none;')}></div>
-        <div style={css('position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;')}>
-          <h2 style={css("font-family:'Clash Display','General Sans',sans-serif;font-size:clamp(30px,4.4vw,58px);line-height:1.05;letter-spacing:-.02em;font-weight:500;margin:0 0 20px;color:#fff;max-width:720px;")}>{title}</h2>
-          <p style={css('font-size:18px;line-height:1.55;color:#9aa3b8;max-width:520px;margin:0 0 36px;')}>{text}</p>
-          <Link to={ROUTES.contact} className="btnW" style={css('background:#fff;color:#070b16;font-size:16px;font-weight:600;padding:17px 38px;border-radius:999px;')}>Book your free audit</Link>
+    <section className="cta-section section-x">
+      <div className="cta-block rv">
+        <div className="cta-block__glow" aria-hidden="true" />
+        <div className="cta-block__inner">
+          <h2 className="cta-block__title">{title}</h2>
+          <p className="cta-block__text">{text}</p>
+          <Link to={ROUTES.contact} className="btnW cta-block__btn">
+            Book your free audit
+          </Link>
         </div>
       </div>
     </section>

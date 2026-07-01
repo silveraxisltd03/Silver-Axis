@@ -164,7 +164,7 @@ export function ServiceDetailPage() {
             <div className="grid-2">
               {relatedCases.map((cs) => (
                 <Reveal key={cs.slug}>
-                  <CaseStudyCard caseStudy={cs} to={projectDetailPath(cs.slug)} imageHeight={220} />
+                  <CaseStudyCard caseStudy={cs} to={projectDetailPath(cs.slug)} />
                 </Reveal>
               ))}
             </div>

@@ -61,47 +61,48 @@ export function HomePage() {
         description="Silver Axis: AI automation and custom software. We automate, build, and scale your software."
       />
 
-      {/* HERO: AXIS */}
-      <section id="hero" style={css('position:relative;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 24px 90px;overflow:hidden;background:#070b16;')}>
-        <div style={css('position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:min(92vw,820px);height:min(92vw,820px);pointer-events:none;')}>
-          <div style={css('position:absolute;inset:0;border-radius:50%;border:1px dashed rgba(42,107,255,.2);animation:spinSlow 60s linear infinite;')}></div>
-          <div style={css('position:absolute;inset:9%;border-radius:50%;border:1px dashed rgba(42,107,255,.26);animation:spinRev 45s linear infinite;')}></div>
-          <div style={css('position:absolute;inset:20%;border-radius:50%;border:1px solid rgba(255,255,255,.07);animation:spinSlow 38s linear infinite;')}></div>
-          <div style={css('position:absolute;inset:33%;border-radius:50%;border:1px dashed rgba(42,107,255,.32);animation:spinRev 28s linear infinite;')}></div>
-          <div style={css('position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(42,107,255,.32) 0%,transparent 64%);')}></div>
+      <section id="hero" className="home-hero">
+        <div className="home-hero__rings" aria-hidden="true">
+          <div style={css('position:absolute;inset:0;border-radius:50%;border:1px dashed rgba(42,107,255,.2);animation:spinSlow 60s linear infinite;')} />
+          <div style={css('position:absolute;inset:9%;border-radius:50%;border:1px dashed rgba(42,107,255,.26);animation:spinRev 45s linear infinite;')} />
+          <div style={css('position:absolute;inset:20%;border-radius:50%;border:1px solid rgba(255,255,255,.07);animation:spinSlow 38s linear infinite;')} />
+          <div style={css('position:absolute;inset:33%;border-radius:50%;border:1px dashed rgba(42,107,255,.32);animation:spinRev 28s linear infinite;')} />
+          <div className="home-hero__glow" />
         </div>
-        <div style={css('position:absolute;inset:0;background:linear-gradient(180deg,transparent 0%,transparent 70%,#070b16 98%);pointer-events:none;')}></div>
-        <div style={css('position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;max-width:920px;')}>
-          <h1 className="hero-headline" style={css("font-size:clamp(42px,6.4vw,88px);font-family:'Clash Display','General Sans',sans-serif;line-height:1.04;letter-spacing:-.02em;font-weight:500;margin:0 0 26px;color:#fff;")}>
+        <div className="home-hero__fade" aria-hidden="true" />
+        <div className="home-hero__content">
+          <h1 className="hero-headline home-hero__headline">
             <span className="hero-headline__line1">We automate, build, and</span>
             <br className="hero-headline__break" />
             scale your software.
           </h1>
-          <p style={css('font-size:clamp(17px,1.6vw,21px);line-height:1.55;color:#9aa3b8;max-width:600px;margin:0 0 42px;')}>The right blend of AI and engineering. We automate what should be, build the rest by hand, and ship web and mobile systems that scale to millions of users.</p>
-          <div style={css('display:flex;gap:14px;flex-wrap:wrap;justify-content:center;')}>
-            <Link to={ROUTES.contact} className="btnW" style={css('background:#fff;color:#070b16;font-size:15.5px;font-weight:600;padding:17px 36px;border-radius:999px;')}>Book a free audit</Link>
-            <Link to={ROUTES.projects} className="btnG" style={css('background:rgba(255,255,255,.05);color:#eef1f8;font-size:15.5px;font-weight:500;padding:17px 36px;border-radius:999px;border:1px solid rgba(255,255,255,.16);')}>See our work</Link>
+          <p className="home-hero__sub">The right blend of AI and engineering. We automate what should be, build the rest by hand, and ship web and mobile systems that scale to millions of users.</p>
+          <div className="home-hero__actions">
+            <Link to={ROUTES.contact} className="btnW btn-hero-primary">Book a free audit</Link>
+            <Link to={ROUTES.projects} className="btnG btn-hero-secondary">See our work</Link>
           </div>
         </div>
       </section>
 
-      {/* SERVICES */}
-      <section id="services" className="section-x container" style={css('padding:120px 0 70px;')}>
-        <Reveal style={css('margin-bottom:60px;')}>
-          <div style={css('display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:28px;')}>
-            <h2 style={css("font-size:clamp(32px,4.2vw,58px);font-family:'Clash Display','General Sans',sans-serif;line-height:1.06;letter-spacing:-.02em;font-weight:500;margin:0;color:#0b1020;max-width:620px;")}>We start with the problem,<br />not the tech.</h2>
-            <p style={css('font-size:17px;line-height:1.55;color:#6b7488;max-width:330px;margin:0 0 8px;')}>Sometimes the fix is automation. Sometimes a system built from scratch. Usually a bit of both.</p>
-          </div>
+      <section id="services" className="section-x container page-section--lg">
+        <Reveal className="section-header">
+          <h2 className="section-heading" style={css('max-width:620px;')}>
+            We start with the problem,
+            <br />
+            not the tech.
+          </h2>
+          <p style={css('font-size:17px;line-height:1.55;color:#6b7488;max-width:330px;margin:0 0 8px;')}>Sometimes the fix is automation. Sometimes a system built from scratch. Usually a bit of both.</p>
         </Reveal>
 
         <div className="grid-3">
           {HOME_SERVICE_TILES.map((tile, i) => (
             <Reveal key={tile.slug} delay={i * 90}>
-              <div className="tile" style={css('position:relative;border-radius:24px;overflow:hidden;border:1px solid rgba(20,40,90,.08);background:rgb(212,227,251);box-shadow:0 14px 40px rgba(28,50,110,.08);height:300px;')}>
+              <div className="tile media-tile">
                 <img
                   src={tile.image}
                   alt={tile.imageAlt}
-                  style={css(`width:100%;height:100%;object-fit:${tile.imageFit};display:block;`)}
+                  className="media-tile__img"
+                  style={css(`object-fit:${tile.imageFit};`)}
                 />
               </div>
               <h3
@@ -124,15 +125,13 @@ export function HomePage() {
         </div>
       </section>
 
-      {/* PROCESS */}
       <section id="process" style={css('background:linear-gradient(180deg,#fff 0%,#f6f9ff 45%,#f6f9ff 55%,#fff 100%);')}>
         <ProcessShowcase steps={STEPS} title="The hard part is figuring it out first." />
       </section>
 
-      {/* SELECTED WORK */}
-      <section id="work" className="section-x container" style={css('padding:80px 0;')}>
-        <Reveal style={css('margin-bottom:54px;')}>
-          <h2 style={css("font-size:clamp(32px,4.2vw,56px);font-family:'Clash Display','General Sans',sans-serif;line-height:1.06;letter-spacing:-.02em;font-weight:500;margin:0;color:#0b1020;")}>A few things we&rsquo;ve shipped.</h2>
+      <section id="work" className="section-x container page-section">
+        <Reveal style={css('margin-bottom:clamp(40px,5vw,54px);')}>
+          <h2 className="section-heading">A few things we&rsquo;ve shipped.</h2>
         </Reveal>
         <div className="grid-2">
           {HOME_CASES.map((cs) => (
@@ -142,7 +141,7 @@ export function HomePage() {
           ))}
         </div>
         <Reveal>
-          <div style={css('display:flex;justify-content:center;margin-top:40px;')}>
+          <div style={css('display:flex;justify-content:center;margin-top:clamp(28px,4vw,40px);')}>
             <Link to={ROUTES.projects} className="cs-inline-cta__btn">
               View all projects →
             </Link>
@@ -150,10 +149,9 @@ export function HomePage() {
         </Reveal>
       </section>
 
-      {/* TESTIMONIALS */}
-      <section id="testimonials" style={css('padding:80px 0 60px;')}>
-        <Reveal style={css('margin:0 auto 54px;text-align:center;display:flex;flex-direction:column;align-items:center;padding:0 var(--section-x);')}>
-          <h2 style={css("font-size:clamp(32px,4.2vw,52px);font-family:'Clash Display','General Sans',sans-serif;line-height:1.07;letter-spacing:-.02em;font-weight:500;margin:0;color:#0b1020;")}>What it&rsquo;s like to work with us.</h2>
+      <section id="testimonials" className="testimonials-section">
+        <Reveal className="testimonials-section__header">
+          <h2 className="section-heading section-heading--center">What it&rsquo;s like to work with us.</h2>
         </Reveal>
         <TestimonialsMarquee quotes={QUOTES} />
       </section>
