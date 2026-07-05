@@ -10,6 +10,8 @@ import { Reveal } from '@/shared/components/ui/Reveal';
 import { TechPill } from '@/shared/components/ui/TechPill';
 import { projectDetailPath, ROUTES } from '@/shared/constants/routes';
 import { getCaseStudyBySlug, getRelatedCaseStudies } from '@/shared/content/case-studies';
+import { getIndustryBySlug } from '@/shared/constants/industries';
+import { SERVICE_CATEGORIES } from '@/shared/constants/categories';
 
 library.add(faXmark, faCheck, faExpand);
 
@@ -17,12 +19,14 @@ export function CaseStudyDetailPage() {
   const { slug } = useParams<{ slug: string }>();
   const [lightbox, setLightbox] = useState<{ src: string; caption: string } | null>(null);
 
-  if (!slug) return <Navigate to={ROUTES.projects} replace />;
+  if (!slug) return <Navigate to={ROUTES.work} replace />;
 
   const cs = getCaseStudyBySlug(slug);
-  if (!cs) return <Navigate to={ROUTES.projects} replace />;
+  if (!cs) return <Navigate to={ROUTES.work} replace />;
 
   const related = getRelatedCaseStudies(slug);
+  const industry = getIndustryBySlug(cs.industry);
+  const serviceLabels = cs.services.map((s) => SERVICE_CATEGORIES.find((c) => c.slug === s)?.label ?? s);
 
   return (
     <>
@@ -31,7 +35,13 @@ export function CaseStudyDetailPage() {
       {/* ── HERO ── */}
       <header className="cs-hero section-x container">
         <Reveal>
-          <Link to={ROUTES.projects} className="cs-back-link">← All projects</Link>
+          <Link to={ROUTES.work} className="cs-back-link">← All case studies</Link>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, margin: '4px 0 14px' }}>
+            <span className="case-study-card__industry-badge">{industry.label}</span>
+            {serviceLabels.map((label) => (
+              <span key={label} className="case-study-card__service-pill">{label}</span>
+            ))}
+          </div>
           <h1 className="cs-hero__title">{cs.title}</h1>
           {cs.liveUrl && (
             <a

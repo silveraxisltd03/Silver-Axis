@@ -2,6 +2,8 @@ import type React from 'react';
 import { Link } from 'react-router-dom';
 import type { CaseStudy } from '@/shared/types';
 import { TechPill } from '@/shared/components/ui/TechPill';
+import { getIndustryBySlug } from '@/shared/constants/industries';
+import { SERVICE_CATEGORIES } from '@/shared/constants/categories';
 import { css } from '@/shared/lib/css';
 
 interface CaseStudyCardProps {
@@ -12,6 +14,9 @@ interface CaseStudyCardProps {
 }
 
 export function CaseStudyCard({ caseStudy: cs, to, className = '', style: styleProp }: CaseStudyCardProps) {
+  const industry = getIndustryBySlug(cs.industry);
+  const serviceLabels = cs.services.map((slug) => SERVICE_CATEGORIES.find((c) => c.slug === slug)?.label ?? slug);
+
   return (
     <Link
       to={to}
@@ -36,9 +41,17 @@ export function CaseStudyCard({ caseStudy: cs, to, className = '', style: styleP
         )}
       </div>
       <div className="case-study-card__body">
+        <div style={css('display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:2px;')}>
+          <span className="case-study-card__industry-badge">{industry.label}</span>
+        </div>
         <span style={css('font-size:13px;color:#2a6bff;font-weight:600;')}>{cs.tag}</span>
         <h3 className="case-study-card__title">{cs.title}</h3>
-        <p style={css('font-size:15px;line-height:1.6;color:#6b7488;margin:0 0 22px;')}>{cs.desc}</p>
+        <p style={css('font-size:15px;line-height:1.6;color:#6b7488;margin:0 0 14px;')}>{cs.desc}</p>
+        <div style={css('display:flex;flex-wrap:wrap;gap:7px;margin-bottom:18px;')}>
+          {serviceLabels.map((label) => (
+            <span key={label} className="case-study-card__service-pill">{label}</span>
+          ))}
+        </div>
         {cs.tools && cs.tools.length > 0 && (
           <div style={css('display:flex;flex-wrap:wrap;gap:7px;')}>
             {cs.tools.slice(0, 5).map((tool) => (

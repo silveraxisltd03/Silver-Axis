@@ -3,7 +3,7 @@ import { PageMeta } from '@/shared/components/seo/PageMeta';
 import { HeroBand } from '@/shared/components/ui/HeroBand';
 import { ArrowUR } from '@/shared/components/ui/icons';
 import { Reveal } from '@/shared/components/ui/Reveal';
-import { projectsFilteredPath, serviceDetailPath } from '@/shared/constants/routes';
+import { workByServicePath, serviceDetailPath } from '@/shared/constants/routes';
 import { SERVICE_ITEMS } from '@/shared/content/services';
 import { css } from '@/shared/lib/css';
 import { BulletList } from './components/BulletList';
@@ -48,7 +48,7 @@ export function ServicesPage() {
                 View more<ArrowUR />
               </Link>
               <Link
-                to={projectsFilteredPath(service.slug)}
+                to={workByServicePath(service.slug)}
                 className="caseLink"
                 style={css('display:inline-flex;align-items:center;gap:7px;font-size:15px;font-weight:600;color:#2a6bff;')}
               >

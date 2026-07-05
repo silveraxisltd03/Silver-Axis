@@ -25,7 +25,7 @@ export function Footer() {
         <div>
           <p style={css('font-size:13px;color:#5b6680;margin:0 0 16px;font-weight:500;')}>Company</p>
           <div style={css('display:flex;flex-direction:column;gap:11px;')}>
-            <Link to={ROUTES.projects} className="navlink" style={css('font-size:14px;color:#9aa3b8;')}>Projects</Link>
+            <Link to={ROUTES.work} className="navlink" style={css('font-size:14px;color:#9aa3b8;')}>Who We Work With</Link>
             <Link to={ROUTES.contact} className="navlink" style={css('font-size:14px;color:#9aa3b8;')}>Contact</Link>
             <Link to={ROUTES.contact} className="navlink" style={css('font-size:14px;color:#9aa3b8;')}>Free audit</Link>
           </div>

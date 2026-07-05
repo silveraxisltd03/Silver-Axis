@@ -10,10 +10,14 @@ export interface NumberedProcessStep {
 }
 
 import type { ServiceCategorySlug } from '@/shared/constants/categories';
+import type { IndustrySlug } from '@/shared/constants/industries';
 
 export interface CaseStudy {
   slug: string;
-  category: ServiceCategorySlug;
+  /** Primary sector this case study belongs to, drives the Work page grouping */
+  industry: IndustrySlug;
+  /** All services delivered as part of this engagement */
+  services: ServiceCategorySlug[];
   /** Legacy placeholder text shown in card when no thumbnail */
   shot: string;
   /** Path to hero image, e.g. /assets/project-thumb.png */

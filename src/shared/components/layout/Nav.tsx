@@ -212,7 +212,7 @@ export function Nav() {
             </div>
           </div>
 
-          <Link to={ROUTES.projects} className="navlink">Projects</Link>
+          <Link to={ROUTES.work} className="navlink">Who We Work With</Link>
           <a href="/#testimonials" className="navlink" onClick={(e) => handleHashLink('testimonials', e)}>Testimonials</a>
           <Link to={ROUTES.contact} className="navlink">Contact</Link>
         </div>
@@ -295,8 +295,8 @@ export function Nav() {
               </div>
             </div>
 
-            <Link to={ROUTES.projects} className="nav-sidebar__link" data-nav-animate onClick={closeMenu}>
-              Projects
+            <Link to={ROUTES.work} className="nav-sidebar__link" data-nav-animate onClick={closeMenu}>
+              Who We Work With
             </Link>
             <a
               href="/#testimonials"

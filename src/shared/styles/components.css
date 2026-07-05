@@ -2537,3 +2537,100 @@ body.nav-open { overflow: hidden; }
     justify-content: center;
   }
 }
+
+/* ═══════════════════════════════════════════
+   WORK PAGE — SECTOR CARDS & BADGES
+═══════════════════════════════════════════ */
+
+.industry-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  width: 100%;
+  text-align: left;
+  background: #f8faff;
+  border: 1.5px solid transparent;
+  border-radius: var(--radius-card);
+  padding: var(--padding-card);
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+  transition: box-shadow 0.25s, transform 0.25s var(--ease-out), border-color 0.2s;
+}
+
+.industry-card:hover {
+  box-shadow: 0 12px 36px rgba(28, 50, 110, 0.09);
+  transform: translateY(-3px);
+}
+
+.industry-card--active {
+  border-color: var(--color-blue);
+  background: var(--color-blue-light);
+}
+
+.industry-card__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--color-blue-light);
+  color: var(--color-blue);
+  font-size: 18px;
+  flex: none;
+}
+
+.industry-card__title {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 600;
+  color: #0b1020;
+  margin: 0;
+  line-height: 1.25;
+}
+
+.industry-card__desc {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--color-muted);
+  margin: 0;
+}
+
+.industry-card__count {
+  margin-top: 4px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--color-blue);
+}
+
+.case-study-card__industry-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 11px;
+  border-radius: var(--radius-pill);
+  background: var(--color-navy);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.case-study-card__service-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 11px;
+  border-radius: var(--radius-pill);
+  background: #fff;
+  border: 1.5px solid #dde4f2;
+  color: var(--color-body);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+@media (max-width: 900px) {
+  .industry-card {
+    padding: 20px;
+  }
+}

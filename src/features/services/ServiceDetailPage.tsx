@@ -19,8 +19,8 @@ import { CaseStudyCard } from '@/shared/components/ui/CaseStudyCard';
 import { Reveal } from '@/shared/components/ui/Reveal';
 import { TechPill } from '@/shared/components/ui/TechPill';
 import { isServiceCategorySlug } from '@/shared/constants/categories';
-import { projectDetailPath, projectsFilteredPath, ROUTES } from '@/shared/constants/routes';
-import { filterCaseStudiesByCategory } from '@/shared/content/case-studies';
+import { projectDetailPath, workByServicePath, ROUTES } from '@/shared/constants/routes';
+import { filterCaseStudiesByService } from '@/shared/content/case-studies';
 import { getServiceBySlug } from '@/shared/content/services';
 import { css } from '@/shared/lib/css';
 import type { FaqItem } from '@/shared/content/services';
@@ -48,7 +48,7 @@ export function ServiceDetailPage() {
     return <Navigate to={ROUTES.services} replace />;
   }
 
-  const relatedCases = filterCaseStudiesByCategory(service.slug).slice(0, 3);
+  const relatedCases = filterCaseStudiesByService(service.slug).slice(0, 3);
 
   return (
     <>
@@ -70,7 +70,7 @@ export function ServiceDetailPage() {
               <div className="svc-hero__actions">
                 <Link to="/contact" className="svc-btn-primary">Book a free audit</Link>
                 <Link
-                  to={projectsFilteredPath(service.slug)}
+                  to={workByServicePath(service.slug)}
                   className="svc-btn-ghost"
                 >
                   View case studies →
@@ -169,8 +169,8 @@ export function ServiceDetailPage() {
               ))}
             </div>
             <div className="svc-related__foot">
-              <Link to={projectsFilteredPath(service.slug)} className="cs-inline-cta__btn">
-                View all {service.label} projects →
+              <Link to={workByServicePath(service.slug)} className="cs-inline-cta__btn">
+                View all {service.label} case studies →
               </Link>
             </div>
           </Reveal>

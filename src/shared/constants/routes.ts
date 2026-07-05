@@ -1,9 +1,10 @@
 import type { ServiceCategorySlug } from './categories';
+import type { IndustrySlug } from './industries';
 
 export const ROUTES = {
   home: '/',
   services: '/services',
-  projects: '/projects',
+  work: '/who-we-work-with',
   contact: '/contact',
 } as const;
 
@@ -27,10 +28,14 @@ export function serviceDetailPath(slug: ServiceCategorySlug): string {
   return `${ROUTES.services}/${slug}`;
 }
 
-export function projectsFilteredPath(category?: ServiceCategorySlug): string {
-  return category ? `${ROUTES.projects}?category=${category}` : ROUTES.projects;
+export function workByServicePath(service?: ServiceCategorySlug): string {
+  return service ? `${ROUTES.work}?service=${service}` : ROUTES.work;
+}
+
+export function workByIndustryPath(industry?: IndustrySlug): string {
+  return industry ? `${ROUTES.work}?industry=${industry}` : ROUTES.work;
 }
 
 export function projectDetailPath(slug: string): string {
-  return `${ROUTES.projects}/${slug}`;
+  return `${ROUTES.work}/${slug}`;
 }

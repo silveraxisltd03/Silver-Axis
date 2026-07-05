@@ -6,7 +6,7 @@ import { Reveal } from '@/shared/components/ui/Reveal';
 import { TestimonialsMarquee } from '@/shared/components/ui/TestimonialsMarquee';
 import { HOME_CASES } from '@/shared/content/case-studies';
 import { QUOTES } from '@/shared/content/quotes';
-import { projectDetailPath, projectsFilteredPath, ROUTES, serviceDetailPath } from '@/shared/constants/routes';
+import { projectDetailPath, workByServicePath, ROUTES, serviceDetailPath } from '@/shared/constants/routes';
 import type { ServiceCategorySlug } from '@/shared/constants/categories';
 import { css } from '@/shared/lib/css';
 import { ProcessShowcase } from './components/ProcessShowcase';
@@ -79,7 +79,7 @@ export function HomePage() {
           <p className="home-hero__sub">The right blend of AI and engineering. We automate what should be, build the rest by hand, and ship web and mobile systems that scale to millions of users.</p>
           <div className="home-hero__actions">
             <Link to={ROUTES.contact} className="btnW btn-hero-primary">Book a free audit</Link>
-            <Link to={ROUTES.projects} className="btnG btn-hero-secondary">See our work</Link>
+            <Link to={ROUTES.work} className="btnG btn-hero-secondary">See our work</Link>
           </div>
         </div>
       </section>
@@ -116,7 +116,7 @@ export function HomePage() {
                 <Link to={serviceDetailPath(tile.slug)} className="caseLink" style={css('display:inline-flex;align-items:center;gap:7px;font-size:14px;font-weight:600;color:#2a6bff;')}>
                   View more<ArrowUR />
                 </Link>
-                <Link to={projectsFilteredPath(tile.slug)} className="caseLink" style={css('display:inline-flex;align-items:center;gap:7px;font-size:14px;font-weight:600;color:#2a6bff;')}>
+                <Link to={workByServicePath(tile.slug)} className="caseLink" style={css('display:inline-flex;align-items:center;gap:7px;font-size:14px;font-weight:600;color:#2a6bff;')}>
                   View case studies<ArrowUR />
                 </Link>
               </div>
@@ -142,8 +142,8 @@ export function HomePage() {
         </div>
         <Reveal>
           <div style={css('display:flex;justify-content:center;margin-top:clamp(28px,4vw,40px);')}>
-            <Link to={ROUTES.projects} className="cs-inline-cta__btn">
-              View all projects →
+            <Link to={ROUTES.work} className="cs-inline-cta__btn">
+              View all case studies →
             </Link>
           </div>
         </Reveal>
