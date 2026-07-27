@@ -153,7 +153,18 @@ export function HomePage() {
         <Reveal className="testimonials-section__header">
           <h2 className="section-heading section-heading--center">What it&rsquo;s like to work with us.</h2>
         </Reveal>
-        <TestimonialsMarquee quotes={QUOTES} />
+        <div className="testimonials-row">
+          <Reveal className="video-testimonial__frame">
+            <iframe
+              src="https://www.youtube.com/embed/x2lsNS5DRTE"
+              title="Client video testimonial"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+              loading="lazy"
+            />
+          </Reveal>
+          <TestimonialsMarquee quotes={QUOTES} />
+        </div>
       </section>
     </>
   );

@@ -2476,6 +2476,50 @@ body.nav-open { overflow: hidden; }
    TESTIMONIALS SECTION
 ═══════════════════════════════════════════ */
 
+.testimonials-row {
+  display: flex;
+  align-items: center;
+  gap: clamp(24px, 4vw, 48px);
+  padding: 0 var(--section-x);
+}
+
+.video-testimonial__frame {
+  position: relative;
+  flex: none;
+  width: min(220px, 60vw);
+  aspect-ratio: 9 / 16;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(11, 16, 32, 0.15);
+}
+
+.video-testimonial__frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.testimonials-row .marquee-outer {
+  flex: 1;
+  min-width: 0;
+}
+
+@media (max-width: 720px) {
+  .testimonials-row {
+    flex-direction: column;
+  }
+
+  .video-testimonial__frame {
+    width: min(240px, 70vw);
+  }
+
+  .testimonials-row .marquee-outer {
+    width: 100%;
+  }
+}
+
 .testimonials-section {
   padding: var(--section-y-md) 0 clamp(48px, 6vw, 60px);
 }
