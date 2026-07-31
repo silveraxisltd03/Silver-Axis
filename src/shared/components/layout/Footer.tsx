@@ -31,7 +31,6 @@ export function Footer() {
           <div className="footer-contact-info">
             <p>{FOOTER_CONTACT.address}</p>
             <a href={`mailto:${FOOTER_CONTACT.email}`} className="footer-link">{FOOTER_CONTACT.email}</a>
-            <a href={`tel:${FOOTER_CONTACT.phone.replace(/[^+\d]/g, '')}`} className="footer-link">{FOOTER_CONTACT.phone}</a>
             <p>{FOOTER_CONTACT.hours}</p>
           </div>
           <div className="footer-social">
@@ -62,7 +61,7 @@ export function Footer() {
 
       <div className="site-footer__bar container">
         <span className="footer-fine-print">© 2026 Silver Axis. All rights reserved.</span>
-        <span className="footer-fine-print">Built, not assembled.</span>
+        <span className="footer-fine-print">YOUR VISION. OUR EXECUTION.</span>
       </div>
 
       <div className="site-footer__watermark" aria-hidden="true">SILVER AXIS</div>

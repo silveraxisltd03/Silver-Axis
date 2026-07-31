@@ -2,39 +2,20 @@
 
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import Link from 'next/link';
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import gsap from 'gsap';
-import { SERVICE_CATEGORIES } from '@/shared/constants/categories';
-import { homeHash, ROUTES, serviceDetailPath } from '@/shared/constants/routes';
+import { homeHash, ROUTES } from '@/shared/constants/routes';
+import { NAV_ITEMS } from '@/shared/content/nav';
+import { NavDesktopDropdown } from './NavDesktopDropdown';
+import { NavMobileGroup } from './NavMobileGroup';
 
 const MOBILE_NAV_MQ = '(max-width: 768px)';
 
-function scrollToId(id: string) {
-  const el = document.getElementById(id);
-  if (el) {
-    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    return true;
-  }
-  return false;
-}
-
-function Chevron({ className = 'nav-dropdown__chevron' }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 10 10" fill="none" aria-hidden="true">
-      <path d="M2 4l3 3 3-3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
-
 export function Nav() {
   const pathname = usePathname();
-  const router = useRouter();
   const [menuOpen, setMenuOpen] = useState(false);
-  const [servicesOpen, setServicesOpen] = useState(false);
-  const [servicesHover, setServicesHover] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  const servicesLeaveTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
   const toggleRef = useRef<HTMLButtonElement>(null);
   const mobileRootRef = useRef<HTMLDivElement>(null);
   const backdropRef = useRef<HTMLDivElement>(null);
@@ -42,36 +23,11 @@ export function Nav() {
   const animRef = useRef<gsap.core.Timeline | null>(null);
   const mountedRef = useRef(false);
 
-  const handleHashLink = (sectionId: string, e: React.MouseEvent) => {
-    e.preventDefault();
-    if (pathname === '/') {
-      scrollToId(sectionId);
-    } else {
-      router.push(`/#${sectionId}`);
-    }
-    setMenuOpen(false);
-  };
-
-  const openServicesMenu = () => {
-    if (servicesLeaveTimer.current) clearTimeout(servicesLeaveTimer.current);
-    setServicesHover(true);
-  };
-
-  const closeServicesMenu = () => {
-    servicesLeaveTimer.current = setTimeout(() => setServicesHover(false), 120);
-  };
-
   const closeMenu = () => setMenuOpen(false);
-
-  useEffect(() => () => {
-    if (servicesLeaveTimer.current) clearTimeout(servicesLeaveTimer.current);
-  }, []);
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect -- intentional route-change reset
     setMenuOpen(false);
-    setServicesOpen(false);
-    setServicesHover(false);
   }, [pathname]);
 
   useEffect(() => {
@@ -191,33 +147,16 @@ export function Nav() {
           <span className="nav__brand nav__brand-text">SILVER AXIS</span>
         </Link>
 
-        <div className="nav-links">
-          <Link href={homeHash('hero')} className="navlink">Home</Link>
-
-          <div
-            className={`nav-dropdown${servicesHover ? ' nav-dropdown--open' : ''}`}
-            onMouseEnter={openServicesMenu}
-            onMouseLeave={closeServicesMenu}
-          >
-            <Link href={ROUTES.services} className="nav-dropdown__trigger navlink">
-              Services
-              <Chevron />
-            </Link>
-            <div className="nav-dropdown__menu" role="menu">
-              <Link href={ROUTES.services} className="nav-dropdown__item nav-dropdown__item--all" role="menuitem">
-                View all services
+        <div className="nav-links" key={pathname}>
+          {NAV_ITEMS.map((item) =>
+            item.type === 'dropdown' ? (
+              <NavDesktopDropdown key={item.label} item={item} />
+            ) : (
+              <Link key={item.label} href={item.href} className="navlink">
+                {item.label}
               </Link>
-              {SERVICE_CATEGORIES.map((cat) => (
-                <Link key={cat.slug} href={serviceDetailPath(cat.slug)} className="nav-dropdown__item" role="menuitem">
-                  {cat.navLabel}
-                </Link>
-              ))}
-            </div>
-          </div>
-
-          <Link href={ROUTES.projects} className="navlink">Projects</Link>
-          <Link href="/#testimonials" className="navlink" onClick={(e) => handleHashLink('testimonials', e)}>Testimonials</Link>
-          <Link href={ROUTES.contact} className="navlink">Contact</Link>
+            ),
+          )}
         </div>
 
         <Link href={ROUTES.contact} className="nav-cta btnW">Book a free audit</Link>
@@ -256,7 +195,10 @@ export function Nav() {
           aria-hidden={!menuOpen}
         >
           <div className="nav-sidebar__header" data-nav-animate>
-            <span className="nav-sidebar__label">Menu</span>
+            <Link href={homeHash('hero')} className="nav-sidebar__brand" onClick={closeMenu}>
+              <img className="nav-sidebar__brand-logo" src="/assets/logo-mark-white.png" alt="Silver Axis" />
+              <span>SILVER AXIS</span>
+            </Link>
             <button type="button" className="nav-sidebar__close" onClick={closeMenu} aria-label="Close menu">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" aria-hidden="true">
                 <path d="M18 6 6 18M6 6l12 12" />
@@ -264,59 +206,27 @@ export function Nav() {
             </button>
           </div>
 
-          <nav className="nav-sidebar__nav">
+          <nav className="nav-sidebar__nav" key={pathname}>
             <Link href={homeHash('hero')} className="nav-sidebar__link" data-nav-animate onClick={closeMenu}>
               Home
             </Link>
-
-            <div className={`nav-sidebar__group${servicesOpen ? ' nav-sidebar__group--open' : ''}`}>
-              <button
-                type="button"
-                className="nav-sidebar__link nav-sidebar__link--toggle"
-                data-nav-animate
-                aria-expanded={servicesOpen}
-                onClick={() => setServicesOpen((o) => !o)}
-              >
-                Services
-                <Chevron className="nav-sidebar__chevron" />
-              </button>
-              <div className="nav-sidebar__sub">
-                <Link href={ROUTES.services} className="nav-sidebar__sublink" data-nav-animate onClick={closeMenu}>
-                  View all services
+            {NAV_ITEMS.map((item) =>
+              item.type === 'dropdown' ? (
+                <NavMobileGroup key={item.label} item={item} onNavigate={closeMenu} />
+              ) : (
+                <Link key={item.label} href={item.href} className="nav-sidebar__link" data-nav-animate onClick={closeMenu}>
+                  {item.label}
                 </Link>
-                {SERVICE_CATEGORIES.map((cat) => (
-                  <Link
-                    key={cat.slug}
-                    href={serviceDetailPath(cat.slug)}
-                    className="nav-sidebar__sublink"
-                    data-nav-animate
-                    onClick={closeMenu}
-                  >
-                    {cat.navLabel}
-                  </Link>
-                ))}
-              </div>
-            </div>
-
-            <Link href={ROUTES.projects} className="nav-sidebar__link" data-nav-animate onClick={closeMenu}>
-              Projects
-            </Link>
-            <Link
-              href="/#testimonials"
-              className="nav-sidebar__link"
-              data-nav-animate
-              onClick={(e) => handleHashLink('testimonials', e)}
-            >
-              Testimonials
-            </Link>
-            <Link href={ROUTES.contact} className="nav-sidebar__link" data-nav-animate onClick={closeMenu}>
-              Contact
-            </Link>
+              ),
+            )}
           </nav>
 
           <div className="nav-sidebar__footer" data-nav-animate>
             <Link href={ROUTES.contact} className="nav-sidebar__cta btnW" onClick={closeMenu}>
               Book a free audit
+            </Link>
+            <Link href="#" className="nav-sidebar__cta nav-sidebar__cta--secondary btnW" onClick={closeMenu}>
+              Hire talent
             </Link>
           </div>
         </aside>

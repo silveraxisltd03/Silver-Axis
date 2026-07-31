@@ -50,7 +50,7 @@ src/
   features/
     home/                   HomePage, ProcessShowcase, home.data.ts
   shared/
-    components/layout/      Nav, Footer, FooterGroup, ScrollToTop
+    components/layout/      Nav, NavDesktopDropdown, NavMobileGroup, Footer, FooterGroup, ScrollToTop
     components/ui/          TechPill, CaseStudyCard, TestimonialsMarquee, Reveal, icons
     constants/               routes, service categories
     content/                 case studies, quotes, footer nav (placeholder copy)

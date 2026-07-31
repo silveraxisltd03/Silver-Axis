@@ -8,7 +8,9 @@ import { QUOTES } from '@/shared/content/quotes';
 import { projectDetailPath, projectsFilteredPath, ROUTES, serviceDetailPath } from '@/shared/constants/routes';
 import type { ServiceCategorySlug } from '@/shared/constants/categories';
 import { css } from '@/shared/lib/css';
+import { HeroCarousel } from './components/HeroCarousel';
 import { ProcessShowcase } from './components/ProcessShowcase';
+import { HERO_SLIDES } from './hero.data';
 import { STEPS } from './home.data';
 
 interface HomeServiceTile {
@@ -53,28 +55,7 @@ const HOME_SERVICE_TILES: HomeServiceTile[] = [
 export function HomePage() {
   return (
     <>
-      <section id="hero" className="home-hero">
-        <div className="home-hero__rings" aria-hidden="true">
-          <div style={css('position:absolute;inset:0;border-radius:50%;border:1px dashed rgba(42,107,255,.2);animation:spinSlow 60s linear infinite;')} />
-          <div style={css('position:absolute;inset:9%;border-radius:50%;border:1px dashed rgba(42,107,255,.26);animation:spinRev 45s linear infinite;')} />
-          <div style={css('position:absolute;inset:20%;border-radius:50%;border:1px solid rgba(255,255,255,.07);animation:spinSlow 38s linear infinite;')} />
-          <div style={css('position:absolute;inset:33%;border-radius:50%;border:1px dashed rgba(42,107,255,.32);animation:spinRev 28s linear infinite;')} />
-          <div className="home-hero__glow" />
-        </div>
-        <div className="home-hero__fade" aria-hidden="true" />
-        <div className="home-hero__content">
-          <h1 className="hero-headline home-hero__headline">
-            <span className="hero-headline__line1">Placeholder headline goes here,</span>
-            <br className="hero-headline__break" />
-            replace with real copy.
-          </h1>
-          <p className="home-hero__sub">Placeholder subheading, replace with real copy.</p>
-          <div className="home-hero__actions">
-            <Link href={ROUTES.contact} className="btnW btn-hero-primary">Book a free audit</Link>
-            <Link href={ROUTES.projects} className="btnG btn-hero-secondary">See our work</Link>
-          </div>
-        </div>
-      </section>
+      <HeroCarousel slides={HERO_SLIDES} />
 
       <section id="services" className="section-x container page-section--lg">
         <Reveal className="section-header">

@@ -18,7 +18,12 @@ export const FOOTER_GROUPS: FooterGroup[] = [
       { label: 'About Us', href: '#' },
       { label: 'Blog', href: '#' },
       { label: 'Careers', href: '#' },
+      { label: 'Compare Models', href: '#' },
       { label: 'Contact', href: ROUTES.contact },
+      { label: 'Hire Talent', href: '#' },
+      { label: 'Markets we serve', href: '#' },
+      { label: 'Technologies', href: '#' },
+      { label: 'Use Cases', href: '#' },
     ],
   },
   {
@@ -40,10 +45,15 @@ export const FOOTER_GROUPS: FooterGroup[] = [
   {
     title: 'Industries',
     links: [
+      { label: 'All Industries', href: '#' },
       { label: 'Fintech', href: '#' },
       { label: 'Healthtech', href: '#' },
       { label: 'E-commerce', href: '#' },
+      { label: 'Edtech', href: '#' },
       { label: 'Logistics', href: '#' },
+      { label: 'Foodtech', href: '#' },
+      { label: 'Proptech', href: '#' },
+      { label: 'Travel', href: '#' },
     ],
   },
   {
@@ -52,6 +62,7 @@ export const FOOTER_GROUPS: FooterGroup[] = [
       { label: 'Privacy Policy', href: '#' },
       { label: 'Terms of Service', href: '#' },
       { label: 'Cookie Policy', href: '#' },
+      { label: 'Cookie settings', href: '#' },
     ],
   },
 ];
@@ -59,10 +70,9 @@ export const FOOTER_GROUPS: FooterGroup[] = [
 export const FOOTER_CONTACT = {
   description:
     'Placeholder footer description, replace with real copy about what Silver Axis does.',
-  address: '123 Placeholder Street, Your City, Your Country',
+  address: '123 Placeholder Street, Lahore, Pakistan',
   email: 'info@silveraxisltd.com',
-  phone: '+1 (555) 000-0000',
-  hours: 'Mon–Fri 9:00 AM–6:00 PM (placeholder timezone)',
+  hours: 'Mon–Fri 9:00 AM–6:00 PM PKT (UTC+5)',
 };
 
 export interface FooterSocialLink {
