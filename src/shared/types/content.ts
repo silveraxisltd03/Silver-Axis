@@ -3,12 +3,6 @@ export interface ProcessStep {
   desc: string;
 }
 
-export interface NumberedProcessStep {
-  n: string;
-  title: string;
-  desc: string;
-}
-
 import type { ServiceCategorySlug } from '@/shared/constants/categories';
 
 export interface CaseStudy {
@@ -57,22 +51,4 @@ export interface Quote {
   role: string;
   country?: string;
   countryCode?: string;
-}
-
-export interface StatItem {
-  v: string;
-  l: string;
-}
-
-export interface ContactStep {
-  n: string;
-  title: string;
-  desc: string;
-}
-
-export interface ContactFormState {
-  name: string;
-  email: string;
-  company: string;
-  message: string;
 }

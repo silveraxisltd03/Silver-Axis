@@ -1,5 +1,4 @@
-import { Link } from 'react-router-dom';
-import { PageMeta } from '@/shared/components/seo/PageMeta';
+import Link from 'next/link';
 import { ArrowUR } from '@/shared/components/ui/icons';
 import { CaseStudyCard } from '@/shared/components/ui/CaseStudyCard';
 import { Reveal } from '@/shared/components/ui/Reveal';
@@ -22,33 +21,31 @@ interface HomeServiceTile {
   titleClass?: string;
 }
 
+// Placeholder tile copy — replace with real copy.
 const HOME_SERVICE_TILES: HomeServiceTile[] = [
   {
     slug: 'ai-automation',
     image: '/assets/automation-tools.png',
-    imageAlt: 'Familiar tools connected through one automation layer',
+    imageAlt: 'AI automation illustration',
     imageFit: 'contain',
-    title: 'Automate the busywork',
-    description:
-      'We wire your tools together with webhooks and queues, then let AI agents run the repetitive work, with retries, logging, and human approval where it counts.',
+    title: 'Placeholder tile title',
+    description: 'Placeholder tile description, replace with real copy.',
   },
   {
     slug: 'web-mobile',
     image: '/assets/web-and-mobile.png',
-    imageAlt: 'Web and mobile portfolio designs on laptop and phone',
+    imageAlt: 'Web and mobile illustration',
     imageFit: 'cover',
-    title: 'Web & mobile, done right',
-    description:
-      'Native iOS and Android plus a React web app on one typed codebase, cached, instrumented, and built to stay fast as traffic climbs.',
+    title: 'Placeholder tile title',
+    description: 'Placeholder tile description, replace with real copy.',
   },
   {
     slug: 'custom-systems',
     image: '/assets/crm-erp.png',
-    imageAlt: 'CRM and ERP dashboard on laptop and phone',
+    imageAlt: 'CRM and ERP illustration',
     imageFit: 'cover',
-    title: 'CRMs, ERPs & internal tools',
-    description:
-      'CRMs, ERPs and dashboards on a clean schema with role-based access, shaped around your workflow, not a template you bend to fit.',
+    title: 'Placeholder tile title',
+    description: 'Placeholder tile description, replace with real copy.',
     titleClass: 'nowrap-title',
   },
 ];
@@ -56,11 +53,6 @@ const HOME_SERVICE_TILES: HomeServiceTile[] = [
 export function HomePage() {
   return (
     <>
-      <PageMeta
-        title="Home"
-        description="Silver Axis: AI automation and custom software. We automate, build, and scale your software."
-      />
-
       <section id="hero" className="home-hero">
         <div className="home-hero__rings" aria-hidden="true">
           <div style={css('position:absolute;inset:0;border-radius:50%;border:1px dashed rgba(42,107,255,.2);animation:spinSlow 60s linear infinite;')} />
@@ -72,14 +64,14 @@ export function HomePage() {
         <div className="home-hero__fade" aria-hidden="true" />
         <div className="home-hero__content">
           <h1 className="hero-headline home-hero__headline">
-            <span className="hero-headline__line1">We automate, build, and</span>
+            <span className="hero-headline__line1">Placeholder headline goes here,</span>
             <br className="hero-headline__break" />
-            scale your software.
+            replace with real copy.
           </h1>
-          <p className="home-hero__sub">The right blend of AI and engineering. We automate what should be, build the rest by hand, and ship web and mobile systems that scale to millions of users.</p>
+          <p className="home-hero__sub">Placeholder subheading, replace with real copy.</p>
           <div className="home-hero__actions">
-            <Link to={ROUTES.contact} className="btnW btn-hero-primary">Book a free audit</Link>
-            <Link to={ROUTES.projects} className="btnG btn-hero-secondary">See our work</Link>
+            <Link href={ROUTES.contact} className="btnW btn-hero-primary">Book a free audit</Link>
+            <Link href={ROUTES.projects} className="btnG btn-hero-secondary">See our work</Link>
           </div>
         </div>
       </section>
@@ -87,11 +79,9 @@ export function HomePage() {
       <section id="services" className="section-x container page-section--lg">
         <Reveal className="section-header">
           <h2 className="section-heading" style={css('max-width:620px;')}>
-            We start with the problem,
-            <br />
-            not the tech.
+            Placeholder section heading, replace with real copy.
           </h2>
-          <p style={css('font-size:17px;line-height:1.55;color:#6b7488;max-width:330px;margin:0 0 8px;')}>Sometimes the fix is automation. Sometimes a system built from scratch. Usually a bit of both.</p>
+          <p style={css('font-size:17px;line-height:1.55;color:#6b7488;max-width:330px;margin:0 0 8px;')}>Placeholder section subheading.</p>
         </Reveal>
 
         <div className="grid-3">
@@ -113,10 +103,10 @@ export function HomePage() {
               </h3>
               <p style={css('font-size:15px;line-height:1.55;color:#6b7488;margin:0;')}>{tile.description}</p>
               <div className="tile-link-row">
-                <Link to={serviceDetailPath(tile.slug)} className="caseLink" style={css('display:inline-flex;align-items:center;gap:7px;font-size:14px;font-weight:600;color:#2a6bff;')}>
+                <Link href={serviceDetailPath(tile.slug)} className="caseLink" style={css('display:inline-flex;align-items:center;gap:7px;font-size:14px;font-weight:600;color:#2a6bff;')}>
                   View more<ArrowUR />
                 </Link>
-                <Link to={projectsFilteredPath(tile.slug)} className="caseLink" style={css('display:inline-flex;align-items:center;gap:7px;font-size:14px;font-weight:600;color:#2a6bff;')}>
+                <Link href={projectsFilteredPath(tile.slug)} className="caseLink" style={css('display:inline-flex;align-items:center;gap:7px;font-size:14px;font-weight:600;color:#2a6bff;')}>
                   View case studies<ArrowUR />
                 </Link>
               </div>
@@ -126,12 +116,12 @@ export function HomePage() {
       </section>
 
       <section id="process" style={css('background:linear-gradient(180deg,#fff 0%,#f6f9ff 45%,#f6f9ff 55%,#fff 100%);')}>
-        <ProcessShowcase steps={STEPS} title="The hard part is figuring it out first." />
+        <ProcessShowcase steps={STEPS} title="Placeholder process heading, replace with real copy." />
       </section>
 
       <section id="work" className="section-x container page-section">
         <Reveal style={css('margin-bottom:clamp(40px,5vw,54px);')}>
-          <h2 className="section-heading">A few things we&rsquo;ve shipped.</h2>
+          <h2 className="section-heading">Placeholder section heading.</h2>
         </Reveal>
         <div className="grid-2">
           {HOME_CASES.map((cs) => (
@@ -142,7 +132,7 @@ export function HomePage() {
         </div>
         <Reveal>
           <div style={css('display:flex;justify-content:center;margin-top:clamp(28px,4vw,40px);')}>
-            <Link to={ROUTES.projects} className="cs-inline-cta__btn">
+            <Link href={ROUTES.projects} className="cs-inline-cta__btn">
               View all projects →
             </Link>
           </div>
@@ -151,7 +141,7 @@ export function HomePage() {
 
       <section id="testimonials" className="testimonials-section">
         <Reveal className="testimonials-section__header">
-          <h2 className="section-heading section-heading--center">What it&rsquo;s like to work with us.</h2>
+          <h2 className="section-heading section-heading--center">Placeholder section heading.</h2>
         </Reveal>
         <TestimonialsMarquee quotes={QUOTES} />
       </section>

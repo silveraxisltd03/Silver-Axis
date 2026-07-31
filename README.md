@@ -1,87 +1,70 @@
 # Silver Axis — Website
 
-Marketing site for Silver Axis, built with **React + TypeScript + Vite** and **React Router**. Four pages: Home, Services, Projects, Contact.
+Marketing site for Silver Axis, built with **Next.js (App Router) + TypeScript**, statically exported (no backend/server required).
+
+> **Status:** rebuilding from scratch. Only the Home page is implemented right now — Services, Projects, and Contact will come back one at a time. The Nav and Footer already link to those routes (`/services`, `/projects`, `/contact`) ahead of the pages existing, so those links 404 until each page ships. All Home page copy is placeholder text pending a rewrite. Colors (`src/shared/styles/variables.css`) and fonts (Clash Display / General Sans) are final.
 
 ## Run locally
 
 ```bash
 npm install
-npm run dev      # http://localhost:5173
+npm run dev      # http://localhost:3000
 ```
 
 ## Build
 
 ```bash
-npm run build    # outputs to /dist
-npm run preview  # preview the production build locally
-npm run typecheck  # TypeScript check
+npm run build    # static export, outputs to /out
+npm run start    # only relevant if you drop static export and run a Node server instead
+npm run typecheck
 ```
 
 ## Deploy to Netlify
 
-This repo is configured for Netlify out of the box (`netlify.toml`, SPA redirects, Node 20).
+This repo is configured for Netlify out of the box (`netlify.toml`, Node 20, static export publish dir `out`).
 
-**Option A — drag & drop**
 1. `npm install && npm run build`
-2. Go to https://app.netlify.com/drop and drag the generated **`dist`** folder onto the page.
+2. Push to Git and connect the repo in Netlify (build command `npm run build`, publish directory `out`), or drag-and-drop the generated `out` folder at https://app.netlify.com/drop.
 
-**Option B — connect a Git repo (recommended)**
-1. Push this repo to GitHub/GitLab/Bitbucket.
-2. In Netlify: **Add new site → Import an existing project**, pick the repo.
-3. Netlify reads `netlify.toml` automatically — no UI overrides needed:
-   - **Build command:** `npm run build`
-   - **Publish directory:** `dist`
-   - **Node version:** 20 (from `netlify.toml` / `.nvmrc`)
-4. Deploy. The `[[redirects]]` rule and `public/_redirects` keep client-side routes working on refresh.
+Add your custom domain under **Domain settings**, then set `NEXT_PUBLIC_SITE_URL` (see below) to that domain so `sitemap.xml`/`robots.txt` point at the right URLs.
 
-Add your custom domain (e.g. `silveraxis.com`) under **Domain settings** — HTTPS is automatic.
+## Environment variables
 
-## Things to wire up before launch
+Copy `.env.example` to `.env.local` and fill in:
 
-- **Calendly link** — set `CALENDLY_URL` in `src/features/contact/contact.data.ts`.
-- **Contact form** — currently front-end only (shows a thank-you). To actually receive
-  submissions, point the form at a service like Formspree, or your own endpoint, inside
-  `onSubmit` in `src/features/contact/ContactPage.tsx`. With Formspree it's roughly:
+- `NEXT_PUBLIC_SITE_URL` — production domain, used in `sitemap.ts`/`robots.ts`. Defaults to a placeholder until set.
 
-  ```ts
-  const onSubmit = async () => {
-    await fetch('https://formspree.io/f/XXXXXXX', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-      body: JSON.stringify(form),
-    });
-    setSent(true);
-  };
-  ```
-- **Case studies / testimonials / certifications** are placeholders — edit the data in
-  `src/features/home/home.data.ts` and `src/features/projects/projects.data.ts`, and swap the
-  `[ case-study screenshot ]` tiles for real images placed in `public/assets/`.
+## Things to wire up as pages come back
+
+- **Services / Projects / Contact pages** — rebuild under `src/app/services`, `src/app/projects`, `src/app/contact`, following the same pattern as `src/app/page.tsx` (a thin server page exporting `metadata`, rendering a feature component from `src/features/`).
+- **Footer nav** — `src/shared/content/footer.ts` already lists the full target nav (Company/Services/Industries/Legal); most entries point at `#` placeholders until their pages exist.
+- **Real content** — `src/shared/content/case-studies.ts` and `quotes.ts` hold placeholder data for the Home page; replace with real copy.
+- **`NEXT_PUBLIC_SITE_URL`** — set before launch so the sitemap/robots files are correct.
 
 ## Project structure
 
 ```
-public/assets/              logos + automation graphic
+public/assets/              logos + generic service illustrations
 src/
-  app/                      App shell + route table
+  app/                      Next.js App Router routes (Home, sitemap/robots) + root layout
   features/
-    home/                   HomePage + home.data.ts
-    services/               ServicesPage + services.data.ts
-    projects/               ProjectsPage + projects.data.ts
-    contact/                ContactPage + contact.data.ts
+    home/                   HomePage, ProcessShowcase, home.data.ts
   shared/
-    components/layout/      Nav, Footer, ScrollToTop
-    components/ui/          HeroBand, CTA, icons
-    constants/              routes, certifications
-    hooks/                  useReveal
-    lib/                    css() style helper
-    types/                  shared TypeScript interfaces
-  index.css                 fonts, hover/focus states, keyframes
-  main.tsx                  entry point
+    components/layout/      Nav, Footer, FooterGroup, ScrollToTop
+    components/ui/          TechPill, CaseStudyCard, TestimonialsMarquee, Reveal, icons
+    constants/               routes, service categories
+    content/                 case studies, quotes, footer nav (placeholder copy)
+    lib/                     css() style helper
+    styles/                  design tokens (variables.css), utilities, cards, components
+    types/                   shared TypeScript interfaces
 ```
 
 ## Notes
 
-- Fonts (General Sans, Clash Display) load from Fontshare via `@import` in `index.css`.
-- Styling uses the original inline styles, parsed to React style objects via the small
-  `css()` helper in `src/shared/lib/css.ts`. Hover/focus/animation states live as classes in
-  `index.css`.
+- Static export (`output: 'export'` in `next.config.ts`) — no Node server needed, matches the
+  original zero-backend deployment on Netlify. `images.unoptimized: true` is set accordingly,
+  so `<img>` tags are used directly rather than `next/image`.
+- Fonts (General Sans, Clash Display) load from Fontshare via `<link>` tags in the root layout.
+- Styling uses the original design system unchanged: CSS custom properties in `variables.css`,
+  plus inline style strings parsed to React style objects via `src/shared/lib/css.ts`.
+- `--max-content` (the site's max content width) is `1200px`, a single token in `variables.css`.

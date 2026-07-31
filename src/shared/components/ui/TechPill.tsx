@@ -1,3 +1,5 @@
+'use client';
+
 import { useState } from 'react';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faCode } from '@fortawesome/free-solid-svg-icons';

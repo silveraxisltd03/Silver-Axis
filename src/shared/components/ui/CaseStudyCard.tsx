@@ -1,5 +1,5 @@
 import type React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import type { CaseStudy } from '@/shared/types';
 import { TechPill } from '@/shared/components/ui/TechPill';
 import { css } from '@/shared/lib/css';
@@ -14,7 +14,7 @@ interface CaseStudyCardProps {
 export function CaseStudyCard({ caseStudy: cs, to, className = '', style: styleProp }: CaseStudyCardProps) {
   return (
     <Link
-      to={to}
+      href={to}
       className={`tile case-study-card ${className}`.trim()}
       style={styleProp}
     >

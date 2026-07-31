@@ -20,7 +20,7 @@
   --font-body: 'General Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
 
   /* Site shell — header, sections, footer content */
-  --max-content: 1440px;
+  --max-content: 1200px;
 
   --section-x: clamp(20px, 4vw, 40px);
   --section-x-mobile: 20px;

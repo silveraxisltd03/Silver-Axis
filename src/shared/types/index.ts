@@ -1,9 +1,1 @@
-export type {
-  CaseStudy,
-  ContactFormState,
-  ContactStep,
-  NumberedProcessStep,
-  ProcessStep,
-  Quote,
-  StatItem,
-} from './content';
+export type { CaseStudy, ProcessStep, Quote } from './content';
