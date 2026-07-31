@@ -7,8 +7,7 @@ export const dynamic = 'force-static';
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://example.com';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  // Only Home is built so far — add routes here as pages ship.
-  return [ROUTES.home].map((path) => ({
+  return [ROUTES.home, ROUTES.privacyPolicy, ROUTES.termsOfService].map((path) => ({
     url: `${SITE_URL}${path}`,
     lastModified: new Date(),
   }));

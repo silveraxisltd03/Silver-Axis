@@ -3,6 +3,7 @@ import { ArrowUR } from '@/shared/components/ui/icons';
 import { CaseStudyCard } from '@/shared/components/ui/CaseStudyCard';
 import { Reveal } from '@/shared/components/ui/Reveal';
 import { TestimonialsMarquee } from '@/shared/components/ui/TestimonialsMarquee';
+import { VideoTestimonial } from '@/shared/components/ui/VideoTestimonial';
 import { HOME_CASES } from '@/shared/content/case-studies';
 import { QUOTES } from '@/shared/content/quotes';
 import { projectDetailPath, projectsFilteredPath, ROUTES, serviceDetailPath } from '@/shared/constants/routes';
@@ -127,9 +128,12 @@ export function HomePage() {
 
       <section id="testimonials" className="testimonials-section">
         <Reveal className="testimonials-section__header">
-          <h2 className="section-heading section-heading--center">Placeholder section heading.</h2>
+          <h2 className="section-heading section-heading--center">What it&rsquo;s like to work with us.</h2>
         </Reveal>
-        <TestimonialsMarquee quotes={QUOTES} />
+        <div className="testimonials-section__body">
+          <VideoTestimonial />
+          <TestimonialsMarquee quotes={QUOTES} />
+        </div>
       </section>
     </>
   );

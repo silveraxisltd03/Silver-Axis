@@ -5,6 +5,8 @@ export const ROUTES = {
   services: '/services',
   projects: '/projects',
   contact: '/contact',
+  privacyPolicy: '/privacy-policy',
+  termsOfService: '/terms-of-service',
 } as const;
 
 export const HOME_SECTIONS = {

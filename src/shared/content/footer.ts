@@ -59,10 +59,8 @@ export const FOOTER_GROUPS: FooterGroup[] = [
   {
     title: 'Legal',
     links: [
-      { label: 'Privacy Policy', href: '#' },
-      { label: 'Terms of Service', href: '#' },
-      { label: 'Cookie Policy', href: '#' },
-      { label: 'Cookie settings', href: '#' },
+      { label: 'Privacy Policy', href: ROUTES.privacyPolicy },
+      { label: 'Terms of Service', href: ROUTES.termsOfService },
     ],
   },
 ];
