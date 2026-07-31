@@ -55,7 +55,7 @@ export function HeroCarousel({ slides }: HeroCarouselProps) {
       onFocus={pause}
       onBlur={resume}
     >
-      <AnimatedBackground variant="network" className="home-hero__bg" />
+      <AnimatedBackground />
       <div className="home-hero__fade" aria-hidden="true" />
 
       <div className="home-hero__inner container">
