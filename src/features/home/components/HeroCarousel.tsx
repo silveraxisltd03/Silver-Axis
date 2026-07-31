@@ -4,7 +4,15 @@ import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import gsap from 'gsap';
 import { AnimatedBackground } from '@/shared/components/ui/AnimatedBackground';
-import type { HeroSlide } from '../hero.data';
+import {
+  HERO_EYEBROW,
+  HERO_HEADLINE,
+  HERO_PRIMARY_CTA,
+  HERO_PRIMARY_MICROCOPY,
+  HERO_SECONDARY_CTA,
+  HERO_SECONDARY_TEXT,
+  type HeroSlide,
+} from '../hero.data';
 
 const SLIDE_DURATION = 6500;
 
@@ -57,13 +65,16 @@ export function HeroCarousel({ slides }: HeroCarouselProps) {
     >
       <AnimatedBackground />
       <div className="home-hero__fade" aria-hidden="true" />
+      <div className="home-hero__visual" aria-hidden="true">
+        <img src="/assets/hero-impact-visual.png" alt="" />
+      </div>
 
       <div className="home-hero__inner container">
         <div className="home-hero__content" ref={contentRef}>
-          <div className="home-hero__eyebrow">{slide.eyebrow}</div>
+          <div className="home-hero__eyebrow">{HERO_EYEBROW}</div>
 
           <h1 className="home-hero__headline">
-            {slide.headline.lead} <span className="home-hero__accent">{slide.headline.accent}</span>
+            {HERO_HEADLINE.lead} <span className="home-hero__accent">{HERO_HEADLINE.accent}</span> {HERO_HEADLINE.tail}
           </h1>
 
           <div className="home-hero__divider" aria-hidden="true" />
@@ -77,11 +88,11 @@ export function HeroCarousel({ slides }: HeroCarouselProps) {
             <div className="home-hero__dots" role="tablist" aria-label="Hero slides">
               {slides.map((s, i) => (
                 <button
-                  key={s.eyebrow}
+                  key={i}
                   type="button"
                   role="tab"
                   aria-selected={i === activeIndex}
-                  aria-label={`Slide ${i + 1}: ${s.eyebrow}`}
+                  aria-label={`Slide ${i + 1}: ${s.subheadline.lead}${s.subheadline.accent}`}
                   className={`home-hero__dot${i === activeIndex ? ' home-hero__dot--active' : ''}`}
                   onClick={() => setActiveIndex(i)}
                 />
@@ -93,14 +104,14 @@ export function HeroCarousel({ slides }: HeroCarouselProps) {
         </div>
 
         <div className="home-hero__cta">
-          <Link href={slide.primaryCta.href} className="btnW btn-hero-primary">
-            {slide.primaryCta.label}
+          <Link href={HERO_PRIMARY_CTA.href} className="btnW btn-hero-primary">
+            {HERO_PRIMARY_CTA.label}
           </Link>
-          <p className="home-hero__microcopy">{slide.primaryMicrocopy}</p>
+          <p className="home-hero__microcopy">{HERO_PRIMARY_MICROCOPY}</p>
           <p className="home-hero__secondary">
-            {slide.secondaryText}{' '}
-            <Link href={slide.secondaryCta.href} className="home-hero__secondary-link">
-              {slide.secondaryCta.label} →
+            {HERO_SECONDARY_TEXT}{' '}
+            <Link href={HERO_SECONDARY_CTA.href} className="home-hero__secondary-link">
+              {HERO_SECONDARY_CTA.label} →
             </Link>
           </p>
         </div>

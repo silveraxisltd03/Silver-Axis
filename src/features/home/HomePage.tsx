@@ -62,7 +62,12 @@ export function HomePage() {
           <h2 className="section-heading" style={css('max-width:620px;')}>
             Placeholder section heading, replace with real copy.
           </h2>
-          <p style={css('font-size:17px;line-height:1.55;color:#6b7488;max-width:330px;margin:0 0 8px;')}>Placeholder section subheading.</p>
+          <p style={css('font-size:17px;line-height:1.55;color:#6b7488;max-width:340px;margin:0 0 8px;')}>
+            <strong style={css('color:#0b1020;')}>Our mission:</strong> Empower businesses with technology that simplifies operations and accelerates growth.
+          </p>
+          <p style={css('font-size:17px;line-height:1.55;color:#6b7488;max-width:340px;margin:0;')}>
+            <strong style={css('color:#0b1020;')}>Our vision:</strong> To be a global digital partner known for building software that creates lasting value.
+          </p>
         </Reveal>
 
         <div className="grid-3">
@@ -96,8 +101,8 @@ export function HomePage() {
         </div>
       </section>
 
-      <section id="process" style={css('background:linear-gradient(180deg,#fff 0%,#f6f9ff 45%,#f6f9ff 55%,#fff 100%);')}>
-        <ProcessShowcase steps={STEPS} title="Placeholder process heading, replace with real copy." />
+      <section id="process">
+        <ProcessShowcase steps={STEPS} title="From idea to a release that performs." />
       </section>
 
       <section id="work" className="section-x container page-section">

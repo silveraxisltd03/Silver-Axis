@@ -2,7 +2,11 @@ import type { Metadata } from 'next';
 import Script from 'next/script';
 import { Footer } from '@/shared/components/layout/Footer';
 import { Nav } from '@/shared/components/layout/Nav';
+import { PageLoader } from '@/shared/components/layout/PageLoader';
+import { PreFooterCta } from '@/shared/components/layout/PreFooterCta';
+import { ScrollProgress } from '@/shared/components/layout/ScrollProgress';
 import { ScrollToTop } from '@/shared/components/layout/ScrollToTop';
+import { StudioSection } from '@/shared/components/layout/StudioSection';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -33,9 +37,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <a href="#main" className="skip-link">
           Skip to content
         </a>
+        <PageLoader />
+        <ScrollProgress />
         <ScrollToTop />
         <Nav />
         <main id="main">{children}</main>
+        <StudioSection />
+        <PreFooterCta />
         <Footer />
         <Script src="https://assets.calendly.com/assets/external/widget.js" strategy="afterInteractive" />
       </body>

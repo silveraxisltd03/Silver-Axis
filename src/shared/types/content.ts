@@ -1,6 +1,8 @@
 export interface ProcessStep {
+  label: string;
   title: string;
   desc: string;
+  deliverable: string;
 }
 
 import type { ServiceCategorySlug } from '@/shared/constants/categories';
