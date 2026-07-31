@@ -1,16 +1,8 @@
-import { ROUTES } from '@/shared/constants/routes';
-
 // Fixed — shown above every slide, not part of the rotation.
 export const HERO_EYEBROW = 'SOFTWARE DEVELOPMENT + STAFF AUGMENTATION';
 
 // Fixed — Silver Axis's tagline, not part of the rotation.
 export const HERO_HEADLINE = { lead: 'Your', accent: 'Vision.', tail: 'Our Execution.' };
-
-// Fixed — identical across every slide, not part of the rotation.
-export const HERO_PRIMARY_CTA = { label: 'Book a free audit', href: ROUTES.contact };
-export const HERO_PRIMARY_MICROCOPY = 'Leave with a first-release boundary—or a clear no.';
-export const HERO_SECONDARY_TEXT = 'Need embedded capacity instead?';
-export const HERO_SECONDARY_CTA = { label: 'Hire talent', href: '#' };
 
 export interface HeroSlide {
   subheadline: { lead: string; accent: string };

@@ -1,19 +1,42 @@
+'use client';
+
+import { useState } from 'react';
 import { PlayIcon } from './icons';
 
-// Placeholder until a real client video/photo is available.
+const VIDEO_ID = 'x2lsNS5DRTE';
+
 export function VideoTestimonial() {
-  return (
-    <div className="video-testimonial">
-      <div className="video-testimonial__label">
-        <span className="video-testimonial__avatar" aria-hidden="true" />
-        <div>
-          <div className="video-testimonial__title">Client Testimonial</div>
-          <div className="video-testimonial__name">Client name</div>
-        </div>
+  const [playing, setPlaying] = useState(false);
+
+  if (playing) {
+    return (
+      <div className="video-testimonial video-testimonial--playing">
+        <iframe
+          className="video-testimonial__iframe"
+          src={`https://www.youtube.com/embed/${VIDEO_ID}?autoplay=1`}
+          title="Client testimonial video"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        />
       </div>
-      <button type="button" className="video-testimonial__play" aria-label="Play client testimonial video">
+    );
+  }
+
+  return (
+    <button
+      type="button"
+      className="video-testimonial"
+      onClick={() => setPlaying(true)}
+      aria-label="Play client testimonial video"
+      style={{ backgroundImage: `url(https://img.youtube.com/vi/${VIDEO_ID}/hqdefault.jpg)` }}
+    >
+      <span className="video-testimonial__scrim" aria-hidden="true" />
+      <span className="video-testimonial__label">
+        <span className="video-testimonial__title">Client Testimonial</span>
+      </span>
+      <span className="video-testimonial__play" aria-hidden="true">
         <PlayIcon />
-      </button>
-    </div>
+      </span>
+    </button>
   );
 }

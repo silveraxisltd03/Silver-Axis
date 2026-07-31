@@ -1,16 +1,13 @@
 'use client';
 
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
-import Link from 'next/link';
 import gsap from 'gsap';
 import { AnimatedBackground } from '@/shared/components/ui/AnimatedBackground';
+import { CodeIcon, GlobeIcon, PencilIcon, RocketIcon, TargetIcon } from '@/shared/components/ui/icons';
+import { DeliveryGlobeCanvas } from './GlobalDeliveryGlobe';
 import {
   HERO_EYEBROW,
   HERO_HEADLINE,
-  HERO_PRIMARY_CTA,
-  HERO_PRIMARY_MICROCOPY,
-  HERO_SECONDARY_CTA,
-  HERO_SECONDARY_TEXT,
   type HeroSlide,
 } from '../hero.data';
 
@@ -65,9 +62,6 @@ export function HeroCarousel({ slides }: HeroCarouselProps) {
     >
       <AnimatedBackground />
       <div className="home-hero__fade" aria-hidden="true" />
-      <div className="home-hero__visual" aria-hidden="true">
-        <img src="/assets/hero-impact-visual.png" alt="" />
-      </div>
 
       <div className="home-hero__inner container">
         <div className="home-hero__content" ref={contentRef}>
@@ -102,18 +96,49 @@ export function HeroCarousel({ slides }: HeroCarouselProps) {
 
           <p className="home-hero__paragraph">{slide.paragraph}</p>
         </div>
+      </div>
 
-        <div className="home-hero__cta">
-          <Link href={HERO_PRIMARY_CTA.href} className="btnW btn-hero-primary">
-            {HERO_PRIMARY_CTA.label}
-          </Link>
-          <p className="home-hero__microcopy">{HERO_PRIMARY_MICROCOPY}</p>
-          <p className="home-hero__secondary">
-            {HERO_SECONDARY_TEXT}{' '}
-            <Link href={HERO_SECONDARY_CTA.href} className="home-hero__secondary-link">
-              {HERO_SECONDARY_CTA.label} →
-            </Link>
-          </p>
+      <div className="home-hero__visual">
+        <DeliveryGlobeCanvas className="home-hero__globe" />
+
+        <div className="hero-stat-card hero-stat-card--a">
+          <span className="hero-stat-card__icon"><GlobeIcon /></span>
+          <span className="hero-stat-card__text">
+            <span className="hero-stat-card__title">Global Delivery</span>
+            <span className="hero-stat-card__sub">Engineering teams across time zones.</span>
+          </span>
+        </div>
+
+        <div className="hero-stat-card hero-stat-card--b">
+          <span className="hero-stat-card__icon"><CodeIcon /></span>
+          <span className="hero-stat-card__text">
+            <span className="hero-stat-card__title">Staff Augmentation</span>
+            <span className="hero-stat-card__sub">Embedded talent that plugs into your stack.</span>
+          </span>
+        </div>
+
+        <div className="hero-stat-card hero-stat-card--c">
+          <span className="hero-stat-card__icon"><RocketIcon /></span>
+          <span className="hero-stat-card__text">
+            <span className="hero-stat-card__title">Built To Scale</span>
+            <span className="hero-stat-card__sub">Systems that hold up long after launch.</span>
+          </span>
+        </div>
+
+        <div className="hero-stat-card hero-stat-card--d">
+          <span className="hero-stat-card__icon"><PencilIcon /></span>
+          <span className="hero-stat-card__text">
+            <span className="hero-stat-card__title">Custom Systems</span>
+            <span className="hero-stat-card__sub">CRM &amp; ERP tailored to your process.</span>
+          </span>
+        </div>
+
+        <div className="hero-stat-card hero-stat-card--e">
+          <span className="hero-stat-card__icon"><TargetIcon /></span>
+          <span className="hero-stat-card__text">
+            <span className="hero-stat-card__title">AI &amp; Automation</span>
+            <span className="hero-stat-card__sub">Workflows that run without you.</span>
+          </span>
         </div>
       </div>
     </section>
