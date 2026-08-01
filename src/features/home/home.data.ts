@@ -1,3 +1,18 @@
+import type { ServiceCategorySlug } from '@/shared/constants/categories';
+
+export interface ServiceTile {
+  slug: ServiceCategorySlug;
+  image: string;
+  imageAlt: string;
+  title: string;
+}
+
+export const SERVICE_TILES: ServiceTile[] = [
+  { slug: 'ai-automation', image: '/assets/automation-tools.png', imageAlt: 'AI automation illustration', title: 'AI & Automation' },
+  { slug: 'web-mobile', image: '/assets/web-and-mobile.png', imageAlt: 'Web and mobile illustration', title: 'Web & Mobile' },
+  { slug: 'custom-systems', image: '/assets/crm-erp.png', imageAlt: 'CRM and ERP illustration', title: 'Custom Systems' },
+];
+
 export const STEPS = [
   {
     label: 'Discovery',

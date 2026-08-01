@@ -1,16 +1,46 @@
 'use client';
 
-import { useState } from 'react';
+import { useLayoutEffect, useRef, useState } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { PlayIcon } from './icons';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const VIDEO_ID = 'x2lsNS5DRTE';
 
 export function VideoTestimonial() {
   const [playing, setPlaying] = useState(false);
+  const cardRef = useRef<HTMLDivElement>(null);
 
-  if (playing) {
-    return (
-      <div className="video-testimonial video-testimonial--playing">
+  useLayoutEffect(() => {
+    const card = cardRef.current;
+    if (!card) return;
+
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reducedMotion) return;
+
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        card,
+        { opacity: 0, y: 28, scale: 0.96 },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 0.8,
+          ease: 'power3.out',
+          scrollTrigger: { trigger: card, start: 'top 85%', once: true },
+        }
+      );
+    }, card);
+
+    return () => ctx.revert();
+  }, []);
+
+  return (
+    <div className="video-testimonial" ref={cardRef}>
+      {playing ? (
         <iframe
           className="video-testimonial__iframe"
           src={`https://www.youtube.com/embed/${VIDEO_ID}?autoplay=1`}
@@ -18,25 +48,28 @@ export function VideoTestimonial() {
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
         />
-      </div>
-    );
-  }
-
-  return (
-    <button
-      type="button"
-      className="video-testimonial"
-      onClick={() => setPlaying(true)}
-      aria-label="Play client testimonial video"
-      style={{ backgroundImage: `url(https://img.youtube.com/vi/${VIDEO_ID}/hqdefault.jpg)` }}
-    >
-      <span className="video-testimonial__scrim" aria-hidden="true" />
-      <span className="video-testimonial__label">
-        <span className="video-testimonial__title">Client Testimonial</span>
-      </span>
-      <span className="video-testimonial__play" aria-hidden="true">
-        <PlayIcon />
-      </span>
-    </button>
+      ) : (
+        <button
+          type="button"
+          className="video-testimonial__trigger"
+          onClick={() => setPlaying(true)}
+          aria-label="Play client testimonial video"
+        >
+          <span
+            className="video-testimonial__thumb"
+            aria-hidden="true"
+            style={{ backgroundImage: `url(https://img.youtube.com/vi/${VIDEO_ID}/hqdefault.jpg)` }}
+          />
+          <span className="video-testimonial__scrim" aria-hidden="true" />
+          <span className="video-testimonial__label">
+            <span className="video-testimonial__dot" aria-hidden="true" />
+            Client Testimonial
+          </span>
+          <span className="video-testimonial__play">
+            <PlayIcon />
+          </span>
+        </button>
+      )}
+    </div>
   );
 }
