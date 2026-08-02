@@ -10,6 +10,12 @@ export interface ServiceTitleBody {
   body: string;
 }
 
+export type ServicePrincipleIcon = 'target' | 'shield' | 'eye' | 'key';
+
+export interface ServicePrincipleItem extends ServiceTitleBody {
+  icon?: ServicePrincipleIcon;
+}
+
 export interface ServiceLabeledBody {
   label: string;
   body: string;
@@ -28,10 +34,13 @@ export interface ServiceInsight {
   date: string;
 }
 
+export type ServiceProcessIcon = 'target' | 'layers' | 'cycle' | 'document';
+
 export interface ServiceProcessStep {
   number: string;
   title: string;
   body: string;
+  icon?: ServiceProcessIcon;
 }
 
 export type ServiceTheme =
@@ -105,6 +114,7 @@ export interface ServiceDetailContent {
   slug: string;
   crumb: string;
   meta: { title: string; description: string };
+  hideRelated?: boolean;
   visual: ServiceVisual;
   hero: {
     eyebrow: string;
@@ -122,7 +132,7 @@ export interface ServiceDetailContent {
     title: string;
     body: string;
   };
-  audience: {
+  audience?: {
     eyebrow: string;
     title: string;
     columns: [string[], string[]];
@@ -130,7 +140,7 @@ export interface ServiceDetailContent {
   principles: {
     eyebrow: string;
     title: string;
-    items: ServiceTitleBody[];
+    items: ServicePrincipleItem[];
   };
   process: {
     eyebrow: string;
@@ -149,7 +159,7 @@ export interface ServiceDetailContent {
     body: string;
     items: string[];
   };
-  solutions: {
+  solutions?: {
     eyebrow: string;
     title: string;
     rows: ServiceLabeledBody[];

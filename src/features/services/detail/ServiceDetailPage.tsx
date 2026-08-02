@@ -10,12 +10,12 @@ import {
   InsightsSection,
   InvolvesSection,
   OwnershipSection,
-  PrinciplesSection,
-  ProcessSection,
   RelatedPractices,
   SolutionsSection,
-  StackSection,
 } from './components/DetailSections';
+import { PrinciplesSection } from './components/PrinciplesSection';
+import { ProcessSection } from './components/ProcessSection';
+import { StackSection } from './components/StackSection';
 import { FeatureBand, UniqueModule } from './components/UniqueSections';
 
 function relatedPractices(current: ServiceDetailContent, count = 3): ServiceDetailContent[] {
@@ -49,7 +49,7 @@ export function ServiceDetailPage({ content }: ServiceDetailPageProps) {
       <ExcellenceSection content={content} />
       <DetailFaq items={content.faq} />
       {content.insights && <InsightsSection content={content} />}
-      <RelatedPractices related={relatedPractices(content)} />
+      {!content.hideRelated && <RelatedPractices related={relatedPractices(content)} />}
       <DetailBanner content={content} />
     </div>
   );

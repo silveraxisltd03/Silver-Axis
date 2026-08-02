@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { Check } from '@/shared/components/ui/icons';
+import { Reveal } from '@/shared/components/ui/Reveal';
 import { practiceDetailPath, ROUTES } from '@/shared/constants/routes';
 import type { ServiceDetailContent } from '../types';
 
@@ -33,18 +34,39 @@ export function InvolvesSection({ content }: SectionProps) {
 }
 
 export function OwnershipSection({ content }: SectionProps) {
-  const { ownership } = content;
+  const { ownership, hero } = content;
 
   return (
     <section className="svc-split" aria-labelledby="svc-ownership-heading">
-      <div className="section-x container svc-split__inner">
-        <div>
-          <span className="svc-eyebrow">{ownership.eyebrow}</span>
-          <h2 id="svc-ownership-heading" className="svc-heading">
-            {ownership.title}
-          </h2>
-        </div>
-        <p className="svc-split__body">{ownership.body}</p>
+      <div className="section-x container">
+        <Reveal className="svc-split__panel">
+          <div className="svc-split__inner">
+            <div className="svc-split__copy">
+              <div className="svc-feature__eyebrow-row">
+                <span className="svc-feature__bar" aria-hidden="true" />
+                <span className="svc-eyebrow">{ownership.eyebrow}</span>
+              </div>
+              <h2 id="svc-ownership-heading" className="svc-heading svc-split__heading">
+                {ownership.title}
+              </h2>
+            </div>
+            <div className="svc-split__aside">
+              <p className="svc-split__body">{ownership.body}</p>
+              {hero.highlights.length > 0 && (
+                <ul className="svc-split__metrics">
+                  {hero.highlights.map((item, i) => (
+                    <li key={item.label}>
+                      <Reveal delay={100 + i * 80}>
+                        <strong>{item.value}</strong>
+                        <span>{item.label}</span>
+                      </Reveal>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          </div>
+        </Reveal>
       </div>
     </section>
   );
@@ -52,6 +74,7 @@ export function OwnershipSection({ content }: SectionProps) {
 
 export function AudienceSection({ content }: SectionProps) {
   const { audience } = content;
+  if (!audience) return null;
 
   return (
     <section className="svc-audience" aria-labelledby="svc-audience-heading">
@@ -72,61 +95,6 @@ export function AudienceSection({ content }: SectionProps) {
             </ul>
           ))}
         </div>
-      </div>
-    </section>
-  );
-}
-
-export function PrinciplesSection({ content }: SectionProps) {
-  const { principles } = content;
-
-  return (
-    <section className="svc-principles" aria-labelledby="svc-principles-heading">
-      <div className="section-x container">
-        <span className="svc-eyebrow">{principles.eyebrow}</span>
-        <h2 id="svc-principles-heading" className="svc-heading">
-          {principles.title}
-        </h2>
-        <ul className="svc-principles__list">
-          {principles.items.map((item) => (
-            <li key={item.title}>
-              <Check />
-              <div>
-                <strong>{item.title}</strong>
-                <span>{item.body}</span>
-              </div>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </section>
-  );
-}
-
-export function ProcessSection({ content }: SectionProps) {
-  const { process, visual } = content;
-  const layout = visual.processLayout;
-
-  return (
-    <section className={`svc-process svc-process--${layout}`} aria-labelledby="svc-process-heading">
-      <div className="section-x container">
-        <span className="svc-eyebrow svc-eyebrow--on-dark">{process.eyebrow}</span>
-        <h2 id="svc-process-heading" className="svc-heading svc-heading--on-dark">
-          {process.title}
-        </h2>
-        <ol className={`svc-process__steps svc-process__steps--${layout}`}>
-          {process.steps.map((step) => (
-            <li key={step.number} className="svc-process__step">
-              <span className="svc-process__num" aria-hidden="true">
-                {step.number}
-              </span>
-              <div>
-                <h3>{step.title}</h3>
-                <p>{step.body}</p>
-              </div>
-            </li>
-          ))}
-        </ol>
       </div>
     </section>
   );
@@ -155,32 +123,9 @@ export function CapabilitiesSection({ content }: SectionProps) {
   );
 }
 
-export function StackSection({ content }: SectionProps) {
-  const { stack } = content;
-  if (!stack) return null;
-
-  return (
-    <section className="svc-stack" aria-labelledby="svc-stack-heading">
-      <div className="section-x container svc-stack__inner">
-        <div className="svc-stack__copy">
-          <span className="svc-eyebrow">{stack.eyebrow}</span>
-          <h2 id="svc-stack-heading" className="svc-heading">
-            {stack.title}
-          </h2>
-          <p>{stack.body}</p>
-        </div>
-        <ul className="svc-stack__pills">
-          {stack.items.map((item) => (
-            <li key={item}>{item}</li>
-          ))}
-        </ul>
-      </div>
-    </section>
-  );
-}
-
 export function SolutionsSection({ content }: SectionProps) {
   const { solutions } = content;
+  if (!solutions) return null;
 
   return (
     <section className="svc-solutions" aria-labelledby="svc-solutions-heading">

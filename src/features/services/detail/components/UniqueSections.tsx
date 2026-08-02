@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { Check } from '@/shared/components/ui/icons';
+import { Reveal } from '@/shared/components/ui/Reveal';
 import type { ServiceDetailContent, ServiceModule } from '../types';
 
 interface SectionProps {
@@ -14,24 +15,36 @@ export function FeatureBand({ content }: SectionProps) {
 
   return (
     <section className={`svc-feature${flip ? ' svc-feature--flip' : ''}`} aria-labelledby="svc-feature-heading">
-      <div className="section-x container svc-feature__inner">
-        <div className="svc-feature__copy">
-          <span className="svc-eyebrow">{feature.eyebrow}</span>
-          <h2 id="svc-feature-heading" className="svc-heading">
-            {feature.title}
-          </h2>
-          <p className="svc-feature__body">{feature.body}</p>
-          <ul className="svc-feature__bullets">
-            {feature.bullets.map((item) => (
-              <li key={item}>
-                <Check />
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className="svc-feature__media">
-          <Image src={image} alt={imageAlt} width={960} height={540} sizes="(max-width: 960px) 100vw, 48vw" />
+      <div className="svc-feature__atmosphere" aria-hidden="true" />
+      <div className="section-x container">
+        <div className="svc-feature__panel svc-feature__inner">
+          <Reveal className="svc-feature__copy">
+            <div className="svc-feature__eyebrow-row">
+              <span className="svc-feature__bar" aria-hidden="true" />
+              <span className="svc-eyebrow">{feature.eyebrow}</span>
+            </div>
+            <h2 id="svc-feature-heading" className="svc-heading svc-feature__heading">
+              {feature.title}
+            </h2>
+            <p className="svc-feature__body">{feature.body}</p>
+            <ul className="svc-feature__bullets">
+              {feature.bullets.map((item, i) => (
+                <li key={item}>
+                  <Reveal delay={140 + i * 90}>
+                    <span className="svc-feature__check" aria-hidden="true">
+                      <Check />
+                    </span>
+                    <span>{item}</span>
+                  </Reveal>
+                </li>
+              ))}
+            </ul>
+          </Reveal>
+          <Reveal className="svc-feature__media" delay={120}>
+            <div className="svc-feature__media-frame">
+              <Image src={image} alt={imageAlt} width={960} height={540} sizes="(max-width: 960px) 100vw, 48vw" />
+            </div>
+          </Reveal>
         </div>
       </div>
     </section>

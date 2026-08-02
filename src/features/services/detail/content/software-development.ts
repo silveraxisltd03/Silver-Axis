@@ -3,6 +3,7 @@ import type { PracticeDraft } from '../types';
 export const softwareDevelopment: PracticeDraft = {
   slug: 'software-development',
   crumb: 'Software Development',
+  hideRelated: true,
   meta: {
     title: 'Custom Software Development',
     description:
@@ -35,22 +36,6 @@ export const softwareDevelopment: PracticeDraft = {
     title: 'Custom software with clear ownership from day one.',
     body: 'We treat every engagement as temporary by design. Architecture, docs, environments, and release paths are built so your team can operate, extend, and hire against the work—without a black box left behind.',
   },
-  audience: {
-    eyebrow: 'The audience',
-    title: 'Teams that need stronger software ownership.',
-    columns: [
-      [
-        'Founders shipping a first product with a path past the MVP',
-        'Ops leaders replacing fragile spreadsheets and glue scripts',
-        'Product teams that need senior delivery without a full hire cycle',
-      ],
-      [
-        'CTOs consolidating vendors into one owned codebase',
-        'Internal platform teams standardizing APIs and environments',
-        'Businesses modernizing legacy systems in controlled steps',
-      ],
-    ],
-  },
   principles: {
     eyebrow: 'Our principles',
     title: 'What good looks like in custom software.',
@@ -65,10 +50,10 @@ export const softwareDevelopment: PracticeDraft = {
     eyebrow: 'How we deliver',
     title: 'A path from brief to owned software.',
     steps: [
-      { number: '01', title: 'Frame the outcome', body: 'Clarify the decision the product must support, constraints, and what success looks like in the first release.' },
-      { number: '02', title: 'Design the seams', body: 'Architecture, APIs, and data boundaries that leave room to grow without rewriting everything.' },
-      { number: '03', title: 'Ship in cycles', body: 'Short builds with weekly demos—risk called early, scope adjusted in public.' },
-      { number: '04', title: 'Hand off cleanly', body: 'Environments, docs, and runbooks so your team can operate and extend without us.' },
+      { number: '01', icon: 'target', title: 'Frame the outcome', body: 'Clarify the decision the product must support, constraints, and what success looks like in the first release.' },
+      { number: '02', icon: 'layers', title: 'Design the seams', body: 'Architecture, APIs, and data boundaries that leave room to grow without rewriting everything.' },
+      { number: '03', icon: 'cycle', title: 'Ship in cycles', body: 'Short builds with weekly demos—risk called early, scope adjusted in public.' },
+      { number: '04', icon: 'document', title: 'Hand off cleanly', body: 'Environments, docs, and runbooks so your team can operate and extend without us.' },
     ],
   },
   capabilities: {
@@ -91,16 +76,6 @@ export const softwareDevelopment: PracticeDraft = {
     title: 'Stacks we ship with confidence.',
     body: 'Chosen for fitness and the team that will inherit the work—not for resume padding.',
     items: ['React / Next.js', 'Node.js', 'PostgreSQL', 'REST & GraphQL', 'AWS / Azure', 'Docker', 'CI/CD', 'Observability'],
-  },
-  solutions: {
-    eyebrow: 'Solutions',
-    title: 'Software that solves real operational friction.',
-    rows: [
-      { label: 'Customer platforms', body: 'Portals, account systems, and self-serve flows that reduce support load while staying on-brand.' },
-      { label: 'Internal tools', body: 'Ops dashboards, approval workflows, and staff apps that replace spreadsheet sprawl.' },
-      { label: 'Integration layers', body: 'APIs and sync jobs that connect CRM, payments, logistics, and the systems already in play.' },
-      { label: 'Product rebuilds', body: 'Incremental rewrites of brittle stacks—with cutover plans that protect revenue and uptime.' },
-    ],
   },
   faq: [
     {
