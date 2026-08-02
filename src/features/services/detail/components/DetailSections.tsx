@@ -12,8 +12,8 @@ export function InvolvesSection({ content }: SectionProps) {
   const layout = visual.involvesLayout;
 
   return (
-    <section className={`svc-involves svc-involves--${layout} section-x`} aria-labelledby="svc-involves-heading">
-      <div className="container">
+    <section className={`svc-involves svc-involves--${layout}`} aria-labelledby="svc-involves-heading">
+      <div className="section-x container">
         <span className="svc-eyebrow svc-eyebrow--on-dark">{involves.eyebrow}</span>
         <h2 id="svc-involves-heading" className="svc-heading svc-heading--on-dark">
           {involves.title}
@@ -36,8 +36,8 @@ export function OwnershipSection({ content }: SectionProps) {
   const { ownership } = content;
 
   return (
-    <section className="svc-split section-x" aria-labelledby="svc-ownership-heading">
-      <div className="container svc-split__inner">
+    <section className="svc-split" aria-labelledby="svc-ownership-heading">
+      <div className="section-x container svc-split__inner">
         <div>
           <span className="svc-eyebrow">{ownership.eyebrow}</span>
           <h2 id="svc-ownership-heading" className="svc-heading">
@@ -54,8 +54,8 @@ export function AudienceSection({ content }: SectionProps) {
   const { audience } = content;
 
   return (
-    <section className="svc-audience section-x" aria-labelledby="svc-audience-heading">
-      <div className="container">
+    <section className="svc-audience" aria-labelledby="svc-audience-heading">
+      <div className="section-x container">
         <span className="svc-eyebrow svc-eyebrow--on-dark">{audience.eyebrow}</span>
         <h2 id="svc-audience-heading" className="svc-heading svc-heading--on-dark">
           {audience.title}
@@ -81,8 +81,8 @@ export function PrinciplesSection({ content }: SectionProps) {
   const { principles } = content;
 
   return (
-    <section className="svc-principles section-x" aria-labelledby="svc-principles-heading">
-      <div className="container">
+    <section className="svc-principles" aria-labelledby="svc-principles-heading">
+      <div className="section-x container">
         <span className="svc-eyebrow">{principles.eyebrow}</span>
         <h2 id="svc-principles-heading" className="svc-heading">
           {principles.title}
@@ -108,8 +108,8 @@ export function ProcessSection({ content }: SectionProps) {
   const layout = visual.processLayout;
 
   return (
-    <section className={`svc-process svc-process--${layout} section-x`} aria-labelledby="svc-process-heading">
-      <div className="container">
+    <section className={`svc-process svc-process--${layout}`} aria-labelledby="svc-process-heading">
+      <div className="section-x container">
         <span className="svc-eyebrow svc-eyebrow--on-dark">{process.eyebrow}</span>
         <h2 id="svc-process-heading" className="svc-heading svc-heading--on-dark">
           {process.title}
@@ -136,8 +136,8 @@ export function CapabilitiesSection({ content }: SectionProps) {
   const { capabilities } = content;
 
   return (
-    <section className="svc-capabilities section-x" aria-labelledby="svc-capabilities-heading">
-      <div className="container svc-capabilities__inner">
+    <section className="svc-capabilities" aria-labelledby="svc-capabilities-heading">
+      <div className="section-x container svc-capabilities__inner">
         <div className="svc-capabilities__copy">
           <span className="svc-eyebrow svc-eyebrow--on-dark">{capabilities.eyebrow}</span>
           <h2 id="svc-capabilities-heading" className="svc-heading svc-heading--on-dark">
@@ -160,8 +160,8 @@ export function StackSection({ content }: SectionProps) {
   if (!stack) return null;
 
   return (
-    <section className="svc-stack section-x" aria-labelledby="svc-stack-heading">
-      <div className="container svc-stack__inner">
+    <section className="svc-stack" aria-labelledby="svc-stack-heading">
+      <div className="section-x container svc-stack__inner">
         <div className="svc-stack__copy">
           <span className="svc-eyebrow">{stack.eyebrow}</span>
           <h2 id="svc-stack-heading" className="svc-heading">
@@ -183,8 +183,8 @@ export function SolutionsSection({ content }: SectionProps) {
   const { solutions } = content;
 
   return (
-    <section className="svc-solutions section-x" aria-labelledby="svc-solutions-heading">
-      <div className="container">
+    <section className="svc-solutions" aria-labelledby="svc-solutions-heading">
+      <div className="section-x container">
         <span className="svc-eyebrow">{solutions.eyebrow}</span>
         <h2 id="svc-solutions-heading" className="svc-heading">
           {solutions.title}
@@ -204,10 +204,11 @@ export function SolutionsSection({ content }: SectionProps) {
 
 export function ExcellenceSection({ content }: SectionProps) {
   const { excellence } = content;
+  if (!excellence) return null;
 
   return (
-    <section className="svc-excellence section-x" aria-labelledby="svc-excellence-heading">
-      <div className="container">
+    <section className="svc-excellence" aria-labelledby="svc-excellence-heading">
+      <div className="section-x container">
         <span className="svc-eyebrow svc-eyebrow--on-dark">{excellence.eyebrow}</span>
         <h2 id="svc-excellence-heading" className="svc-heading svc-heading--on-dark">
           {excellence.title}
@@ -227,10 +228,11 @@ export function ExcellenceSection({ content }: SectionProps) {
 
 export function InsightsSection({ content }: SectionProps) {
   const { insights } = content;
+  if (!insights) return null;
 
   return (
-    <section className="svc-insights section-x" aria-labelledby="svc-insights-heading">
-      <div className="container">
+    <section className="svc-insights" aria-labelledby="svc-insights-heading">
+      <div className="section-x container">
         <span className="svc-eyebrow">{insights.eyebrow}</span>
         <h2 id="svc-insights-heading" className="svc-heading">
           {insights.title}
@@ -253,10 +255,11 @@ export function InsightsSection({ content }: SectionProps) {
 
 export function DetailBanner({ content }: SectionProps) {
   const { banner } = content;
+  if (!banner) return null;
 
   return (
-    <section className="svc-detail-banner section-x">
-      <div className="container svc-detail-banner__inner">
+    <section className="svc-detail-banner">
+      <div className="section-x container svc-detail-banner__inner">
         <h2 className="svc-detail-banner__title">{banner.title}</h2>
         <Link href={banner.href} className="svc-detail-banner__btn">
           {banner.ctaLabel}
@@ -270,8 +273,8 @@ export function RelatedPractices({ related }: { related: ServiceDetailContent[] 
   if (!related.length) return null;
 
   return (
-    <section className="svc-related section-x" aria-labelledby="svc-related-heading">
-      <div className="container">
+    <section className="svc-related" aria-labelledby="svc-related-heading">
+      <div className="section-x container">
         <span className="svc-eyebrow">More practices</span>
         <h2 id="svc-related-heading" className="svc-heading">
           Explore related services

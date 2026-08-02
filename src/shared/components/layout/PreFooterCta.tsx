@@ -3,8 +3,8 @@ import { ROUTES } from '@/shared/constants/routes';
 
 export function PreFooterCta() {
   return (
-    <section className="pre-footer-cta section-x" aria-labelledby="pre-footer-cta-title">
-      <div className="pre-footer-cta__inner container">
+    <section className="pre-footer-cta" aria-labelledby="pre-footer-cta-title">
+      <div className="section-x container pre-footer-cta__inner">
         <div className="pre-footer-cta__copy">
           <span className="pre-footer-cta__eyebrow">Next step</span>
           <h2 id="pre-footer-cta-title" className="pre-footer-cta__title">

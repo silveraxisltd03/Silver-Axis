@@ -14,8 +14,8 @@ export function DetailFaq({ items }: DetailFaqProps) {
   const [openId, setOpenId] = useState<string | null>(items[0]?.id ?? null);
 
   return (
-    <section className="svc-detail-faq section-x" aria-labelledby="svc-detail-faq-heading">
-      <div className="container">
+    <section className="svc-detail-faq" aria-labelledby="svc-detail-faq-heading">
+      <div className="section-x container">
         <span className="svc-eyebrow">FAQ</span>
         <h2 id="svc-detail-faq-heading" className="svc-heading">
           Frequently asked questions

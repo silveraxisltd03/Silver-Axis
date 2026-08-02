@@ -5154,6 +5154,11 @@ body.nav-open { overflow: hidden; }
   max-width: 14ch;
 }
 
+.services-hero__title--detail {
+  max-width: 16ch;
+  font-size: clamp(30px, 4.6vw, 52px);
+}
+
 .services-hero__accent {
   color: var(--color-blue);
 }
@@ -6050,36 +6055,6 @@ body.nav-open { overflow: hidden; }
   max-width: 48ch;
 }
 
-.svc-detail-hero__highlights {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px 36px;
-}
-
-.svc-detail-hero__highlights li {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.svc-detail-hero__highlights strong {
-  font-size: 18px;
-  font-weight: 700;
-  color: #fff;
-  letter-spacing: -0.02em;
-}
-
-.svc-detail-hero__highlights span {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: #7b8499;
-}
-
 .svc-detail-hero__actions {
   margin-top: 28px;
 }
@@ -6105,17 +6080,68 @@ body.nav-open { overflow: hidden; }
   transform: translateY(-1px);
 }
 
-.svc-detail-hero__media {
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+.svc-detail-hero__tags {
+  border: 1px solid rgba(255, 255, 255, 0.14);
   background: rgba(255, 255, 255, 0.03);
+  border-radius: 10px;
+  padding: 24px 26px;
   box-shadow: 0 24px 64px rgba(0, 0, 0, 0.35);
 }
 
-.svc-detail-hero__media img {
+.svc-detail-hero__tags-title {
   display: block;
-  width: 100%;
-  height: auto;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--svc-accent, var(--color-blue));
+  padding-bottom: 18px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.svc-detail-hero__tags-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.svc-detail-hero__tags-item {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.svc-detail-hero__tags-item:last-child {
+  padding-bottom: 4px;
+  border-bottom: none;
+}
+
+.svc-detail-hero__tags-num {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--svc-accent, var(--color-blue));
+  flex: none;
+}
+
+.svc-detail-hero__tags-text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.svc-detail-hero__tags-text strong {
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: -0.01em;
+}
+
+.svc-detail-hero__tags-text span {
+  font-size: 12.5px;
+  color: #9aa3b8;
 }
 
 .svc-involves {

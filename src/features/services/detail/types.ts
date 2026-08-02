@@ -154,18 +154,18 @@ export interface ServiceDetailContent {
     title: string;
     rows: ServiceLabeledBody[];
   };
-  excellence: {
+  excellence?: {
     eyebrow: string;
     title: string;
     items: ServiceTitleBody[];
   };
   faq: ServiceFaqItem[];
-  insights: {
+  insights?: {
     eyebrow: string;
     title: string;
     posts: ServiceInsight[];
   };
-  banner: {
+  banner?: {
     title: string;
     ctaLabel: string;
     href: string;

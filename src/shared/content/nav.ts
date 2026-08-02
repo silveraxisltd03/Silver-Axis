@@ -78,7 +78,6 @@ export const NAV_ITEMS: NavItem[] = [
     columns: 1,
     items: [
       { label: 'About Us', href: '#' },
-      { label: 'Careers', href: '#' },
       { label: 'Contact', href: ROUTES.contact },
     ],
   },

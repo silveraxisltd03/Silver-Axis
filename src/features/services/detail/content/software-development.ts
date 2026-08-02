@@ -1,5 +1,4 @@
 import type { PracticeDraft } from '../types';
-import { banner, insightPosts } from './_shared';
 
 export const softwareDevelopment: PracticeDraft = {
   slug: 'software-development',
@@ -103,16 +102,6 @@ export const softwareDevelopment: PracticeDraft = {
       { label: 'Product rebuilds', body: 'Incremental rewrites of brittle stacks—with cutover plans that protect revenue and uptime.' },
     ],
   },
-  excellence: {
-    eyebrow: 'Technical excellence',
-    title: 'Control complexity before it controls you.',
-    items: [
-      { title: 'Clear boundaries', body: 'Modules and APIs with intentional seams.' },
-      { title: 'Test where risk lives', body: 'Coverage tuned to failure cost, not vanity metrics.' },
-      { title: 'Environments that match', body: 'Dev, staging, and prod that behave alike.' },
-      { title: 'Observability early', body: 'Logs, metrics, and alerts before scale surprises you.' },
-    ],
-  },
   faq: [
     {
       id: 'include',
@@ -145,10 +134,4 @@ export const softwareDevelopment: PracticeDraft = {
         'Yes. We can deliver as a focused pod or augment your engineers. Either way, ceremonies, docs, and code standards are set up so collaboration stays clean after we leave.',
     },
   ],
-  insights: {
-    eyebrow: 'Thought leadership',
-    title: 'Our knowledge sharing',
-    posts: insightPosts('Engineering'),
-  },
-  banner: banner('Have a word with the team about your next build.'),
 };

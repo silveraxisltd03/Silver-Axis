@@ -28,16 +28,16 @@ function blogTile(post: BlogPost, seed: string): InsightTile {
   };
 }
 
-function caseTile(cs: CaseStudy): InsightTile {
+function caseTile(cs: CaseStudy, seed: string): InsightTile {
   return {
     key: cs.slug,
     href: projectDetailPath(cs.slug),
-    image: cs.thumbnail ?? '/assets/digital-product-process.png',
+    image: `https://picsum.photos/seed/${seed}/700/700`,
   };
 }
 
 const COLUMN_1: InsightTile[] = [
-  caseTile(case1),
+  { ...caseTile(case1, 'silveraxis-case-1'), image: '/assets/insights/ai-automation.png' },
   { ...blogTile(blog4, 'silveraxis-blog-4'), image: '/assets/insights/zapier-n8n.png' },
 ];
 const COLUMN_2: InsightTile[] = [
@@ -45,7 +45,11 @@ const COLUMN_2: InsightTile[] = [
   { ...blogTile(blog2, 'silveraxis-blog-2'), image: '/assets/insights/llm-models-compared.png' },
   { ...blogTile(blog3, 'silveraxis-blog-3'), image: '/assets/insights/rag-knowledge-assistant.png' },
 ];
-const COLUMN_3: InsightTile[] = [caseTile(case2), caseTile(case3), caseTile(case4)];
+const COLUMN_3: InsightTile[] = [
+  { ...caseTile(case2, 'silveraxis-case-2'), image: '/assets/insights/mobile-app-dev.png' },
+  { ...caseTile(case3, 'silveraxis-case-3'), image: '/assets/insights/crm-erp-solutions.png' },
+  { ...caseTile(case4, 'silveraxis-case-4'), image: '/assets/insights/agentic-ai.png' },
+];
 
 function InsightColumn({ tiles }: { tiles: InsightTile[] }) {
   return (

@@ -13,8 +13,8 @@ export function FeatureBand({ content }: SectionProps) {
   const flip = feature.imagePosition === 'left';
 
   return (
-    <section className={`svc-feature section-x${flip ? ' svc-feature--flip' : ''}`} aria-labelledby="svc-feature-heading">
-      <div className="container svc-feature__inner">
+    <section className={`svc-feature${flip ? ' svc-feature--flip' : ''}`} aria-labelledby="svc-feature-heading">
+      <div className="section-x container svc-feature__inner">
         <div className="svc-feature__copy">
           <span className="svc-eyebrow">{feature.eyebrow}</span>
           <h2 id="svc-feature-heading" className="svc-heading">
@@ -40,8 +40,8 @@ export function FeatureBand({ content }: SectionProps) {
 
 function CompareModule({ module }: { module: Extract<ServiceModule, { type: 'compare' }> }) {
   return (
-    <section className="svc-module svc-module--compare section-x" aria-labelledby="svc-module-heading">
-      <div className="container">
+    <section className="svc-module svc-module--compare" aria-labelledby="svc-module-heading">
+      <div className="section-x container">
         <span className="svc-eyebrow svc-eyebrow--on-dark">{module.eyebrow}</span>
         <h2 id="svc-module-heading" className="svc-heading svc-heading--on-dark">
           {module.title}
@@ -77,8 +77,8 @@ function CompareModule({ module }: { module: Extract<ServiceModule, { type: 'com
 
 function PlatformsModule({ module }: { module: Extract<ServiceModule, { type: 'platforms' }> }) {
   return (
-    <section className="svc-module svc-module--platforms section-x" aria-labelledby="svc-module-heading">
-      <div className="container">
+    <section className="svc-module svc-module--platforms" aria-labelledby="svc-module-heading">
+      <div className="section-x container">
         <span className="svc-eyebrow">{module.eyebrow}</span>
         <h2 id="svc-module-heading" className="svc-heading">
           {module.title}
@@ -99,8 +99,8 @@ function PlatformsModule({ module }: { module: Extract<ServiceModule, { type: 'p
 
 function LoopModule({ module }: { module: Extract<ServiceModule, { type: 'loop' }> }) {
   return (
-    <section className="svc-module svc-module--loop section-x" aria-labelledby="svc-module-heading">
-      <div className="container">
+    <section className="svc-module svc-module--loop" aria-labelledby="svc-module-heading">
+      <div className="section-x container">
         <span className="svc-eyebrow svc-eyebrow--on-dark">{module.eyebrow}</span>
         <h2 id="svc-module-heading" className="svc-heading svc-heading--on-dark">
           {module.title}
@@ -121,8 +121,8 @@ function LoopModule({ module }: { module: Extract<ServiceModule, { type: 'loop' 
 
 function MetricsModule({ module }: { module: Extract<ServiceModule, { type: 'metrics' }> }) {
   return (
-    <section className="svc-module svc-module--metrics section-x" aria-labelledby="svc-module-heading">
-      <div className="container">
+    <section className="svc-module svc-module--metrics" aria-labelledby="svc-module-heading">
+      <div className="section-x container">
         <span className="svc-eyebrow">{module.eyebrow}</span>
         <h2 id="svc-module-heading" className="svc-heading">
           {module.title}
@@ -143,8 +143,8 @@ function MetricsModule({ module }: { module: Extract<ServiceModule, { type: 'met
 
 function ChecklistModule({ module }: { module: Extract<ServiceModule, { type: 'checklist' }> }) {
   return (
-    <section className="svc-module svc-module--checklist section-x" aria-labelledby="svc-module-heading">
-      <div className="container svc-checklist">
+    <section className="svc-module svc-module--checklist" aria-labelledby="svc-module-heading">
+      <div className="section-x container svc-checklist">
         <div className="svc-checklist__intro">
           <span className="svc-eyebrow">{module.eyebrow}</span>
           <h2 id="svc-module-heading" className="svc-heading">

@@ -48,7 +48,7 @@ export function ServiceDetailPage({ content }: ServiceDetailPageProps) {
       <SolutionsSection content={content} />
       <ExcellenceSection content={content} />
       <DetailFaq items={content.faq} />
-      <InsightsSection content={content} />
+      {content.insights && <InsightsSection content={content} />}
       <RelatedPractices related={relatedPractices(content)} />
       <DetailBanner content={content} />
     </div>
