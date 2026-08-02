@@ -85,17 +85,6 @@ export function ContactFormPanel() {
 
   return (
     <div className="contact-form-block">
-      <div className="contact-form-block__head">
-        <div className="contact-intro__eyebrow-row">
-          <span className="contact-intro__bar" aria-hidden="true" />
-          <span className="contact-intro__eyebrow">{CONTACT_FORM_HEADING.eyebrow}</span>
-        </div>
-        <h2 id="contact-connect-heading" className="contact-form-block__title">
-          {CONTACT_FORM_HEADING.titleLead}{' '}
-          <span className="contact-hero__accent">{CONTACT_FORM_HEADING.titleAccent}</span>
-        </h2>
-      </div>
-
       <div className="contact-form-panel">
         {!sent ? (
           <>
@@ -215,8 +204,8 @@ export function ContactFormPanel() {
                 <label htmlFor="contact-message">Message</label>
                 <textarea
                   id="contact-message"
-                  className={`field contact-field${errors.message ? ' field--invalid' : ''}`}
-                  rows={5}
+                  className={`field contact-field contact-field--area${errors.message ? ' field--invalid' : ''}`}
+                  rows={4}
                   value={form.message}
                   onChange={upd('message')}
                   placeholder="A few lines about where things are slow, manual, or breaking."

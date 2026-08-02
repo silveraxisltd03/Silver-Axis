@@ -1,6 +1,19 @@
 import type { ServiceCategorySlug } from '@/shared/constants/categories';
 import { ROUTES, serviceDetailPath } from '@/shared/constants/routes';
 
+export interface LogoCloudItem {
+  id: string;
+  src: string;
+  alt: string;
+}
+
+/** Placeholder logos (picsum). Swap `src` when real brand assets arrive. */
+export const LOGO_CLOUD_ITEMS: LogoCloudItem[] = Array.from({ length: 11 }, (_, i) => ({
+  id: `logo-${i + 1}`,
+  src: `https://picsum.photos/seed/silver-axis-logo-${i + 1}/200/80`,
+  alt: `Partner logo ${i + 1}`,
+}));
+
 export interface ServiceTile {
   slug: ServiceCategorySlug;
   image: string;

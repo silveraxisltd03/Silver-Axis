@@ -1,5 +1,5 @@
 import type { PracticeDraft } from '../types';
-import { banner, insightPosts } from './_shared';
+import { insightPosts } from './_shared';
 
 export const cloudDevops: PracticeDraft = {
   slug: 'cloud-devops',
@@ -149,6 +149,5 @@ export const cloudDevops: PracticeDraft = {
     eyebrow: 'Thought leadership',
     title: 'Our knowledge sharing',
     posts: insightPosts('Platform'),
-  },
-  banner: banner('Make shipping routine—and incidents rare.'),
+  }
 };

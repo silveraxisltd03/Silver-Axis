@@ -1,9 +1,10 @@
 import type { PracticeDraft } from '../types';
-import { banner, insightPosts } from './_shared';
 
 export const webDevelopment: PracticeDraft = {
   slug: 'web-development',
   crumb: 'Web Development',
+  hideRelated: true,
+  projectsCategory: 'web-mobile',
   meta: {
     title: 'Web Development',
     description:
@@ -29,27 +30,6 @@ export const webDevelopment: PracticeDraft = {
       { title: 'Performance engineering', body: 'Budgets, image strategy, and rendering choices that protect Core Web Vitals.' },
       { title: 'Accessibility', body: 'Keyboard flows, semantics, and contrast treated as requirements—not polish.' },
       { title: 'CMS & content models', body: 'Editors get structured content; engineers get predictable schemas.' },
-    ],
-  },
-  ownership: {
-    eyebrow: 'Ownership',
-    title: 'A web stack your team can extend without us.',
-    body: 'Components, routing, content models, and deploy pipelines are documented and owned by you. We optimize for the next engineer who ships a page—not for vendor lock-in.',
-  },
-  audience: {
-    eyebrow: 'The audience',
-    title: 'Teams that need web that works in production.',
-    columns: [
-      [
-        'Brands rebuilding marketing sites that cannot stay slow',
-        'SaaS teams shipping dashboards users live in every day',
-        'Product orgs aligning web UI with a growing design system',
-      ],
-      [
-        'Founders who need a credible web presence and a path to product',
-        'Ops teams replacing internal tools stuck in legacy frontends',
-        'Marketing and engineering pairs who need one shared source of truth',
-      ],
     ],
   },
   principles: {
@@ -103,16 +83,6 @@ export const webDevelopment: PracticeDraft = {
       { label: 'Internal web tools', body: 'Staff apps that replace email chains and spreadsheet ops.' },
     ],
   },
-  excellence: {
-    eyebrow: 'Technical excellence',
-    title: 'Details users feel—and engineers inherit.',
-    items: [
-      { title: 'Rendering strategy', body: 'SSR, SSG, and client islands chosen per route.' },
-      { title: 'Bundle discipline', body: 'Route-level code splitting and dependency hygiene.' },
-      { title: 'Design tokens', body: 'One source for color, type, and spacing across surfaces.' },
-      { title: 'Preview pipelines', body: 'Safe review environments before anything hits prod.' },
-    ],
-  },
   faq: [
     {
       id: 'include',
@@ -145,10 +115,4 @@ export const webDevelopment: PracticeDraft = {
         'With a short audit of current surfaces and goals, then a scoped first release—often a critical funnel or dashboard slice that proves the stack.',
     },
   ],
-  insights: {
-    eyebrow: 'Thought leadership',
-    title: 'Our knowledge sharing',
-    posts: insightPosts('Web'),
-  },
-  banner: banner('Ready for a web experience that holds up in production?'),
 };

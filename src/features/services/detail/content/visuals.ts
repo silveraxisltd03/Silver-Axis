@@ -26,17 +26,6 @@ export const PRACTICE_VISUALS: Record<string, ServiceVisual> = {
     processLayout: 'rail',
     image: serviceImage('web-development'),
     imageAlt: 'Abstract web interfaces and responsive layout frames',
-    feature: {
-      eyebrow: 'Performance first',
-      title: 'Web that stays fast when traffic gets real.',
-      body: 'Rendering strategy, image discipline, and design tokens keep marketing and product surfaces coherent under load.',
-      bullets: [
-        'Core Web Vitals budgets from day one',
-        'Reusable UI systems for new pages',
-        'CMS models editors can actually use',
-      ],
-      imagePosition: 'left',
-    },
   },
   'mobile-apps': {
     theme: 'mobile',

@@ -71,14 +71,6 @@ export const NAV_ITEMS: NavItem[] = [
     viewAllHref: '#',
   },
   { type: 'link', label: 'Projects', href: ROUTES.projects },
-  {
-    type: 'dropdown',
-    label: 'Company',
-    href: '#',
-    columns: 1,
-    items: [
-      { label: 'About Us', href: '#' },
-      { label: 'Contact', href: ROUTES.contact },
-    ],
-  },
+  { type: 'link', label: 'About Us', href: ROUTES.about },
+  { type: 'link', label: 'Contact', href: ROUTES.contact },
 ];

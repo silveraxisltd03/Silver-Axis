@@ -35,6 +35,7 @@ export function InvolvesSection({ content }: SectionProps) {
 
 export function OwnershipSection({ content }: SectionProps) {
   const { ownership, hero } = content;
+  if (!ownership) return null;
 
   return (
     <section className="svc-split" aria-labelledby="svc-ownership-heading">
@@ -116,30 +117,6 @@ export function CapabilitiesSection({ content }: SectionProps) {
         <ul className="svc-capabilities__list">
           {capabilities.items.map((item) => (
             <li key={item}>{item}</li>
-          ))}
-        </ul>
-      </div>
-    </section>
-  );
-}
-
-export function SolutionsSection({ content }: SectionProps) {
-  const { solutions } = content;
-  if (!solutions) return null;
-
-  return (
-    <section className="svc-solutions" aria-labelledby="svc-solutions-heading">
-      <div className="section-x container">
-        <span className="svc-eyebrow">{solutions.eyebrow}</span>
-        <h2 id="svc-solutions-heading" className="svc-heading">
-          {solutions.title}
-        </h2>
-        <ul className="svc-solutions__rows">
-          {solutions.rows.map((row) => (
-            <li key={row.label}>
-              <strong>{row.label}</strong>
-              <p>{row.body}</p>
-            </li>
           ))}
         </ul>
       </div>

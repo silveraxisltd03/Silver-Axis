@@ -5,6 +5,7 @@ import { QUOTES } from '@/shared/content/quotes';
 import { HeroCarousel } from './components/HeroCarousel';
 import { FeaturedInsights } from './components/FeaturedInsights';
 import { HowWeOperate } from './components/HowWeOperate';
+import { LogoCloud } from './components/LogoCloud';
 import { ProcessShowcase } from './components/ProcessShowcase';
 import { ServicesShowcase } from './components/ServicesShowcase';
 import { HERO_SLIDES } from './hero.data';
@@ -14,6 +15,8 @@ export function HomePage() {
   return (
     <>
       <HeroCarousel slides={HERO_SLIDES} />
+
+      <LogoCloud />
 
       <HowWeOperate />
 

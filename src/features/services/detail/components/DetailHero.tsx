@@ -10,9 +10,9 @@ export function DetailHero({ content }: DetailHeroProps) {
   const { hero, crumb } = content;
 
   return (
-    <section className="services-hero">
+    <section className="services-hero section-x">
       <div className="services-hero__glow" aria-hidden="true" />
-      <div className="section-x container services-hero__inner">
+      <div className="container services-hero__inner">
         <nav className="services-hero__crumbs" aria-label="Breadcrumb">
           <Link href={ROUTES.home}>Home</Link>
           <span aria-hidden="true">/</span>

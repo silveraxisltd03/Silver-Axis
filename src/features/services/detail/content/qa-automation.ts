@@ -1,5 +1,5 @@
 import type { PracticeDraft } from '../types';
-import { banner, insightPosts } from './_shared';
+import { insightPosts } from './_shared';
 
 export const qaAutomation: PracticeDraft = {
   slug: 'qa-automation',
@@ -149,6 +149,5 @@ export const qaAutomation: PracticeDraft = {
     eyebrow: 'Thought leadership',
     title: 'Our knowledge sharing',
     posts: insightPosts('Quality'),
-  },
-  banner: banner('Ship faster with confidence—not crossed fingers.'),
+  }
 };

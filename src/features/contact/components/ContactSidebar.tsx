@@ -1,23 +1,7 @@
 'use client';
 
-import {
-  FacebookIcon,
-  GitHubIcon,
-  InstagramIcon,
-  LinkedInIcon,
-  XIcon,
-} from '@/shared/components/ui/icons';
 import { CONTACT_SIDEBAR } from '../contact.data';
 import { openCalendly } from '../lib/calendly';
-import { TimezoneOverlap } from './TimezoneOverlap';
-
-const SOCIAL_ICONS = {
-  LinkedIn: LinkedInIcon,
-  X: XIcon,
-  GitHub: GitHubIcon,
-  Facebook: FacebookIcon,
-  Instagram: InstagramIcon,
-} as const;
 
 export function ContactSidebar() {
   return (
@@ -44,33 +28,12 @@ export function ContactSidebar() {
         </ul>
       </div>
 
-      <TimezoneOverlap />
-
       <div className="contact-booking">
         <h3 className="contact-booking__title">{CONTACT_SIDEBAR.bookingTitle}</h3>
         <p className="contact-booking__body">{CONTACT_SIDEBAR.bookingBody}</p>
         <button type="button" className="contact-booking__cta" onClick={openCalendly}>
           {CONTACT_SIDEBAR.bookingCta}
         </button>
-      </div>
-
-      <div className="contact-sidebar__social">
-        {CONTACT_SIDEBAR.social.map((social) => {
-          const Icon = SOCIAL_ICONS[social.label as keyof typeof SOCIAL_ICONS];
-          if (!Icon) return null;
-          return (
-            <a
-              key={social.label}
-              href={social.href}
-              className="contact-sidebar__social-link"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={social.label}
-            >
-              <Icon />
-            </a>
-          );
-        })}
       </div>
     </aside>
   );

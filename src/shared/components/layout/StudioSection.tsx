@@ -133,7 +133,7 @@ export function StudioSection() {
               From strategy and design to development and scaling—we partner with companies to build
               custom software, websites, and applications that solve real problems and unlock growth.
             </p>
-            <Link href={ROUTES.contact} className="studio-section__link">
+            <Link href={ROUTES.about} className="studio-section__link">
               Meet Silver Axis <span aria-hidden="true">→</span>
             </Link>
           </div>

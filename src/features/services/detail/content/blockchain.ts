@@ -1,5 +1,5 @@
 import type { PracticeDraft } from '../types';
-import { banner, insightPosts } from './_shared';
+import { insightPosts } from './_shared';
 
 export const blockchain: PracticeDraft = {
   slug: 'blockchain',
@@ -149,6 +149,5 @@ export const blockchain: PracticeDraft = {
     eyebrow: 'Thought leadership',
     title: 'Our knowledge sharing',
     posts: insightPosts('Blockchain'),
-  },
-  banner: banner('Not sure if you need a chain? Ask us for an honest fit call.'),
+  }
 };

@@ -27,11 +27,11 @@ export function PrinciplesSection({ content }: SectionProps) {
     if (reducedMotion) return;
 
     const header = section.querySelectorAll<HTMLElement>('[data-principles-header]');
-    const items = section.querySelectorAll<HTMLElement>('[data-principle-item]');
+    const cards = section.querySelectorAll<HTMLElement>('[data-principle-card]');
 
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({
-        scrollTrigger: { trigger: section, start: 'top 72%', once: true },
+        scrollTrigger: { trigger: section, start: 'top 74%', once: true },
       });
 
       if (header.length) {
@@ -43,10 +43,10 @@ export function PrinciplesSection({ content }: SectionProps) {
       }
 
       tl.fromTo(
-        items,
-        { opacity: 0, y: 32 },
+        cards,
+        { opacity: 0, y: 28 },
         { opacity: 1, y: 0, duration: 0.65, stagger: 0.1, ease: 'power3.out' },
-        '-=0.28',
+        '-=0.25',
       );
     }, section);
 
@@ -55,12 +55,13 @@ export function PrinciplesSection({ content }: SectionProps) {
 
   return (
     <section ref={sectionRef} className="svc-principles" aria-labelledby="svc-principles-heading">
-      <div className="svc-principles__glow" aria-hidden="true" />
+      <div className="svc-principles__atmosphere" aria-hidden="true" />
       <div className="section-x container svc-principles__inner">
         <header className="svc-principles__header">
-          <span className="svc-eyebrow" data-principles-header>
-            {principles.eyebrow}
-          </span>
+          <div className="svc-principles__eyebrow-row" data-principles-header>
+            <span className="svc-principles__bar" aria-hidden="true" />
+            <span className="svc-eyebrow">{principles.eyebrow}</span>
+          </div>
           <h2 id="svc-principles-heading" className="svc-heading svc-principles__heading" data-principles-header>
             {principles.title}
           </h2>
@@ -68,12 +69,13 @@ export function PrinciplesSection({ content }: SectionProps) {
 
         <ol className="svc-principles__grid">
           {principles.items.map((item, index) => (
-            <li key={item.title} className="svc-principles__item" data-principle-item>
+            <li key={item.title} className="svc-principles__card" data-principle-card>
               <span className="svc-principles__watermark" aria-hidden="true">
                 {padIndex(index)}
               </span>
               <h3 className="svc-principles__title">{item.title}</h3>
               <p className="svc-principles__body">{item.body}</p>
+              <span className="svc-principles__accent" aria-hidden="true" />
             </li>
           ))}
         </ol>

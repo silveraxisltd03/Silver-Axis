@@ -1,5 +1,5 @@
 import type { PracticeDraft } from '../types';
-import { banner, insightPosts } from './_shared';
+import { insightPosts } from './_shared';
 
 export const mobileApps: PracticeDraft = {
   slug: 'mobile-apps',
@@ -149,6 +149,5 @@ export const mobileApps: PracticeDraft = {
     eyebrow: 'Thought leadership',
     title: 'Our knowledge sharing',
     posts: insightPosts('Mobile'),
-  },
-  banner: banner('Let’s scope the mobile product your users will actually open.'),
+  }
 };

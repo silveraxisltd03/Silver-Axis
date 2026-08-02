@@ -15,6 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...PRACTICE_SLUGS.map((slug) => practiceDetailPath(slug)),
     ROUTES.projects,
     ...ALL_CASES.map((cs) => projectDetailPath(cs.slug)),
+    ROUTES.about,
     ROUTES.contact,
     ROUTES.privacyPolicy,
     ROUTES.termsOfService,

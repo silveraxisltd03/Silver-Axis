@@ -1,4 +1,5 @@
 import { ROUTES } from '@/shared/constants/routes';
+import type { ServiceCategorySlug } from '@/shared/constants/categories';
 
 export interface ServiceHighlight {
   label: string;
@@ -115,6 +116,8 @@ export interface ServiceDetailContent {
   crumb: string;
   meta: { title: string; description: string };
   hideRelated?: boolean;
+  /** When set, show a projects slider before ownership for this category. */
+  projectsCategory?: ServiceCategorySlug;
   visual: ServiceVisual;
   hero: {
     eyebrow: string;
@@ -127,7 +130,7 @@ export interface ServiceDetailContent {
     title: string;
     items: ServiceTitleBody[];
   };
-  ownership: {
+  ownership?: {
     eyebrow: string;
     title: string;
     body: string;

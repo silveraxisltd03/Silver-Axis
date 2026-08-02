@@ -1,5 +1,5 @@
 import type { PracticeDraft } from '../types';
-import { banner, insightPosts } from './_shared';
+import { insightPosts } from './_shared';
 
 export const digitalMarketing: PracticeDraft = {
   slug: 'digital-marketing',
@@ -149,6 +149,5 @@ export const digitalMarketing: PracticeDraft = {
     eyebrow: 'Thought leadership',
     title: 'Our knowledge sharing',
     posts: insightPosts('Growth'),
-  },
-  banner: banner('Connect acquisition to a product path that actually converts.'),
+  }
 };

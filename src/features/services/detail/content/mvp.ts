@@ -1,5 +1,5 @@
 import type { PracticeDraft } from '../types';
-import { banner, insightPosts } from './_shared';
+import { insightPosts } from './_shared';
 
 export const mvp: PracticeDraft = {
   slug: 'mvp',
@@ -149,6 +149,5 @@ export const mvp: PracticeDraft = {
     eyebrow: 'Thought leadership',
     title: 'Our knowledge sharing',
     posts: insightPosts('Product'),
-  },
-  banner: banner('Ready to prove the bet with a first release that can grow?'),
+  }
 };

@@ -1,19 +1,34 @@
-import { FOOTER_CONTACT, FOOTER_SOCIAL } from '@/shared/content/footer';
+import { FOOTER_CONTACT } from '@/shared/content/footer';
 import { ROUTES } from '@/shared/constants/routes';
 
+/** Formspree endpoint — override with NEXT_PUBLIC_FORMSPREE_URL if needed. */
+export const FORMSPREE_URL =
+  process.env.NEXT_PUBLIC_FORMSPREE_URL ?? 'https://formspree.io/f/mykqkvzl';
+
+export const CALENDLY_URL =
+  process.env.NEXT_PUBLIC_CALENDLY_URL ?? 'https://calendly.com/silveraxisltd';
+
 export const CONTACT_HERO = {
-  eyebrow: 'Home / Contact',
+  eyebrow: 'Start a conversation',
   titleLead: 'Bring us the problem,',
   titleAccent: 'questions included.',
-  subtitle:
+  body:
     'Tell us where things are slow, manual, or breaking. We will map what to automate, what to rebuild, and what to leave alone—no obligation.',
+  primaryCta: { label: 'Send a message', href: '#contact-connect-heading' },
+  secondaryCta: {
+    label: 'Book a free audit',
+    href: CALENDLY_URL,
+    external: true,
+  },
 };
 
 export const CONTACT_INTRO = {
-  eyebrow: 'Ops dashboards & alerts',
-  title: 'Bring the problem—questions included',
+  eyebrow: 'After you reach out',
+  titleLead: 'We start with the problem—',
+  titleAccent: 'not a package.',
   body:
-    'We start with what you are trying to fix, not a pre-baked package. Share the intent, a little context, and we will propose a clear next step.',
+    'Share the outcome you need and enough context to act. We map what to automate, rebuild, or leave alone—then propose a clear next step.',
+  visualLabel: 'Intake → scope → next step',
   steps: [
     {
       n: '01',
@@ -23,20 +38,20 @@ export const CONTACT_INTRO = {
     {
       n: '02',
       title: 'Context',
-      desc: 'Tools, constraints, and the workflows that are already in play.',
+      desc: 'Tools, constraints, and the workflows already in play.',
     },
     {
       n: '03',
       title: 'Next step',
-      desc: 'A scoped audit or build path you can act on within days, not weeks.',
+      desc: 'A scoped audit or build path you can act on within days.',
     },
   ],
 };
 
 export const CONTACT_STATS = [
-  { value: '3–4 wks', label: 'Typical lead time' },
-  { value: '100%', label: 'Scoped handoff' },
-  { value: 'Weekly', label: 'Delivery cadence' },
+  { value: '<24h', label: 'Typical first reply' },
+  { value: '30 min', label: 'Discovery call' },
+  { value: 'Days', label: 'To a scoped proposal' },
 ];
 
 export const HELP_OPTIONS = [
@@ -63,17 +78,6 @@ export const CONTACT_SIDEBAR = {
   bookingTitle: 'Prefer to pick a time?',
   bookingBody: 'Book a free audit and we will walk through the problem together.',
   bookingCta: 'Book a free audit',
-  social: FOOTER_SOCIAL,
-};
-
-export const TIME_OVERLAP = {
-  title: 'Time overlap',
-  subtitle: 'Working hours that line up with your team',
-  rows: [
-    { zone: 'PKT', label: 'Pakistan', start: 0, end: 100, active: true },
-    { zone: 'UK / EU', label: 'London / Berlin', start: 18, end: 72, active: false },
-    { zone: 'US / ET', label: 'New York', start: 42, end: 88, active: false },
-  ],
 };
 
 export const CONTACT_FORM_HEADING = {
@@ -87,10 +91,3 @@ export const CONTACT_LINKS = {
   home: ROUTES.home,
   projects: ROUTES.projects,
 };
-
-/** Formspree endpoint — override with NEXT_PUBLIC_FORMSPREE_URL if needed. */
-export const FORMSPREE_URL =
-  process.env.NEXT_PUBLIC_FORMSPREE_URL ?? 'https://formspree.io/f/mykqkvzl';
-
-export const CALENDLY_URL =
-  process.env.NEXT_PUBLIC_CALENDLY_URL ?? 'https://calendly.com/silveraxisltd';

@@ -11,10 +11,11 @@ import {
   InvolvesSection,
   OwnershipSection,
   RelatedPractices,
-  SolutionsSection,
 } from './components/DetailSections';
+import { ProjectsSlider } from './components/ProjectsSlider';
 import { PrinciplesSection } from './components/PrinciplesSection';
 import { ProcessSection } from './components/ProcessSection';
+import { SolutionsSection } from './components/SolutionsSection';
 import { StackSection } from './components/StackSection';
 import { FeatureBand, UniqueModule } from './components/UniqueSections';
 
@@ -39,6 +40,9 @@ export function ServiceDetailPage({ content }: ServiceDetailPageProps) {
       <InvolvesSection content={content} />
       <FeatureBand content={content} />
       <UniqueModule content={content} />
+      {content.projectsCategory && (
+        <ProjectsSlider category={content.projectsCategory} />
+      )}
       <OwnershipSection content={content} />
       <AudienceSection content={content} />
       <PrinciplesSection content={content} />

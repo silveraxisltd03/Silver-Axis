@@ -1,5 +1,5 @@
 import type { PracticeDraft } from '../types';
-import { banner, insightPosts } from './_shared';
+import { insightPosts } from './_shared';
 
 export const aiMl: PracticeDraft = {
   slug: 'ai-ml',
@@ -149,6 +149,5 @@ export const aiMl: PracticeDraft = {
     eyebrow: 'Thought leadership',
     title: 'Our knowledge sharing',
     posts: insightPosts('AI'),
-  },
-  banner: banner('Bring us the workflow—we will map the AI that is worth building.'),
+  }
 };

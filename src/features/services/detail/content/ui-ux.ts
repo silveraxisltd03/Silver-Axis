@@ -1,5 +1,5 @@
 import type { PracticeDraft } from '../types';
-import { banner, insightPosts } from './_shared';
+import { insightPosts } from './_shared';
 
 export const uiUx: PracticeDraft = {
   slug: 'ui-ux',
@@ -149,6 +149,5 @@ export const uiUx: PracticeDraft = {
     eyebrow: 'Thought leadership',
     title: 'Our knowledge sharing',
     posts: insightPosts('Design'),
-  },
-  banner: banner('Need interfaces engineering can build without guessing?'),
+  }
 };
