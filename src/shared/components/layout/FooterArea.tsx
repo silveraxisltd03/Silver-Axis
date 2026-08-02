@@ -5,16 +5,19 @@ import { Footer } from './Footer';
 import { PreFooterCta } from './PreFooterCta';
 import { StudioSection } from './StudioSection';
 
-const LEGAL_PATHS = new Set(['/privacy-policy', '/terms-of-service']);
+const HIDE_MARKETING_CTAS = new Set(['/privacy-policy', '/terms-of-service', '/contact', '/services']);
 
 export function FooterArea() {
   const pathname = usePathname();
-  const isLegalPage = LEGAL_PATHS.has(pathname);
+  const hideMarketing =
+    HIDE_MARKETING_CTAS.has(pathname) ||
+    pathname.startsWith('/services/') ||
+    pathname.startsWith('/projects');
 
   return (
     <>
-      {!isLegalPage && <StudioSection />}
-      {!isLegalPage && <PreFooterCta />}
+      {!hideMarketing && <StudioSection />}
+      {!hideMarketing && <PreFooterCta />}
       <Footer />
     </>
   );

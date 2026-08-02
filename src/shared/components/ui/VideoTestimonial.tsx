@@ -1,16 +1,14 @@
 'use client';
 
-import { useLayoutEffect, useRef, useState } from 'react';
+import { useLayoutEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { PlayIcon } from './icons';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const VIDEO_ID = 'x2lsNS5DRTE';
 
 export function VideoTestimonial() {
-  const [playing, setPlaying] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
@@ -40,36 +38,14 @@ export function VideoTestimonial() {
 
   return (
     <div className="video-testimonial" ref={cardRef}>
-      {playing ? (
-        <iframe
-          className="video-testimonial__iframe"
-          src={`https://www.youtube.com/embed/${VIDEO_ID}?autoplay=1`}
-          title="Client testimonial video"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        />
-      ) : (
-        <button
-          type="button"
-          className="video-testimonial__trigger"
-          onClick={() => setPlaying(true)}
-          aria-label="Play client testimonial video"
-        >
-          <span
-            className="video-testimonial__thumb"
-            aria-hidden="true"
-            style={{ backgroundImage: `url(https://img.youtube.com/vi/${VIDEO_ID}/hqdefault.jpg)` }}
-          />
-          <span className="video-testimonial__scrim" aria-hidden="true" />
-          <span className="video-testimonial__label">
-            <span className="video-testimonial__dot" aria-hidden="true" />
-            Client Testimonial
-          </span>
-          <span className="video-testimonial__play">
-            <PlayIcon />
-          </span>
-        </button>
-      )}
+      <iframe
+        className="video-testimonial__iframe"
+        src={`https://www.youtube.com/embed/${VIDEO_ID}`}
+        title="Client testimonial video"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerPolicy="strict-origin-when-cross-origin"
+        allowFullScreen
+      />
     </div>
   );
 }

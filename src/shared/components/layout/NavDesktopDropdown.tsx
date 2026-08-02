@@ -52,10 +52,12 @@ export function NavDesktopDropdown({ item }: NavDesktopDropdownProps) {
             </div>
           ))}
         </div>
-        <Link href={item.viewAllHref} className="nav-dropdown__viewall" role="menuitem">
-          {item.viewAllLabel}
-          <ArrowRight />
-        </Link>
+        {item.viewAllHref && item.viewAllLabel && (
+          <Link href={item.viewAllHref} className="nav-dropdown__viewall" role="menuitem">
+            {item.viewAllLabel}
+            <ArrowRight />
+          </Link>
+        )}
       </div>
     </div>
   );

@@ -6,6 +6,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowDown } from '@/shared/components/ui/icons';
 import { ROUTES, serviceDetailPath } from '@/shared/constants/routes';
+import { openCalendly } from '@/features/contact/lib/calendly';
 import { SERVICE_TILES } from '../home.data';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -68,9 +69,9 @@ export function ServicesShowcase() {
         </div>
       </div>
 
-      <Link href={ROUTES.contact} className="services-showcase__side-cta">
+      <button type="button" onClick={openCalendly} className="services-showcase__side-cta">
         Let&rsquo;s Talk Business
-      </Link>
+      </button>
     </section>
   );
 }

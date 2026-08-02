@@ -1,4 +1,5 @@
 import type { ServiceCategorySlug } from '@/shared/constants/categories';
+import { ROUTES, serviceDetailPath } from '@/shared/constants/routes';
 
 export interface ServiceTile {
   slug: ServiceCategorySlug;
@@ -11,6 +12,34 @@ export const SERVICE_TILES: ServiceTile[] = [
   { slug: 'ai-automation', image: '/assets/automation-tools.png', imageAlt: 'AI automation illustration', title: 'AI & Automation' },
   { slug: 'web-mobile', image: '/assets/web-and-mobile.png', imageAlt: 'Web and mobile illustration', title: 'Web & Mobile' },
   { slug: 'custom-systems', image: '/assets/crm-erp.png', imageAlt: 'CRM and ERP illustration', title: 'Custom Systems' },
+];
+
+export interface OperateCommitment {
+  n: string;
+  title: string;
+  desc: string;
+  href: string;
+}
+
+export const OPERATE_COMMITMENTS: OperateCommitment[] = [
+  {
+    n: '01',
+    title: 'Visible decisions',
+    desc: 'Scope, risks, and trade-offs stay explicit',
+    href: serviceDetailPath('ai-automation'),
+  },
+  {
+    n: '02',
+    title: 'Durable ownership',
+    desc: 'Code, docs, and handoff you can keep',
+    href: ROUTES.projects,
+  },
+  {
+    n: '03',
+    title: 'Domain context',
+    desc: 'Workflows shaped for how your industry operates',
+    href: ROUTES.contact,
+  },
 ];
 
 export const STEPS = [

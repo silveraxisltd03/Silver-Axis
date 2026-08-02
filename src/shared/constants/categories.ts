@@ -17,3 +17,13 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
   { slug: 'web-mobile', label: 'Web & Mobile', navLabel: 'Web & Mobile' },
   { slug: 'custom-systems', label: 'Custom Systems', navLabel: 'CRM, ERP & internal tools' },
 ];
+
+export function isServiceCategorySlug(value: string | null | undefined): value is ServiceCategorySlug {
+  return SERVICE_CATEGORY_SLUGS.includes(value as ServiceCategorySlug);
+}
+
+export function getCategoryBySlug(slug: ServiceCategorySlug): ServiceCategory {
+  const cat = SERVICE_CATEGORIES.find((c) => c.slug === slug);
+  if (!cat) throw new Error(`Unknown category: ${slug}`);
+  return cat;
+}

@@ -19,3 +19,21 @@
 .case-study-card__media--placeholder {
   padding: var(--padding-card);
 }
+
+/* Case study surfaces */
+.cs-ba__panel,
+.cs-delivery__step,
+.cs-thumbnail__frame,
+.cs-gallery__img-wrap {
+  border-radius: 0;
+}
+
+.cs-ba__panel,
+.cs-delivery__step {
+  padding: 22px;
+  border: 1px solid rgba(20, 40, 90, 0.08);
+}
+
+.cs-thumbnail__frame {
+  border: 1px solid rgba(20, 40, 90, 0.08);
+}

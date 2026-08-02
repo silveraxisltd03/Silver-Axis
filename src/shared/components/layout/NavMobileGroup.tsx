@@ -26,9 +26,11 @@ export function NavMobileGroup({ item, onNavigate }: NavMobileGroupProps) {
         <ChevronDown className="nav-sidebar__chevron" />
       </button>
       <div className="nav-sidebar__sub">
-        <Link href={item.viewAllHref} className="nav-sidebar__sublink nav-sidebar__sublink--all" data-nav-animate onClick={onNavigate}>
-          {item.viewAllLabel}
-        </Link>
+        {item.viewAllHref && item.viewAllLabel && (
+          <Link href={item.viewAllHref} className="nav-sidebar__sublink nav-sidebar__sublink--all" data-nav-animate onClick={onNavigate}>
+            {item.viewAllLabel}
+          </Link>
+        )}
         {item.items.map((link) => (
           <Link key={link.label} href={link.href} className="nav-sidebar__sublink" data-nav-animate onClick={onNavigate}>
             {link.label}

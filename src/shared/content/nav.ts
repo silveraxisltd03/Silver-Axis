@@ -13,8 +13,8 @@ export type NavItem =
       href: string;
       columns: 1 | 2;
       items: NavDropdownItem[];
-      viewAllLabel: string;
-      viewAllHref: string;
+      viewAllLabel?: string;
+      viewAllHref?: string;
     };
 
 // Placeholder nav taxonomy — swap hrefs in as real pages ship.
@@ -25,16 +25,16 @@ export const NAV_ITEMS: NavItem[] = [
     href: ROUTES.services,
     columns: 2,
     items: [
-      { label: 'Software Development', href: '#' },
-      { label: 'Web Development', href: '#' },
-      { label: 'Mobile Apps', href: '#' },
-      { label: 'AI / ML', href: '#' },
-      { label: 'Blockchain', href: '#' },
-      { label: 'UI/UX Design', href: '#' },
-      { label: 'MVP Development', href: '#' },
-      { label: 'Digital Marketing', href: '#' },
-      { label: 'Cloud & DevOps', href: '#' },
-      { label: 'QA & Automation', href: '#' },
+      { label: 'Software Development', href: `${ROUTES.services}/software-development` },
+      { label: 'Web Development', href: `${ROUTES.services}/web-development` },
+      { label: 'Mobile Apps', href: `${ROUTES.services}/mobile-apps` },
+      { label: 'AI / ML', href: `${ROUTES.services}/ai-ml` },
+      { label: 'Blockchain', href: `${ROUTES.services}/blockchain` },
+      { label: 'UI/UX Design', href: `${ROUTES.services}/ui-ux` },
+      { label: 'MVP Development', href: `${ROUTES.services}/mvp` },
+      { label: 'Digital Marketing', href: `${ROUTES.services}/digital-marketing` },
+      { label: 'Cloud & DevOps', href: `${ROUTES.services}/cloud-devops` },
+      { label: 'QA & Automation', href: `${ROUTES.services}/qa-automation` },
     ],
     viewAllLabel: 'View all services',
     viewAllHref: ROUTES.services,
@@ -48,7 +48,6 @@ export const NAV_ITEMS: NavItem[] = [
       { label: 'Hire Developers', href: '#' },
       { label: 'Dedicated Teams', href: '#' },
       { label: 'Staff Augmentation', href: '#' },
-      { label: 'Compare Models', href: '#' },
     ],
     viewAllLabel: 'View all hire talent',
     viewAllHref: '#',
@@ -71,7 +70,7 @@ export const NAV_ITEMS: NavItem[] = [
     viewAllLabel: 'View all industries',
     viewAllHref: '#',
   },
-  { type: 'link', label: 'Use Cases', href: '#' },
+  { type: 'link', label: 'Projects', href: ROUTES.projects },
   {
     type: 'dropdown',
     label: 'Company',
@@ -80,12 +79,7 @@ export const NAV_ITEMS: NavItem[] = [
     items: [
       { label: 'About Us', href: '#' },
       { label: 'Careers', href: '#' },
-      { label: 'Markets we serve', href: '#' },
-      { label: 'Technologies', href: '#' },
       { label: 'Contact', href: ROUTES.contact },
     ],
-    viewAllLabel: 'View all company',
-    viewAllHref: '#',
   },
-  { type: 'link', label: 'Blog', href: '#' },
 ];

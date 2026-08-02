@@ -11,6 +11,7 @@ export const ROUTES = {
 
 export const HOME_SECTIONS = {
   hero: 'hero',
+  operate: 'operate',
   services: 'services',
   process: 'process',
   work: 'work',
@@ -26,6 +27,11 @@ export function homeHash(section: HomeSection): string {
 }
 
 export function serviceDetailPath(slug: ServiceCategorySlug): string {
+  return `${ROUTES.services}/${slug}`;
+}
+
+/** Practice detail pages under /services/:slug (e.g. software-development). */
+export function practiceDetailPath(slug: string): string {
   return `${ROUTES.services}/${slug}`;
 }
 

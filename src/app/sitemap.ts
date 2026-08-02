@@ -1,5 +1,7 @@
 import type { MetadataRoute } from 'next';
-import { ROUTES } from '@/shared/constants/routes';
+import { PRACTICE_SLUGS } from '@/features/services/detail/content';
+import { ALL_CASES } from '@/shared/content/case-studies';
+import { ROUTES, practiceDetailPath, projectDetailPath } from '@/shared/constants/routes';
 
 export const dynamic = 'force-static';
 
@@ -7,7 +9,18 @@ export const dynamic = 'force-static';
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://example.com';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [ROUTES.home, ROUTES.privacyPolicy, ROUTES.termsOfService].map((path) => ({
+  const paths = [
+    ROUTES.home,
+    ROUTES.services,
+    ...PRACTICE_SLUGS.map((slug) => practiceDetailPath(slug)),
+    ROUTES.projects,
+    ...ALL_CASES.map((cs) => projectDetailPath(cs.slug)),
+    ROUTES.contact,
+    ROUTES.privacyPolicy,
+    ROUTES.termsOfService,
+  ];
+
+  return paths.map((path) => ({
     url: `${SITE_URL}${path}`,
     lastModified: new Date(),
   }));

@@ -13,7 +13,7 @@ interface ProcessShowcaseProps {
 }
 
 export function ProcessShowcase({ steps, title }: ProcessShowcaseProps) {
-  const sectionRef = useRef<HTMLElement>(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
   const introRef = useRef<HTMLDivElement>(null);
   const lineRef = useRef<HTMLDivElement>(null);
   const stepRefs = useRef<(HTMLElement | null)[]>([]);
